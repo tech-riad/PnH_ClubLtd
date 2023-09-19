@@ -6,21 +6,26 @@ use App\Http\Controllers\Controller;
 use App\Models\HomeAboutSection;
 use App\Models\HomeMemberSection;
 use App\Models\HomeMetaInformation;
+use App\Models\HomePortfolioSection;
 use App\Models\HomeScheduleSection;
 use App\Models\HomeServiceSection;
+use App\Models\HomeTestimonialSection;
 use Illuminate\Http\Request;
 
 class HomeSectionController extends Controller
 {
     public function index()
     {
-        $metainfo  = HomeMetaInformation::first();
-        $service   = HomeServiceSection::first();
-        $about   = HomeAboutSection::first();
-        $scheduleSection   = HomeScheduleSection::first();
-        $memberSection   = HomeMemberSection::first();
+        $metainfo             = HomeMetaInformation::first();
+        $service              = HomeServiceSection::first();
+        $about                = HomeAboutSection::first();
+        $scheduleSection      = HomeScheduleSection::first();
+        $memberSection        = HomeMemberSection::first();
+        $portfolioSection     = HomePortfolioSection::first();
+        $testimonialSection   = HomeTestimonialSection::first();
 
-        return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection','memberSection'));
+        return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection'
+        ,'memberSection','portfolioSection','testimonialSection'));
     }
 
     public function metaupdate(Request $request,$id)
@@ -130,6 +135,50 @@ class HomeSectionController extends Controller
         $memberSection->save();
 
         return response()->json(['success' => 'Member section updated successfully']);
+    }
+
+    // Portfolio
+
+    public function portfolioUpdate(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'portfolio_title' => 'nullable|string',
+            'portfolio_desc' => 'nullable|string',
+            'status' => 'required|in:Show,Hide',
+        ]);
+
+        // Create or update the 'home_portfolio_sections' record in the database
+        $portfolioSection = HomePortfolioSection::firstOrNew([]);
+
+        $portfolioSection->portfolio_title = $validatedData['portfolio_title'];
+        $portfolioSection->portfolio_desc = $validatedData['portfolio_desc'];
+        $portfolioSection->status = $validatedData['status'];
+
+        $portfolioSection->save();
+
+        return response()->json(['success' => 'Portfolio section updated successfully']);
+    }
+
+    public function testimonialUpdate(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'testimonial_title' => 'nullable|string',
+            'testimonial_desc' => 'nullable|string',
+            'status' => 'required|in:Show,Hide',
+        ]);
+
+        // Create or update the 'home_testimonial_sections' record in the database
+        $testimonialSection = HomeTestimonialSection::firstOrNew([]);
+
+        $testimonialSection->testimonial_title = $validatedData['testimonial_title'];
+        $testimonialSection->testimonial_desc = $validatedData['testimonial_desc'];
+        $testimonialSection->status = $validatedData['status'];
+
+        $testimonialSection->save();
+
+        return response()->json(['success' => 'Testimonial section updated successfully']);
     }
 
 

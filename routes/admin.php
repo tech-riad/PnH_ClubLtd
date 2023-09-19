@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\HomeSectionController;
+use App\Models\HomePortfolioSection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,9 @@ Route::prefix('admin')->group(function () {
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');
     Route::any('/about/{id}', [HomeSectionController::class, 'aboutUpdate'])->name('admin.aboutUpdate');
     Route::any('/schedule', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
-    Route::any('/membersection', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
+    Route::any('/member', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
+    Route::any('/portfolio', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
+    Route::any('/testimonial', [HomeSectionController::class, 'testimonialUpdate'])->name('admin.testimonialUpdate');
 
 
 });
