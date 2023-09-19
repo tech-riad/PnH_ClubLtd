@@ -15,6 +15,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');
     Route::any('/about/{id}', [HomeSectionController::class, 'aboutUpdate'])->name('admin.aboutUpdate');
     Route::any('/schedule', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
+    Route::any('/membersection', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
 
 
 });

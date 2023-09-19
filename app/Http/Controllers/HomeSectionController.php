@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeAboutSection;
+use App\Models\HomeMemberSection;
 use App\Models\HomeMetaInformation;
 use App\Models\HomeScheduleSection;
 use App\Models\HomeServiceSection;
@@ -17,8 +18,9 @@ class HomeSectionController extends Controller
         $service   = HomeServiceSection::first();
         $about   = HomeAboutSection::first();
         $scheduleSection   = HomeScheduleSection::first();
+        $memberSection   = HomeMemberSection::first();
 
-        return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection'));
+        return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection','memberSection'));
     }
 
     public function metaupdate(Request $request,$id)
@@ -106,6 +108,28 @@ class HomeSectionController extends Controller
         $scheduleSection->save();
 
         return response()->json(['success' => 'Schedule section updated successfully']);
+    }
+
+    // MemberSection
+    public function memberUpdate(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'member_title' => 'nullable|string',
+            'member_desc' => 'nullable|string',
+            'status' => 'required|in:Show,Hide',
+        ]);
+
+        // Create or update the 'home_member_sections' record in the database
+        $memberSection = HomeMemberSection::firstOrNew([]);
+
+        $memberSection->member_title = $validatedData['member_title'];
+        $memberSection->member_desc = $validatedData['member_desc'];
+        $memberSection->status = $validatedData['status'];
+
+        $memberSection->save();
+
+        return response()->json(['success' => 'Member section updated successfully']);
     }
 
 

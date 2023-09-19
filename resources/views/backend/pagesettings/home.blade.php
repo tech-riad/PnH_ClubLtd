@@ -15,6 +15,7 @@
                         <a class="nav-link" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Service</a>
                         <a class="nav-link " id="v-pills-6-tab" data-toggle="pill" href="#v-pills-6" role="tab" aria-controls="v-pills-6" aria-selected="true">About</a>
                         <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Schedule</a>
+                        <a class="nav-link " id="v-pills-4-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="true">Member Section</a>
                     </div>
                 </div>
 
@@ -130,35 +131,37 @@
 
                             <!-- // Tab 3 -->
                         </div>
-                        {{--<div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
+                        <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
                             <!-- Tab 4 -->
-                            <form action="https://agmesconsultants.com/admin/page/home/4" method="post">
-                                <input type="hidden" name="_token" value="u2lbaoQ57lgdG3rdwH04ufhtWR37eBOSzpDTbxv8">                                <div class="form-group">
-                                    <label for="">Title</label>
-                                    <input type="text" name="service_title" class="form-control" value="Our Services">
+                            <form id="edit-member">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="edit-member-title">Title</label>
+                                    <input type="text" name="member_title" id="edit-member-title" class="form-control" value="{{ $memberSection->member_title ?? '' }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Subtitle</label>
-                                    <input type="text" name="service_subtitle" class="form-control" value="Our team always provides quality services to our valuable clients">
+                                    <label for="edit-member-desc">Description</label>
+                                    <textarea name="member_desc" id="edit-member-desc" class="form-control">{{ $memberSection->member_desc ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Status</label>
+                                    <label for="edit-member-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="service_status" id="rr1" value="Show" checked="">
-                                            <label class="form-check-label font-weight-normal" for="rr1">Show</label>
+                                            <input class="form-check-input" type="radio" name="status" id="edit-member-status-show" value="Show" {{ $memberSection->status === 'Show' ? 'checked' : '' }}>
+                                            <label class="form-check-label font-weight-normal" for="edit-member-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="service_status" id="rr2" value="Hide">
-                                            <label class="form-check-label font-weight-normal" for="rr2">Hide</label>
+                                            <input class="form-check-input" type="radio" name="status" id="edit-member-status-hide" value="Hide" {{ $memberSection->status === 'Hide' ? 'checked' : '' }}>
+                                            <label class="form-check-label font-weight-normal" for="edit-member-status-hide">Hide</label>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success">Update</button>
+                                <button type="submit" id="update-member-button" class="btn btn-success">Update</button>
                             </form>
+
                             <!-- // Tab 4 -->
                         </div>
-                        <div class="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab">
+                        {{--<div class="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab">
                             <!-- Tab 5 -->
                             <form action="https://agmesconsultants.com/admin/page/home/5" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="current_photo" value="testimonial_bg.jpeg">
@@ -412,8 +415,10 @@
                 $("#v-pills-11-tab").removeClass('active');
                 $("#v-pills-11").removeClass('show active');
                 $("#v-pills-3").removeClass('show active');
+                $("#v-pills-4").removeClass('show active');
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
+                $("#v-pills-4-tab").removeClass("active");
             });
 
             // Tab-2
@@ -425,8 +430,10 @@
                 $("#v-pills-1").removeClass('show active');
                 $("#v-pills-3").removeClass('show active');
                 $("#v-pills-2").removeClass('show active');
+                $("#v-pills-4").removeClass('show active');
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
+                $("#v-pills-4-tab").removeClass("active");
             });
             // Tab-3
              $("#v-pills-6-tab").click(function(){
@@ -437,7 +444,9 @@
                 $("#v-pills-1").removeClass('show active');
                 $("#v-pills-3").removeClass('show active');
                 $("#v-pills-11").removeClass('show active');
+                $("#v-pills-4").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
+                $("#v-pills-4-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
             });
             // Tab-4
@@ -446,11 +455,28 @@
                 $("#v-pills-3").addClass('show active');
 
                 $("#v-pills-1-tab").removeClass('active');
+                $("#v-pills-4-tab").removeClass('active');
                 $("#v-pills-1").removeClass('show active');
+                $("#v-pills-2").removeClass('show active');
+                $("#v-pills-11").removeClass('show active');
+                $("#v-pills-4").removeClass('show active');
+                $("#v-pills-11-tab").removeClass("active");
+                $("#v-pills-6-tab").removeClass("active");
+
+            });
+            // Tab-5
+             $("#v-pills-4-tab").click(function(){
+                $("#v-pills-4-tab").addClass("active");
+                $("#v-pills-4").addClass('show active');
+
+                $("#v-pills-1-tab").removeClass('active');
+                $("#v-pills-1").removeClass('show active');
+                $("#v-pills-3").removeClass('show active');
                 $("#v-pills-2").removeClass('show active');
                 $("#v-pills-11").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
                 $("#v-pills-6-tab").removeClass("active");
+                $("#v-pills-3-tab").removeClass("active");
             });
     });
 </script>
@@ -596,6 +622,36 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function() {
+        $("#edit-member").submit(function(e) {
+            e.preventDefault();
+
+            var formData = {
+                member_title: $("#edit-member-title").val(),
+                member_desc: $("#edit-member-desc").val(),
+                status: $("input[name='status']:checked").val(),
+                _token: $("input[name='_token']").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin.memberUpdate') }}",
+                data: formData,
+                success: function(response) {
+                    console.log(response);
+                    // Handle success, e.g., show success message
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Handle error, e.g., show error message
+                }
+            });
+        });
+    });
+</script>
+
 
 
 
