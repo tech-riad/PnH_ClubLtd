@@ -14,6 +14,7 @@
                         <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Meta Information</a>
                         <a class="nav-link" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Service</a>
                         <a class="nav-link " id="v-pills-6-tab" data-toggle="pill" href="#v-pills-6" role="tab" aria-controls="v-pills-6" aria-selected="true">About</a>
+                        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Schedule</a>
                     </div>
                 </div>
 
@@ -99,83 +100,37 @@
                             </form>
                             <!-- // Tab 2 -->
                         </div>
-                        {{--<div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+                        <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
                             <!-- Tab 3 -->
-                            <form action="https://agmesconsultants.com/admin/page/home/3" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="current_photo" value="special_bg.jpg">
-                                <input type="hidden" name="current_photo1" value="special_video_bg.png">
-                                <input type="hidden" name="_token" value="u2lbaoQ57lgdG3rdwH04ufhtWR37eBOSzpDTbxv8">                                <div class="form-group">
-                                    <label for="">Headline</label>
-                                    <input type="text" name="special_headline" class="form-control" value="About Us">
+                            <form id="edit-schedule">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="edit-schedule-title">Title</label>
+                                    <input type="text" name="schedule_title" id="edit-schedule-title" class="form-control" value="{{ $scheduleSection->schedule_title ?? '' }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Title</label>
-                                    <input type="text" name="special_title" class="form-control" value="AGMES Consultants: Shaping Visions, Empowering Futures!">
+                                    <label for="edit-schedule-desc">Description</label>
+                                    <textarea name="schedule_desc" id="edit-schedule-desc" class="form-control">{{ $scheduleSection->schedule_desc ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Subtitle</label>
-                                    <input type="text" name="special_subtitle" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Content</label>
-                                    <textarea name="special_content" class="form-control h_200" cols="30" rows="10">AGMES Consultants: Igniting Business Excellence Worldwide. Driving Business Success Through Strategic Solutions. As a leading global consulting firm, we specialize in crafting innovative strategies, fostering growth, and delivering impactful results. Our dedicated team of experts collaborates with businesses across industries, providing tailor-made solutions to conquer challenges and seize opportunities. Trusted partners in success, we empower organizations to thrive in the dynamic market landscape. Join us on the journey to unlock your full potential and achieve lasting excellence.</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Button Text</label>
-                                    <input type="text" name="special_btn_text" class="form-control" value="Read More">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Button URL</label>
-                                    <input type="text" name="special_btn_url" class="form-control" value="/about">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">YouTube Video Preview</label>
-                                    <div class="iframe-container-300">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">YouTube Video</label>
-                                    <input type="text" name="special_yt_video" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Existing Background</label>
-                                    <div><img src="https://agmesconsultants.com/public/uploads/special_bg.jpg" alt="" class="w_200"></div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" name="is_remove_bg" id="removeBg">
-                                        <label class="form-check-label" for="removeBg">Remove Background</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Change Background</label>
-                                    <div><input type="file" name="special_bg"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Existing Video Background</label>
-                                    <div><img src="https://agmesconsultants.com/public/uploads/special_video_bg.png" alt="" class="w_200"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Change Video Background</label>
-                                    <div><input type="file" name="special_video_bg"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Status</label>
+                                    <label for="edit-schedule-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="special_status" id="rr1" value="Show" checked="">
-                                            <label class="form-check-label font-weight-normal" for="rr1">Show</label>
+                                            <input class="form-check-input" type="radio" name="status" id="edit-schedule-status-show" value="Show" {{ $scheduleSection->status === 'Show' ? 'checked' : '' }}>
+                                            <label class="form-check-label font-weight-normal" for="edit-schedule-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="special_status" id="rr2" value="Hide">
-                                            <label class="form-check-label font-weight-normal" for="rr2">Hide</label>
+                                            <input class="form-check-input" type="radio" name="status" id="edit-schedule-status-hide" value="Hide" {{ $scheduleSection->status === 'Hide' ? 'checked' : '' }}>
+                                            <label class="form-check-label font-weight-normal" for="edit-schedule-status-hide">Hide</label>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success">Update</button>
+                                <button type="submit" id="update-schedule-button" class="btn btn-success">Update</button>
                             </form>
+
                             <!-- // Tab 3 -->
                         </div>
-                        <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
+                        {{--<div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
                             <!-- Tab 4 -->
                             <form action="https://agmesconsultants.com/admin/page/home/4" method="post">
                                 <input type="hidden" name="_token" value="u2lbaoQ57lgdG3rdwH04ufhtWR37eBOSzpDTbxv8">                                <div class="form-group">
@@ -456,7 +411,9 @@
 
                 $("#v-pills-11-tab").removeClass('active');
                 $("#v-pills-11").removeClass('show active');
+                $("#v-pills-3").removeClass('show active');
                 $("#v-pills-6-tab").removeClass("active");
+                $("#v-pills-3-tab").removeClass("active");
             });
 
             // Tab-2
@@ -466,8 +423,10 @@
 
                 $("#v-pills-1-tab").removeClass('active');
                 $("#v-pills-1").removeClass('show active');
+                $("#v-pills-3").removeClass('show active');
                 $("#v-pills-2").removeClass('show active');
                 $("#v-pills-6-tab").removeClass("active");
+                $("#v-pills-3-tab").removeClass("active");
             });
             // Tab-3
              $("#v-pills-6-tab").click(function(){
@@ -476,8 +435,22 @@
 
                 $("#v-pills-1-tab").removeClass('active');
                 $("#v-pills-1").removeClass('show active');
+                $("#v-pills-3").removeClass('show active');
                 $("#v-pills-11").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
+                $("#v-pills-3-tab").removeClass("active");
+            });
+            // Tab-4
+             $("#v-pills-3-tab").click(function(){
+                $("#v-pills-3-tab").addClass("active");
+                $("#v-pills-3").addClass('show active');
+
+                $("#v-pills-1-tab").removeClass('active');
+                $("#v-pills-1").removeClass('show active');
+                $("#v-pills-2").removeClass('show active');
+                $("#v-pills-11").removeClass('show active');
+                $("#v-pills-11-tab").removeClass("active");
+                $("#v-pills-6-tab").removeClass("active");
             });
     });
 </script>
@@ -594,6 +567,36 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function() {
+        $("#edit-schedule").submit(function(e) {
+            e.preventDefault();
+
+            var formData = {
+                schedule_title: $("#edit-schedule-title").val(),
+                schedule_desc: $("#edit-schedule-desc").val(),
+                status: $("input[name='status']:checked").val(),
+                _token: $("input[name='_token']").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin.scheduleUpdate') }}",
+                data: formData,
+                success: function(response) {
+                    console.log(response);
+                    // Handle success, e.g., show success message
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Handle error, e.g., show error message
+                }
+            });
+        });
+    });
+</script>
+
 
 
 

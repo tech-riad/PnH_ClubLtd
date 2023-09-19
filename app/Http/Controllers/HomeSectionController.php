@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\HomeAboutSection;
 use App\Models\HomeMetaInformation;
+use App\Models\HomeScheduleSection;
 use App\Models\HomeServiceSection;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class HomeSectionController extends Controller
         $metainfo  = HomeMetaInformation::first();
         $service   = HomeServiceSection::first();
         $about   = HomeAboutSection::first();
+        $scheduleSection   = HomeScheduleSection::first();
 
-        return view('backend.pagesettings.home',compact('metainfo','service','about'));
+        return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection'));
     }
 
     public function metaupdate(Request $request,$id)
@@ -60,6 +62,8 @@ class HomeSectionController extends Controller
         return response()->json(['success' => 'Service information updated successfully']);
     }
 
+    // About
+
     public function aboutUpdate(Request $request)
     {
         // Validate the form data
@@ -79,6 +83,29 @@ class HomeSectionController extends Controller
         $about->save();
 
         return response()->json(['success' => 'About section updated successfully']);
+    }
+
+    // Schedule
+
+    public function scheduleupdate(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'schedule_title' => 'nullable|string',
+            'schedule_desc' => 'nullable|string',
+            'status' => 'required|in:Show,Hide',
+        ]);
+
+        // Create or update the 'home_schedule_sections' record in the database
+        $scheduleSection = HomeScheduleSection::firstOrNew([]);
+
+        $scheduleSection->schedule_title = $validatedData['schedule_title'];
+        $scheduleSection->schedule_desc = $validatedData['schedule_desc'];
+        $scheduleSection->status = $validatedData['status'];
+
+        $scheduleSection->save();
+
+        return response()->json(['success' => 'Schedule section updated successfully']);
     }
 
 

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('home_schedule_sections', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('schedule_title')->nullable();
+            $table->string('schedule_desc')->nullable();
+            $table->string('status')->default('Show');
             $table->timestamps();
         });
     }
