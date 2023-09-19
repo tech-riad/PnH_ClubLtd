@@ -18,6 +18,6 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Auth::routes();
+require (base_path('routes/admin.php'));
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
