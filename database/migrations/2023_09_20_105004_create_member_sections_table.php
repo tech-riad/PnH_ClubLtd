@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('member_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('member_name');
-            $table->string('member_position');
-            $table->string('member_image');
+            $table->string('member_name')->nullable();
+            $table->string('member_position')->nullable();
+            $table->string('member_image')->nullable();
             $table->timestamps();
         });
     }

@@ -9,10 +9,10 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 mt-2 font-weight-bold text-primary">View About</h6>
-            {{-- <div class="float-right d-inline">
-                <a href="{{route('admin.about.create') }}" class="btn btn-primary btn-sm"><i
+            <div class="float-right d-inline">
+                <a href="{{route('admin.memberinfo.create') }}" class="btn btn-primary btn-sm"><i
                         class="fa fa-plus"></i> Add New</a>
-            </div> --}}
+            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -46,9 +46,9 @@
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1">Image</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Title</th>
+                                            colspan="1">Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Description</th>
+                                            colspan="1">Position</th>
 
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Action: activate to sort column ascending">Action
@@ -56,17 +56,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($aboutdata as $item)
+                                    @foreach ($memberinfo as $item)
                                     <tr role="row" class="odd">
                                         <td>{{$item->id}}</td>
-                                        <td><img class="mt-2" id="oldlogo" src="{{ asset($item->about_image) }}"
+                                        <td><img class="mt-2" id="oldlogo" src="{{ asset($item->member_image) }}"
                                             alt="logo" width="100" height="100" /></td>
-                                        <td>{{$item->about_title}}</td>
-                                        <td>{{$item->about_description}}</td>
+                                        <td>{{$item->member_name}}</td>
+                                        <td>{{$item->member_position}}</td>
 
                                         <td>
-                                            <a href="{{route('admin.about.edit',$item->id)}}" class="btn btn-success">Edit</a>
-                                            {{-- <a href="{{route('admin.about.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a> --}}
+                                            <a href="{{route('admin.memberinfo.edit',$item->id)}}" class="btn btn-success">Edit</a>
+                                            <a href="{{route('admin.memberinfo.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
                                         </td>
                                     </tr>
 

@@ -1,6 +1,4 @@
-@extends('backend.layouts.master')
 
-@section('content')
 @extends('backend.layouts.master')
 
 @section('content')
@@ -106,5 +104,3 @@
 @endsection
 
 
-
-@endsection

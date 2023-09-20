@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\HomeSectionController;
+use App\Http\Controllers\MemberSectionController;
 use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SliderSectionController;
 use App\Models\HomePortfolioSection;
@@ -18,7 +19,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/metaupdate/{id}', [HomeSectionController::class, 'metaupdate'])->name('admin.metaupdate');
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');
     Route::any('/schedule', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
-    Route::any('/member', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
+
     Route::any('/portfolio', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
     Route::any('/testimonial', [HomeSectionController::class, 'testimonialUpdate'])->name('admin.testimonialUpdate');
     Route::any('/blog', [HomeSectionController::class, 'blogUpdate'])->name('admin.blogUpdate');
@@ -47,9 +48,18 @@ Route::prefix('admin')->group(function () {
   Route::get('/about/edit/{id}', [AboutSectionController::class, 'edit'])->name('admin.about.edit');
   Route::any('/about/update/{id}', [AboutSectionController::class, 'update'])->name('admin.about.update');
   Route::any('/about/delete/{id}', [AboutSectionController::class, 'delete'])->name('admin.about.delete');
+//  Homesection About
   Route::any('/about/{id}', [HomeSectionController::class, 'aboutUpdate'])->name('admin.aboutUpdate');
 
 
-
+  // Member
+  Route::get('/memberinfo', [MemberSectionController::class, 'index'])->name('admin.memberinfo');
+  Route::get('/memberinfo/create', [MemberSectionController::class, 'create'])->name('admin.memberinfo.create');
+  Route::post('/memberinfo/store', [MemberSectionController::class, 'store'])->name('admin.memberinfo.store');
+  Route::get('/memberinfo/edit/{id}', [MemberSectionController::class, 'edit'])->name('admin.memberinfo.edit');
+  Route::any('/memberinfo/update/{id}', [MemberSectionController::class, 'update'])->name('admin.memberinfo.update');
+  Route::any('/memberinfo/delete/{id}', [MemberSectionController::class, 'delete'])->name('admin.memberinfo.delete');
+// Home section Member Route
+  Route::any('/member', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
 });
 
