@@ -29,11 +29,11 @@
       <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.homepage')}}">Home</a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">About</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('admin.slider')}}">Slider</a></li>
         </ul>
       </div>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Basic UI Elements</span>
         <i class="menu-arrow"></i>
@@ -45,7 +45,7 @@
           <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
         </ul>
       </div>
-    </li>
+    </li> --}}
     <li class="nav-item">
       <a class="nav-link" href="pages/icons/mdi.html">
         <span class="menu-title">Icons</span>
