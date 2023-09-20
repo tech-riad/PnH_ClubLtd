@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\HomeSectionController;
+use App\Http\Controllers\IntroVideoController;
 use App\Http\Controllers\MemberSectionController;
 use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SliderSectionController;
@@ -61,5 +62,14 @@ Route::prefix('admin')->group(function () {
   Route::any('/memberinfo/delete/{id}', [MemberSectionController::class, 'delete'])->name('admin.memberinfo.delete');
 // Home section Member Route
   Route::any('/member', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
+
+  // IntroVideo
+
+  Route::get('/introvideo', [IntroVideoController::class, 'index'])->name('admin.introvideo');
+  Route::get('/introvideo/create', [IntroVideoController::class, 'create'])->name('admin.introvideo.create');
+  Route::post('/introvideo/store', [IntroVideoController::class, 'store'])->name('admin.introvideo.store');
+  Route::get('/introvideo/edit/{id}', [IntroVideoController::class, 'edit'])->name('admin.introvideo.edit');
+  Route::any('/introvideo/update/{id}', [IntroVideoController::class, 'update'])->name('admin.introvideo.update');
+  Route::any('/introvideo/delete/{id}', [IntroVideoController::class, 'delete'])->name('admin.introvideo.delete');
 });
 

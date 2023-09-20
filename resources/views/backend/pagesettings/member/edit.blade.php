@@ -26,7 +26,7 @@
                     <input type="text" name="member_position" class="form-control" value="{{@$memberinfo->member_position ?? @old('member_position')}}" autofocus="">
                 </div>
                 <div class="form-group">
-                    <label for="">Slider Photo *</label>
+                    <label for="">Member Photo *</label>
                     <div>
                         <input type="file" name="member_image" class="custom-file-input" id="customFile"
                         onchange="document.getElementById('member_image').src = window.URL.createObjectURL(this.files[0])"

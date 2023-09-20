@@ -33,6 +33,7 @@
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.services')}}">Service</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.about')}}">About</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.memberinfo')}}">Member</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('admin.introvideo')}}">Intro Video</a></li>
         </ul>
       </div>
     </li>
