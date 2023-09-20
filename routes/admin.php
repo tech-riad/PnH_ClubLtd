@@ -19,6 +19,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/member', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
     Route::any('/portfolio', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
     Route::any('/testimonial', [HomeSectionController::class, 'testimonialUpdate'])->name('admin.testimonialUpdate');
+    Route::any('/blog', [HomeSectionController::class, 'blogUpdate'])->name('admin.blogUpdate');
 
 
 });

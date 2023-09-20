@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeAboutSection;
+use App\Models\HomeBlogSection;
 use App\Models\HomeMemberSection;
 use App\Models\HomeMetaInformation;
 use App\Models\HomePortfolioSection;
@@ -23,9 +24,10 @@ class HomeSectionController extends Controller
         $memberSection        = HomeMemberSection::first();
         $portfolioSection     = HomePortfolioSection::first();
         $testimonialSection   = HomeTestimonialSection::first();
+        $blogSection          = HomeBlogSection::first();
 
         return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection'
-        ,'memberSection','portfolioSection','testimonialSection'));
+        ,'memberSection','portfolioSection','testimonialSection','blogSection'));
     }
 
     public function metaupdate(Request $request,$id)
@@ -179,6 +181,29 @@ class HomeSectionController extends Controller
         $testimonialSection->save();
 
         return response()->json(['success' => 'Testimonial section updated successfully']);
+    }
+
+    // Blog Section
+
+    public function blogUpdate(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'blog_title' => 'nullable|string',
+            'blog_desc' => 'nullable|string',
+            'status' => 'required|in:Show,Hide',
+        ]);
+
+        // Create or update the 'home_blog_sections' record in the database
+        $blogSection = HomeBlogSection::firstOrNew([]);
+
+        $blogSection->blog_title = $validatedData['blog_title'];
+        $blogSection->blog_desc = $validatedData['blog_desc'];
+        $blogSection->status = $validatedData['status'];
+
+        $blogSection->save();
+
+        return response()->json(['success' => 'Blog section updated successfully']);
     }
 
 
