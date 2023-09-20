@@ -7,6 +7,7 @@ use App\Http\Controllers\IntroVideoController;
 use App\Http\Controllers\MemberSectionController;
 use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SliderSectionController;
+use App\Http\Controllers\TestimonialController;
 use App\Models\HomePortfolioSection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -71,5 +72,17 @@ Route::prefix('admin')->group(function () {
   Route::get('/introvideo/edit/{id}', [IntroVideoController::class, 'edit'])->name('admin.introvideo.edit');
   Route::any('/introvideo/update/{id}', [IntroVideoController::class, 'update'])->name('admin.introvideo.update');
   Route::any('/introvideo/delete/{id}', [IntroVideoController::class, 'delete'])->name('admin.introvideo.delete');
+
+
+  // Testimonial
+
+  Route::get('/testimonialsection', [TestimonialController::class, 'index'])->name('admin.testimonialsection');
+  Route::get('/testimonialsection/create', [TestimonialController::class, 'create'])->name('admin.testimonialsection.create');
+  Route::post('/testimonialsection/store', [TestimonialController::class, 'store'])->name('admin.testimonialsection.store');
+  Route::get('/testimonialsection/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testimonialsection.edit');
+  Route::any('/testimonialsection/update/{id}', [TestimonialController::class, 'update'])->name('admin.testimonialsection.update');
+  Route::any('/testimonialsection/delete/{id}', [TestimonialController::class, 'delete'])->name('admin.testimonialsection.delete');
+
+
 });
 
