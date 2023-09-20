@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SliderSectionController;
@@ -16,7 +17,6 @@ Route::prefix('admin')->group(function () {
 
     Route::any('/metaupdate/{id}', [HomeSectionController::class, 'metaupdate'])->name('admin.metaupdate');
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');
-    Route::any('/about/{id}', [HomeSectionController::class, 'aboutUpdate'])->name('admin.aboutUpdate');
     Route::any('/schedule', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
     Route::any('/member', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
     Route::any('/portfolio', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
@@ -40,7 +40,16 @@ Route::prefix('admin')->group(function () {
     Route::get('/services/edit/{id}', [ServiceSectionController::class, 'edit'])->name('admin.services.edit');
     Route::any('/services/update/{id}', [ServiceSectionController::class, 'update'])->name('admin.services.update');
     Route::any('/services/delete/{id}', [ServiceSectionController::class, 'delete'])->name('admin.services.delete');
+  // About
+  Route::get('/about', [AboutSectionController::class, 'index'])->name('admin.about');
+  Route::get('/about/create', [AboutSectionController::class, 'create'])->name('admin.about.create');
+  Route::post('/about/store', [AboutSectionController::class, 'store'])->name('admin.about.store');
+  Route::get('/about/edit/{id}', [AboutSectionController::class, 'edit'])->name('admin.about.edit');
+  Route::any('/about/update/{id}', [AboutSectionController::class, 'update'])->name('admin.about.update');
+  Route::any('/about/delete/{id}', [AboutSectionController::class, 'delete'])->name('admin.about.delete');
+  Route::any('/about/{id}', [HomeSectionController::class, 'aboutUpdate'])->name('admin.aboutUpdate');
 
 
 
 });
+

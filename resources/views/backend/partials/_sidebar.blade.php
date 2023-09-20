@@ -31,6 +31,7 @@
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.homepage')}}">Home</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.slider')}}">Slider</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.services')}}">Service</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('admin.about')}}">About</a></li>
         </ul>
       </div>
     </li>
