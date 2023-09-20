@@ -59,7 +59,7 @@ class HomeSectionController extends Controller
         $validatedData = $request->validate([
             'servicetitle' => 'required',
             'shortdesc' => 'required',
-            'status' => 'required|in:Show,Hide', // Assuming the status should be one of these values
+            'status' => 'required|in:Show,Hide', 
         ]);
 
         $service->servicetitle = $validatedData['servicetitle'];

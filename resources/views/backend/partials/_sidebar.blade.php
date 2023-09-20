@@ -30,6 +30,7 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.homepage')}}">Home</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.slider')}}">Slider</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('admin.services')}}">Service</a></li>
         </ul>
       </div>
     </li>

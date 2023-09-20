@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\HomeSectionController;
+use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SliderSectionController;
 use App\Models\HomePortfolioSection;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,14 @@ Route::prefix('admin')->group(function () {
     Route::any('/slider/update/{id}', [SliderSectionController::class, 'update'])->name('admin.slider.update');
     Route::any('/slider/delete/{id}', [SliderSectionController::class, 'delete'])->name('admin.slider.delete');
 
+
+    // Service
+    Route::get('/services', [ServiceSectionController::class, 'index'])->name('admin.services');
+    Route::get('/services/create', [ServiceSectionController::class, 'create'])->name('admin.services.create');
+    Route::post('/services/store', [ServiceSectionController::class, 'store'])->name('admin.services.store');
+    Route::get('/services/edit/{id}', [ServiceSectionController::class, 'edit'])->name('admin.services.edit');
+    Route::any('/services/update/{id}', [ServiceSectionController::class, 'update'])->name('admin.services.update');
+    Route::any('/services/delete/{id}', [ServiceSectionController::class, 'delete'])->name('admin.services.delete');
 
 
 
