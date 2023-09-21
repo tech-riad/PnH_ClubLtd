@@ -42,34 +42,30 @@
                                         <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-sort="ascending">SL</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Photo</th>
+                                            colspan="1">Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Welcome Text</th>
+                                            colspan="1">Position</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Slider Title</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Slider Description</th>
+                                            colspan="1">Description</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Action: activate to sort column ascending">Action
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($slider as $item)
+                                    @foreach ($testimonial as $item)
                                     <tr role="row" class="odd">
                                         <td>{{$item->id}}</td>
-                                        <td><img class="mt-2" id="oldlogo" src="{{ asset($item->slider_image) }}"
-                                            alt="logo" width="100" height="100" /></td>
-                                        <td>{{$item->welcome_text}}</td>
-                                        <td>{{$item->slider_title}}</td>
-                                        <td>{{$item->slider_description}}</td>
+                                        <td>{{$item->name}}</td>
+                                        <td>{{$item->position}}</td>
+                                        <td>{{$item->description}}</td>
                                         <td>
-                                            <a href="{{route('admin.slider.edit',$item->id)}}" class="btn btn-success">Edit</a>
-                                            <a href="{{route('admin.slider.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
+                                            <a href="{{route('admin.testimonialsection.edit',$item->id)}}" class="btn btn-success">Edit</a>
+                                            <a href="{{route('admin.testimonialsection.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
                                         </td>
                                     </tr>
 
-                                    @endforeach --}}
+                                    @endforeach
 
 
                                 </tbody>

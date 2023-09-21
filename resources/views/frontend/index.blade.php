@@ -107,20 +107,9 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle active">
+                            <a href="{{url('/')}}" class="nav-link active">
                                 Home
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="index.html" class="nav-link active">Home One</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index-2.html" class="nav-link">Home Two</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index-3.html" class="nav-link">Home Three</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="about-us.html" class="nav-link">About Us</a>
@@ -323,9 +312,6 @@
                                 <div class="apply-img">
                                     <ul>
                                         <li><img src="assets/images/banner/sm-img-1.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-2.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-3.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-4.png" alt="Image"></li>
                                     </ul>
                                 </div>
                             </div>
