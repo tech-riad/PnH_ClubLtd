@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutSection;
+use App\Models\BlogController;
 use App\Models\IntroVideo;
 use App\Models\MemberSection;
 use App\Models\ServiceSection;
@@ -27,6 +28,10 @@ class WebsiteController extends Controller
         $introvideo = IntroVideo::latest()->first();
 
         $testimonials  = Testimonial::latest()->take(4)->get();
+
+        $blogs  = BlogController::latest()->take(3)->get();
+
+
 
         return view('frontend.index',compact('sliders','services','about','members','introvideo',
                 'testimonials'));

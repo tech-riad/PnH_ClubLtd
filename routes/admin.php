@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\AboutSectionController;
+use App\Http\Controllers\BlogControllerController;
 use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\IntroVideoController;
 use App\Http\Controllers\MemberSectionController;
@@ -82,6 +83,20 @@ Route::prefix('admin')->group(function () {
   Route::get('/testimonialsection/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testimonialsection.edit');
   Route::any('/testimonialsection/update/{id}', [TestimonialController::class, 'update'])->name('admin.testimonialsection.update');
   Route::any('/testimonialsection/delete/{id}', [TestimonialController::class, 'delete'])->name('admin.testimonialsection.delete');
+
+  // Blog
+
+  Route::get('/blogsection', [BlogControllerController::class, 'index'])->name('admin.blogsection');
+  Route::get('/blogsection/create', [BlogControllerController::class, 'create'])->name('admin.blogsection.create');
+  Route::post('/blogsection/store', [BlogControllerController::class, 'store'])->name('admin.blogsection.store');
+  Route::get('/blogsection/edit/{id}', [BlogControllerController::class, 'edit'])->name('admin.blogsection.edit');
+  Route::any('/blogsection/update/{id}', [BlogControllerController::class, 'update'])->name('admin.blogsection.update');
+  Route::any('/blogsection/delete/{id}', [BlogControllerController::class, 'delete'])->name('admin.blogsection.delete');
+
+  Route::any('/blog/{id}', [HomeSectionController::class, 'blogUpdate'])->name('admin.blogUpdate');
+
+
+
 
 
 });
