@@ -68,6 +68,10 @@
                     <label for="slider_profile_button_url">Slider Profile Button URL</label>
                     <input type="text" name="slider_profile_button_url" class="form-control" value="{{ old('slider_profile_button_url', $slider->slider_profile_button_url) }}">
                 </div>
+                <div class="form-group">
+                    <label for="slider_profile_short_desc">Profile Short Description</label>
+                    <input type="text" name="slider_profile_short_desc" class="form-control" value="{{ old('slider_profile_short_desc', $slider->slider_profile_short_desc) }}">
+                </div>
                 <button type="submit" class="btn btn-success">Update</button>
             </div>
         </div>

@@ -55,6 +55,8 @@
                                             colspan="1">Button Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1">Button Url</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1">Short Desc</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1">Actions</th>
                                     </tr>
@@ -82,6 +84,7 @@
 
                                             <td>{{ $item->slider_profile_button_name }}</td>
                                             <td>{{ $item->slider_profile_button_url }}</td>
+                                            <td>{{ $item->slider_profile_short_desc }}</td>
                                             <td>
                                                 <a href="{{ route('admin.slider.edit',$item->id) }}"
                                                     class="btn btn-success">Edit</a>

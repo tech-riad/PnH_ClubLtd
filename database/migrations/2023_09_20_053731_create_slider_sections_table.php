@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slider_profile_image')->nullable();
             $table->string('slider_profile_button_name')->nullable();
             $table->string('slider_profile_button_url')->nullable();
+            $table->string('slider_profile_short_desc')->nullable();
             $table->timestamps();
         });
     }

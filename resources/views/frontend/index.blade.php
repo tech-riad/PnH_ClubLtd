@@ -107,7 +107,7 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item">
-                            <a href="{{url('/')}}" class="nav-link active">
+                            <a href="{{ url('/') }}" class="nav-link active">
                                 Home
                             </a>
                         </li>
@@ -299,45 +299,49 @@
 
 <div class="banner-area">
     <div class="banner-slider owl-carousel owl-theme">
-        @foreach ($sliders as $item)
-        <div class="banner-slider-item bg-1" style="background-image: url({{asset($item->slider_image)}})">
-            <div class="container-fluid">
-                <div class="banner-content">
-                    <span>{{@$item->welcome_text}}</span>
-                    <h1>{{@$item->slider_title}}<span class="overlay"></span></h1>
-                    <p>{!! $item->slider_description !!}</p>
-                    <div class="apply-content">
-                        <div class="row align-items-center">
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-img">
-                                    <ul>
-                                        <li><img src="assets/images/banner/sm-img-1.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-2.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-3.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-4.png" alt="Image"></li>
-                                    </ul>
+        @foreach($sliders as $item)
+            <div class="banner-slider-item bg-1" style="background-image: url({{ asset($item->slider_image) }})">
+                <div class="container-fluid">
+                    <div class="banner-content">
+                        <span>{{ @$item->welcome_text }}</span>
+                        <h1>{{ @$item->slider_title }}<span class="overlay"></span></h1>
+                        <p>{!! @$item->slider_description !!}</p>
+                        <div class="apply-content">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="apply-img">
+                                        @php
+                                            $profileImages = json_decode($item->slider_profile_image);
+                                        @endphp
+                                        <ul>
+                                            @if(is_array($profileImages))
+                                                @foreach($profileImages as $profileimage)
+                                                    <li><img src="{{ asset($profileimage) }}" alt="Image" /></li>
+                                                @endforeach
+                                            @endif
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-text">
-                                    <span>Join Our 500+ Students For Boxing Class</span>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="apply-text">
+                                        <span>{{ @$item->slider_profile_short_desc }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-btn">
-                                    <a class="default-btn active" href="apply.html">Apply Now <i
-                                            class="ri-arrow-right-line"></i></a>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="apply-btn">
+                                        <a class="default-btn active" href="{{ @$item->slider_profile_button_url }}">{{ @$item->slider_profile_button_name }} <i
+                                                class="ri-arrow-right-line"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         @endforeach
 
 
-{{--
+        {{--
         <div class="banner-slider-item bg-2">
             <div class="container-fluid">
                 <div class="banner-content">

@@ -29,6 +29,7 @@ class SliderSectionController extends Controller
         //     'slider_profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         //     'slider_profile_button_name' => 'string',
         //     'slider_profile_button_url' => 'string',
+        //     'slider_profile_short_desc' => 'string',
         // ]);
 
         $sliderSection = new SliderSection();
@@ -56,6 +57,7 @@ class SliderSectionController extends Controller
 
         $sliderSection->slider_profile_button_name = $request->input('slider_profile_button_name');
         $sliderSection->slider_profile_button_url = $request->input('slider_profile_button_url');
+        $sliderSection->slider_profile_short_desc = $request->input('slider_profile_short_desc');
 
         $sliderSection->save();
 
@@ -81,6 +83,7 @@ class SliderSectionController extends Controller
             'slider_profile_image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'slider_profile_button_name' => 'string|nullable',
             'slider_profile_button_url' => 'string|nullable',
+            'slider_profile_short_desc' => 'string|nullable',
         ]);
 
         $sliderSection = SliderSection::findOrFail($id);
@@ -121,6 +124,7 @@ class SliderSectionController extends Controller
 
         $sliderSection->slider_profile_button_name = $request->input('slider_profile_button_name');
         $sliderSection->slider_profile_button_url = $request->input('slider_profile_button_url');
+        $sliderSection->slider_profile_short_desc = $request->input('slider_profile_short_desc');
 
         $sliderSection->save();
 

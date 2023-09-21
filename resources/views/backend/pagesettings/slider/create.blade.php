@@ -44,6 +44,10 @@
                     <label for="slider_profile_button_url">Profile Button URL</label>
                     <input type="text" name="slider_profile_button_url" id="slider_profile_button_url" class="form-control" value="">
                 </div>
+                <div class="form-group">
+                    <label for="slider_profile_short_desc">Profile Short Description</label>
+                    <input type="text" name="slider_profile_short_desc" id="slider_profile_short_desc" class="form-control" value="">
+                </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
