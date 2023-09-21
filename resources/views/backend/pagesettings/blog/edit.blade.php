@@ -42,7 +42,7 @@
 
                 <div class="form-group">
                     <label for=""> Description*</label>
-                    <textarea name="description" class="form-control h_100" cols="30" rows="10">{{@$blogs->description ?? @old('description')}}</textarea>
+                    <textarea name="description" class="editor" class="form-control h_100" cols="30" rows="10">{{@$blogs->description ?? @old('description')}}</textarea>
                 </div>
 
 

@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/images/favicon.ico') }}">
 
 
+
+
     @stack('css')
 
 </head>
@@ -63,6 +65,7 @@
 
 
 
+
     <script src="{{ asset('backend/assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('backend/assets/js/jquery.cookie.js') }}"></script>
     <script src="{{ asset('backend/assets/js/off-canvas.js') }}"></script>
@@ -70,6 +73,26 @@
     <script src="{{ asset('backend/assets/js/misc.js') }}"></script>
     <script src="{{ asset('backend/assets/js/dashboard.js') }}"></script>
     <script src="{{ asset('backend/assets/js/todolist.js') }}"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+    {{-- <script>
+        var allEditors = document.querySelectorAll('.editor');
+        for (var i = 0; i < allEditors.length; ++i) {
+          ClassicEditor.create(allEditors[i]).then( editor => {
+        editor.ui.view.editable.element.style.height = '500px';
+    };)}
+    </script> --}}
+    <script>
+        var allEditors = document.querySelectorAll('.editor');
+        for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(allEditors[i] )
+            .then( editor => {
+                editor.ui.view.editable.element.style.height = '50vh';
+            } )
+            .catch( error => {
+                console.error( error );
+            } );}
+    </script>
 
 
 </body>
