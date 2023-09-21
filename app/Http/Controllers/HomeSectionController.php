@@ -59,7 +59,7 @@ class HomeSectionController extends Controller
         $validatedData = $request->validate([
             'servicetitle' => 'required',
             'shortdesc' => 'required',
-            'status' => 'required|in:Show,Hide', 
+            'status' => 'required|in:Show,Hide',
         ]);
 
         $service->servicetitle = $validatedData['servicetitle'];
@@ -73,7 +73,7 @@ class HomeSectionController extends Controller
 
     // About
 
-    public function aboutUpdate(Request $request)
+    public function aboutUpdate(Request $request, $id)
     {
         // Validate the form data
         $validatedData = $request->validate([
@@ -82,8 +82,7 @@ class HomeSectionController extends Controller
             'status' => 'required|in:Show,Hide',
         ]);
 
-        // Create or update the 'about' section in the database
-        $about = HomeAboutSection::firstOrNew([]); // Adjust the query as needed
+        $about = HomeAboutSection::find($id);
 
         $about->abouttitle = $validatedData['abouttitle'];
         $about->aboutdesc = $validatedData['aboutdesc'];
@@ -96,7 +95,7 @@ class HomeSectionController extends Controller
 
     // Schedule
 
-    public function scheduleupdate(Request $request)
+    public function scheduleupdate(Request $request,$id)
     {
         // Validate the form data
         $validatedData = $request->validate([
@@ -105,8 +104,7 @@ class HomeSectionController extends Controller
             'status' => 'required|in:Show,Hide',
         ]);
 
-        // Create or update the 'home_schedule_sections' record in the database
-        $scheduleSection = HomeScheduleSection::firstOrNew([]);
+        $scheduleSection = HomeScheduleSection::find($id);
 
         $scheduleSection->schedule_title = $validatedData['schedule_title'];
         $scheduleSection->schedule_desc = $validatedData['schedule_desc'];
@@ -118,17 +116,15 @@ class HomeSectionController extends Controller
     }
 
     // MemberSection
-    public function memberUpdate(Request $request)
+    public function memberUpdate(Request $request,$id)
     {
-        // Validate the form data
         $validatedData = $request->validate([
             'member_title' => 'nullable|string',
             'member_desc' => 'nullable|string',
             'status' => 'required|in:Show,Hide',
         ]);
 
-        // Create or update the 'home_member_sections' record in the database
-        $memberSection = HomeMemberSection::firstOrNew([]);
+        $memberSection = HomeMemberSection::find($id);
 
         $memberSection->member_title = $validatedData['member_title'];
         $memberSection->member_desc = $validatedData['member_desc'];
@@ -141,7 +137,7 @@ class HomeSectionController extends Controller
 
     // Portfolio
 
-    public function portfolioUpdate(Request $request)
+    public function portfolioUpdate(Request $request,$id)
     {
         // Validate the form data
         $validatedData = $request->validate([
@@ -150,8 +146,7 @@ class HomeSectionController extends Controller
             'status' => 'required|in:Show,Hide',
         ]);
 
-        // Create or update the 'home_portfolio_sections' record in the database
-        $portfolioSection = HomePortfolioSection::firstOrNew([]);
+        $portfolioSection = HomePortfolioSection::find($id);
 
         $portfolioSection->portfolio_title = $validatedData['portfolio_title'];
         $portfolioSection->portfolio_desc = $validatedData['portfolio_desc'];
@@ -162,17 +157,15 @@ class HomeSectionController extends Controller
         return response()->json(['success' => 'Portfolio section updated successfully']);
     }
 
-    public function testimonialUpdate(Request $request)
+    public function testimonialUpdate(Request $request,$id)
     {
-        // Validate the form data
         $validatedData = $request->validate([
             'testimonial_title' => 'nullable|string',
             'testimonial_desc' => 'nullable|string',
             'status' => 'required|in:Show,Hide',
         ]);
 
-        // Create or update the 'home_testimonial_sections' record in the database
-        $testimonialSection = HomeTestimonialSection::firstOrNew([]);
+        $testimonialSection = HomeTestimonialSection::find($id);
 
         $testimonialSection->testimonial_title = $validatedData['testimonial_title'];
         $testimonialSection->testimonial_desc = $validatedData['testimonial_desc'];
@@ -185,17 +178,15 @@ class HomeSectionController extends Controller
 
     // Blog Section
 
-    public function blogUpdate(Request $request)
+    public function blogUpdate(Request $request,$id)
     {
-        // Validate the form data
         $validatedData = $request->validate([
             'blog_title' => 'nullable|string',
             'blog_desc' => 'nullable|string',
             'status' => 'required|in:Show,Hide',
         ]);
 
-        // Create or update the 'home_blog_sections' record in the database
-        $blogSection = HomeBlogSection::firstOrNew([]);
+        $blogSection = HomeBlogSection::find($id);
 
         $blogSection->blog_title = $validatedData['blog_title'];
         $blogSection->blog_desc = $validatedData['blog_desc'];

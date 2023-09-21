@@ -697,7 +697,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.scheduleUpdate') }}",
+                url: "{{ route('admin.scheduleUpdate',['id' => $aboutId]) }}",
                 data: formData,
                 success: function(response) {
                     console.log(response);
@@ -726,7 +726,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.memberUpdate') }}",
+                url: "{{ route('admin.memberUpdate',['id' => $aboutId]) }}",
                 data: formData,
                 success: function(response) {
                     console.log(response);
@@ -755,7 +755,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.portfolioUpdate') }}",
+                url: "{{ route('admin.portfolioUpdate',['id' => $aboutId]) }}",
                 data: formData,
                 success: function(response) {
                     console.log(response);
@@ -784,15 +784,13 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.testimonialUpdate') }}",
+                url: "{{ route('admin.testimonialUpdate',['id' => $aboutId]) }}",
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    // Handle success, e.g., show success message
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
-                    // Handle error, e.g., show error message
                 }
             });
         });
@@ -813,15 +811,13 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.blogUpdate') }}",
+                url: "{{ route('admin.blogUpdate',['id' => $aboutId])}}",
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    // Handle success, e.g., show success message
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
-                    // Handle error, e.g., show error message
                 }
             });
         });

@@ -32,6 +32,12 @@
                         <input type="file" name="about_image">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="">Additional Image *</label>
+                    <div>
+                        <input type="file" name="about_image_additional">
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>

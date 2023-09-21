@@ -31,7 +31,7 @@
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.homepage')}}">Home</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.slider')}}">Slider</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.services')}}">Service</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{route('admin.about')}}">About</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('admin.about.edit',helper::getAboutSection()->id)}}">About</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.memberinfo')}}">Member</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.introvideo')}}">Intro Video</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.testimonialsection')}}">Testimonial</a></li>

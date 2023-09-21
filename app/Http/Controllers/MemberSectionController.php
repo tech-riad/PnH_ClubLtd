@@ -89,19 +89,16 @@ class MemberSectionController extends Controller
 
     public function delete($id)
     {
-        // Find the MemberSection model instance to delete
         $memberSection = MemberSection::find($id);
 
         if (!$memberSection) {
             return redirect()->route('admin.memberinfo')->with('error', 'Member Info not found.');
         }
 
-        // Delete the associated image if it exists
         if (file_exists(public_path($memberSection->member_image))) {
             unlink(public_path($memberSection->member_image));
         }
 
-        // Delete the MemberSection record
         $memberSection->delete();
 
         return redirect()->route('admin.memberinfo')->with('success', 'Member Info deleted successfully.');

@@ -20,11 +20,11 @@ Route::prefix('admin')->group(function () {
 
     Route::any('/metaupdate/{id}', [HomeSectionController::class, 'metaupdate'])->name('admin.metaupdate');
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');
-    Route::any('/schedule', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
+    Route::any('/schedule/{id}', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
 
-    Route::any('/portfolio', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
-    Route::any('/testimonial', [HomeSectionController::class, 'testimonialUpdate'])->name('admin.testimonialUpdate');
-    Route::any('/blog', [HomeSectionController::class, 'blogUpdate'])->name('admin.blogUpdate');
+    Route::any('/portfolio/{id}', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
+    Route::any('/testimonial/{id}', [HomeSectionController::class, 'testimonialUpdate'])->name('admin.testimonialUpdate');
+    Route::any('/blog/{id}', [HomeSectionController::class, 'blogUpdate'])->name('admin.blogUpdate');
 
 
     // Slider
@@ -62,7 +62,7 @@ Route::prefix('admin')->group(function () {
   Route::any('/memberinfo/update/{id}', [MemberSectionController::class, 'update'])->name('admin.memberinfo.update');
   Route::any('/memberinfo/delete/{id}', [MemberSectionController::class, 'delete'])->name('admin.memberinfo.delete');
 // Home section Member Route
-  Route::any('/member', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
+  Route::any('/member/{id}', [HomeSectionController::class, 'memberUpdate'])->name('admin.memberUpdate');
 
   // IntroVideo
 

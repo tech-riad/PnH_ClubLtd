@@ -3775,14 +3775,14 @@ textarea {
     color: #fff
 }
 
-.intro-video-area {
+/* .intro-video-area {
     background-image: url(../images/video-img/video-bg-1.jpg);
     background-size: cover;
     background-position: center center;
     position: relative;
     background-repeat: no-repeat;
     z-index: 1
-}
+} */
 
 .intro-video-area::before {
     position: absolute;

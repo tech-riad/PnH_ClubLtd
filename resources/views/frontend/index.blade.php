@@ -329,8 +329,9 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4">
                                     <div class="apply-btn">
-                                        <a class="default-btn active" href="{{ @$item->slider_profile_button_url }}">{{ @$item->slider_profile_button_name }} <i
-                                                class="ri-arrow-right-line"></i></a>
+                                        <a class="default-btn active"
+                                            href="{{ @$item->slider_profile_button_url }}">{{ @$item->slider_profile_button_name }}
+                                            <i class="ri-arrow-right-line"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -343,89 +344,92 @@
     </div>
 </div>
 
-@if (helper::getServiceSection()->status == 'Show')
-<div class="services-area pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span>{{helper::getServiceSection()->servicetitle}}</span>
-            <h2>{{helper::getServiceSection()->shortdesc}} <span class="overlay"></span></h2>
-        </div>
-        <div class="row">
-            @foreach ($services as $item)
-            <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                <div class="single-services-card">
-                    <div class="services-content">
-                        <div class="icon">
-                            <i class="{{$item->service_icon_tag}}"></i>
-                        </div>
-                        <h3><a href="#">{{$item->service_title}}</a></h3>
-                        <p>{{$item->service_description}}</p>
-                        <a class="default-btn" href="#">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                    <div class="number">
-                        <span>01</span>
-                    </div>
-                </div>
+@if(helper::getServiceSection()->status == 'Show')
+    <div class="services-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <span>{{ helper::getServiceSection()->servicetitle }}</span>
+                <h2>{{ helper::getServiceSection()->shortdesc }} <span class="overlay"></span></h2>
             </div>
+            @php
+            $counter = 1;
+            @endphp
+            <div class="row">
+                @foreach($services as $item)
+                    <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                        <div class="single-services-card">
+                            <div class="services-content">
+                                <div class="icon">
+                                    <i class="{{ $item->service_icon_tag }}"></i>
+                                </div>
+                                <h3><a href="#">{{ $item->service_title }}</a></h3>
+                                <p>{{ $item->service_description }}</p>
+                                <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                            <div class="number">
+                                <span>{{$counter}}</span>
+                            </div>
+                        </div>
+                    </div>
+                        @php
+                        $counter++;
+                        @endphp
 
-            @endforeach
+                @endforeach
 
+            </div>
         </div>
     </div>
-</div>
 @else
 
 @endif
 
 
-@if (helper::getAboutSection()->status == 'Show')
-<div class="about-area pb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="about-img pr-15">
-                    <img src="assets/images/about/about-img-1.jpg" class="main-img" alt="Image">
-                    <div class="small-img">
-                        <img src="assets/images/about/about-img-2.jpg" alt="Image">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="about-content pl-15">
-                    <div class="about-title">
-                        <span>{{helper::getAboutSection()->abouttitle}}</span>
-                        <h2>Most Fitness Routines Fail Due To Lack Of Results <span class="overlay"></span></h2>
-                    </div>
-                    <p>It is a long established fact that a reader will be distracted by the readable content page it
-                        when looking at its layout. The point of using Lorem Ipsum is that it normal distribution of a
-                        letters, as opposed to using making it look like readable English.</p>
-                    <div class="features-list">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <ul>
-                                    <li><i class="ri-check-double-line"></i>The International Boxing Federation</li>
-                                    <li><i class="ri-check-double-line"></i>World Boxing Association</li>
-                                    <li><i class="ri-check-double-line"></i>World Boxing Council</li>
-                                    <li><i class="ri-check-double-line"></i>World Boxing Organization</li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <ul>
-                                    <li><i class="ri-check-double-line"></i>Expanding Range Of Female Boxers</li>
-                                    <li><i class="ri-check-double-line"></i>Including Two World Champions</li>
-                                    <li><i class="ri-check-double-line"></i>Delivers Al Haymon’s Series</li>
-                                    <li><i class="ri-check-double-line"></i>Its Fights Are Available Through</li>
-                                </ul>
-                            </div>
+@if(helper::getAboutSection()->status == 'Show')
+    <div class="about-area pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-img pr-15">
+                        <img src="{{ asset($about->about_image) }}" class="main-img" alt="Image">
+                        <div class="small-img">
+                            <img src="{{ asset($about->about_image_additional) }}" alt="Image">
                         </div>
                     </div>
-                    <a class="default-btn active" href="about-us.html">Read More <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content pl-15">
+                        <div class="about-title">
+                            <span>{{ helper::getAboutSection()->abouttitle }}</span>
+                            <h2>{{ $about->about_title }} <span class="overlay"></span></h2>
+                        </div>
+                        <p>{!! $about->about_description !!}</p>
+                        <div class="features-list">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><i class="ri-check-double-line"></i>The International Boxing Federation</li>
+                                        <li><i class="ri-check-double-line"></i>World Boxing Association</li>
+                                        <li><i class="ri-check-double-line"></i>World Boxing Council</li>
+                                        <li><i class="ri-check-double-line"></i>World Boxing Organization</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><i class="ri-check-double-line"></i>Expanding Range Of Female Boxers</li>
+                                        <li><i class="ri-check-double-line"></i>Including Two World Champions</li>
+                                        <li><i class="ri-check-double-line"></i>Delivers Al Haymon’s Series</li>
+                                        <li><i class="ri-check-double-line"></i>Its Fights Are Available Through</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <a class="default-btn active" href="about-us.html">Read More <i class="ri-arrow-right-line"></i></a> --}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @else
 @endif
 
@@ -433,112 +437,104 @@
 {{-- <div class="course-area bg pt-100">
     <div class="container">
         <div class="section-title white-title">
-            <span>{{helper::getMemberSection()->member_title}}</span>
-            <h2>{{helper::getMemberSection()->member_desc}} <span class="overlay"></span></h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                <div class="single-course-card">
-                    <div class="course-img">
-                        <a href="training-details.html"><img src="assets/images/course/course-img-1.jpg"
-                                alt="Image"></a>
-                    </div>
-                    <div class="course-content">
-                        <a href="training-details.html">
-                            <h3>Boxing Practice</h3>
-                        </a>
-                        <ul>
-                            <li>
-                                <i class="ri-map-pin-user-fill"></i>
-                                231 King Street, Melbourne
-                            </li>
-                            <li>
-                                <i class="ri-time-line"></i>
-                                01:00pm - 03:00 pm
-                            </li>
-                        </ul>
-                        <a class="default-btn" href="training-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
+            <span>{{ helper::getMemberSection()->member_title }}</span>
+<h2>{{ helper::getMemberSection()->member_desc }} <span class="overlay"></span></h2>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+        <div class="single-course-card">
+            <div class="course-img">
+                <a href="training-details.html"><img src="assets/images/course/course-img-1.jpg" alt="Image"></a>
             </div>
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                <div class="single-course-card">
-                    <div class="course-img">
-                        <a href="training-details.html"><img src="assets/images/course/course-img-2.jpg"
-                                alt="Image"></a>
-                    </div>
-                    <div class="course-content">
-                        <a href="training-details.html">
-                            <h3>Cardio Training</h3>
-                        </a>
-                        <ul>
-                            <li>
-                                <i class="ri-map-pin-user-fill"></i>
-                                231 King Street, Melbourne
-                            </li>
-                            <li>
-                                <i class="ri-time-line"></i>
-                                01:00pm - 03:00 pm
-                            </li>
-                        </ul>
-                        <a class="default-btn" href="training-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                <div class="single-course-card">
-                    <div class="course-img">
-                        <a href="training-details.html"><img src="assets/images/course/course-img-3.jpg"
-                                alt="Image"></a>
-                    </div>
-                    <div class="course-content">
-                        <a href="training-details.html">
-                            <h3>Zumba Dance</h3>
-                        </a>
-                        <ul>
-                            <li>
-                                <i class="ri-map-pin-user-fill"></i>
-                                231 King Street, Melbourne
-                            </li>
-                            <li>
-                                <i class="ri-time-line"></i>
-                                01:00pm - 03:00 pm
-                            </li>
-                        </ul>
-                        <a class="default-btn" href="training-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
-                <div class="single-course-card">
-                    <div class="course-img">
-                        <a href="training-details.html"><img src="assets/images/course/course-img-4.jpg"
-                                alt="Image"></a>
-                    </div>
-                    <div class="course-content">
-                        <a href="training-details.html">
-                            <h3>Boxing Class</h3>
-                        </a>
-                        <ul>
-                            <li>
-                                <i class="ri-map-pin-user-fill"></i>
-                                231 King Street, Melbourne
-                            </li>
-                            <li>
-                                <i class="ri-time-line"></i>
-                                01:00pm - 03:00 pm
-                            </li>
-                        </ul>
-                        <a class="default-btn" href="training-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
+            <div class="course-content">
+                <a href="training-details.html">
+                    <h3>Boxing Practice</h3>
+                </a>
+                <ul>
+                    <li>
+                        <i class="ri-map-pin-user-fill"></i>
+                        231 King Street, Melbourne
+                    </li>
+                    <li>
+                        <i class="ri-time-line"></i>
+                        01:00pm - 03:00 pm
+                    </li>
+                </ul>
+                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
             </div>
         </div>
     </div>
+    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+        <div class="single-course-card">
+            <div class="course-img">
+                <a href="training-details.html"><img src="assets/images/course/course-img-2.jpg" alt="Image"></a>
+            </div>
+            <div class="course-content">
+                <a href="training-details.html">
+                    <h3>Cardio Training</h3>
+                </a>
+                <ul>
+                    <li>
+                        <i class="ri-map-pin-user-fill"></i>
+                        231 King Street, Melbourne
+                    </li>
+                    <li>
+                        <i class="ri-time-line"></i>
+                        01:00pm - 03:00 pm
+                    </li>
+                </ul>
+                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+        <div class="single-course-card">
+            <div class="course-img">
+                <a href="training-details.html"><img src="assets/images/course/course-img-3.jpg" alt="Image"></a>
+            </div>
+            <div class="course-content">
+                <a href="training-details.html">
+                    <h3>Zumba Dance</h3>
+                </a>
+                <ul>
+                    <li>
+                        <i class="ri-map-pin-user-fill"></i>
+                        231 King Street, Melbourne
+                    </li>
+                    <li>
+                        <i class="ri-time-line"></i>
+                        01:00pm - 03:00 pm
+                    </li>
+                </ul>
+                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
+        <div class="single-course-card">
+            <div class="course-img">
+                <a href="training-details.html"><img src="assets/images/course/course-img-4.jpg" alt="Image"></a>
+            </div>
+            <div class="course-content">
+                <a href="training-details.html">
+                    <h3>Boxing Class</h3>
+                </a>
+                <ul>
+                    <li>
+                        <i class="ri-map-pin-user-fill"></i>
+                        231 King Street, Melbourne
+                    </li>
+                    <li>
+                        <i class="ri-time-line"></i>
+                        01:00pm - 03:00 pm
+                    </li>
+                </ul>
+                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div> --}}
 
 
@@ -691,120 +687,67 @@
     </div>
 </div> --}}
 
-@if (helper::getMemberSection()->status == 'Show')
-<div class="team-area pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span>{{helper::getMemberSection()->member_title}}</span>
-            <h2>{{helper::getMemberSection()->member_desc}} <span class="overlay"></span></h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                <div class="single-team-card">
-                    <div class="team-img">
-                        <img src="assets/images/team/team-img-1.jpg" alt="Image">
-                        <div class="social-content">
-                            <ul>
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"><i
-                                            class="ri-facebook-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.twitter.com/" target="_blank"><i
-                                            class="ri-twitter-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://instagram.com/?lang=en" target="_blank"><i
-                                            class="ri-instagram-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://linkedin.com/?lang=en" target="_blank"><i
-                                            class="ri-linkedin-line"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h3>Norwood Turcotte</h3>
-                        <span>Boxing Trainer</span>
-                    </div>
-                </div>
+@if(helper::getMemberSection()->status == 'Show')
+    <div class="team-area pb-70">
+        <div class="container">
+            <div class="section-title">
+                <span>{{ helper::getMemberSection()->member_title }}</span>
+                <h2>{{ helper::getMemberSection()->member_desc }} <span class="overlay"></span></h2>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                <div class="single-team-card">
-                    <div class="team-img">
-                        <img src="assets/images/team/team-img-2.jpg" alt="Image">
-                        <div class="social-content">
-                            <ul>
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"><i
-                                            class="ri-facebook-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.twitter.com/" target="_blank"><i
-                                            class="ri-twitter-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://instagram.com/?lang=en" target="_blank"><i
-                                            class="ri-instagram-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://linkedin.com/?lang=en" target="_blank"><i
-                                            class="ri-linkedin-line"></i></a>
-                                </li>
-                            </ul>
+            <div class="row justify-content-center">
+                @foreach($members as $item)
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                        <div class="single-team-card">
+                            <div class="team-img">
+                                <img src="{{ asset($item->member_image) }}" alt="Image">
+                                <div class="social-content">
+                                    <ul>
+                                        <li>
+                                            <a href="https://www.facebook.com/" target="_blank"><i
+                                                    class="ri-facebook-line"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.twitter.com/" target="_blank"><i
+                                                    class="ri-twitter-line"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://instagram.com/?lang=en" target="_blank"><i
+                                                    class="ri-instagram-line"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://linkedin.com/?lang=en" target="_blank"><i
+                                                    class="ri-linkedin-line"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="team-content">
+                                <h3>{{ $item->member_name }}</h3>
+                                <span>{{ $item->member_position }}</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-content">
-                        <h3>Katherine Schinner</h3>
-                        <span>Kickboxing Trainer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                <div class="single-team-card">
-                    <div class="team-img">
-                        <img src="assets/images/team/team-img-3.jpg" alt="Image">
-                        <div class="social-content">
-                            <ul>
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"><i
-                                            class="ri-facebook-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.twitter.com/" target="_blank"><i
-                                            class="ri-twitter-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://instagram.com/?lang=en" target="_blank"><i
-                                            class="ri-instagram-line"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://linkedin.com/?lang=en" target="_blank"><i
-                                            class="ri-linkedin-line"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h3>Gonzalo Prosacco</h3>
-                        <span>Judo Trainer</span>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
-</div>
 @else
 @endif
 
-<div class="intro-video-area ptb-100">
+
+<div class="intro-video-area ptb-100" style="background-image: url({{ asset(helper::getLatestVideoThumb()->video_image) }});
+background-size: cover;
+background-position: center center;
+position: relative;
+background-repeat: no-repeat;
+z-index: 1">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="video-btn-content">
                     <div class="play-btn">
-                        <a class="popup-youtube" href="https://www.youtube.com/watch?v=6WQCJx_vEX4">
+                        <a class="popup-youtube" href="{{$introvideo->video_url}}">
                             <i class="ri-play-fill"></i>
                         </a>
                     </div>
@@ -814,302 +757,242 @@
                 <div class="video-content">
                     <div class="video-title">
                         <span>Intro Video</span>
-                        <h2>Excellence Pro-Style Boxing Gloves You Are An Instructor<span class="overlay"></span></h2>
+                        <h2>{{$introvideo->video_title}}<span class="overlay"></span></h2>
                     </div>
-                    <p>It is a long established fact that a reader will be distracted by the readable content page it
-                        when looking at its layout. The point of using Lorem Ipsum is that it normal distribution of a
-                        letters, as opposed to using making it look like readable English.</p>
-                    <ul>
+                    <p>{!! $introvideo->video_description !!}</p>
+                    {{-- <ul>
                         <li><i class="ri-check-double-line"></i>Expanding Range Of Female Boxers</li>
                         <li><i class="ri-check-double-line"></i>Including Two World Champions</li>
                         <li><i class="ri-check-double-line"></i>Delivers Al Haymon’s Series</li>
                         <li><i class="ri-check-double-line"></i>Its Fights Are Available Through</li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@if (helper::getPortfolioSection()->status == 'Show')
-<div class="portfolio-area pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span>{{helper::getPortfolioSection()->portfolio_title}}</span>
-            <h2>{{helper::getPortfolioSection()->portfolio_desc}} <span class="overlay"></span></h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                <div class="single-portfolio-card">
-                    <div class="portfolio-img">
-                        <img src="assets/images/portfolio/portfolio-img-1.jpg" alt="Image">
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="portfolio-details.html">
-                            <div class="icon">
-                                <i class="ri-add-line"></i>
-                            </div>
-                        </a>
-                        <h3>Boxing</h3>
-                        <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
+
+@if(helper::getPortfolioSection()->status == 'Hide')
+    <div class="portfolio-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <span>{{ helper::getPortfolioSection()->portfolio_title }}</span>
+                <h2>{{ helper::getPortfolioSection()->portfolio_desc }} <span class="overlay"></span></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="single-portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/portfolio-img-1.jpg" alt="Image">
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="portfolio-details.html">
+                                <div class="icon">
+                                    <i class="ri-add-line"></i>
+                                </div>
+                            </a>
+                            <h3>Boxing</h3>
+                            <a class="default-btn active" href="portfolio-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                <div class="single-portfolio-card">
-                    <div class="portfolio-img">
-                        <img src="assets/images/portfolio/portfolio-img-2.jpg" alt="Image">
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="portfolio-details.html">
-                            <div class="icon">
-                                <i class="ri-add-line"></i>
-                            </div>
-                        </a>
-                        <h3>Boxing And Kickboxing For Teens</h3>
-                        <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                <div class="single-portfolio-card">
-                    <div class="portfolio-img">
-                        <img src="assets/images/portfolio/portfolio-img-3.jpg" alt="Image">
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="portfolio-details.html">
-                            <div class="icon">
-                                <i class="ri-add-line"></i>
-                            </div>
-                        </a>
-                        <h3>Boxing</h3>
-                        <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                    <div class="single-portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/portfolio-img-2.jpg" alt="Image">
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="portfolio-details.html">
+                                <div class="icon">
+                                    <i class="ri-add-line"></i>
+                                </div>
+                            </a>
+                            <h3>Boxing And Kickboxing For Teens</h3>
+                            <a class="default-btn active" href="portfolio-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
-                <div class="single-portfolio-card">
-                    <div class="portfolio-img">
-                        <img src="assets/images/portfolio/portfolio-img-4.jpg" alt="Image">
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="portfolio-details.html">
-                            <div class="icon">
-                                <i class="ri-add-line"></i>
-                            </div>
-                        </a>
-                        <h3>Boxing</h3>
-                        <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1000">
-                <div class="single-portfolio-card">
-                    <div class="portfolio-img">
-                        <img src="assets/images/portfolio/portfolio-img-5.jpg" alt="Image">
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="portfolio-details.html">
-                            <div class="icon">
-                                <i class="ri-add-line"></i>
-                            </div>
-                        </a>
-                        <h3>Boxing</h3>
-                        <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
+                <div class="col-lg-3 col-md-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+                    <div class="single-portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/portfolio-img-3.jpg" alt="Image">
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="portfolio-details.html">
+                                <div class="icon">
+                                    <i class="ri-add-line"></i>
+                                </div>
+                            </a>
+                            <h3>Boxing</h3>
+                            <a class="default-btn active" href="portfolio-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1200">
-                <div class="single-portfolio-card">
-                    <div class="portfolio-img">
-                        <img src="assets/images/portfolio/portfolio-img-6.jpg" alt="Image">
+                <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
+                    <div class="single-portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/portfolio-img-4.jpg" alt="Image">
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="portfolio-details.html">
+                                <div class="icon">
+                                    <i class="ri-add-line"></i>
+                                </div>
+                            </a>
+                            <h3>Boxing</h3>
+                            <a class="default-btn active" href="portfolio-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
-                    <div class="portfolio-content">
-                        <a href="portfolio-details.html">
-                            <div class="icon">
-                                <i class="ri-add-line"></i>
-                            </div>
-                        </a>
-                        <h3>Boxing</h3>
-                        <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1000">
+                    <div class="single-portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/portfolio-img-5.jpg" alt="Image">
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="portfolio-details.html">
+                                <div class="icon">
+                                    <i class="ri-add-line"></i>
+                                </div>
+                            </a>
+                            <h3>Boxing</h3>
+                            <a class="default-btn active" href="portfolio-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1200">
+                    <div class="single-portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/portfolio-img-6.jpg" alt="Image">
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="portfolio-details.html">
+                                <div class="icon">
+                                    <i class="ri-add-line"></i>
+                                </div>
+                            </a>
+                            <h3>Boxing</h3>
+                            <a class="default-btn active" href="portfolio-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @else
 @endif
 
 
-@if (helper::getTestimonialSection()->status == 'Show')
-<div class="testimonials-area pb-70">
-    <div class="container">
-        <div class="section-title style2">
-            <span>{{helper::getTestimonialSection()->testimonial_title}}</span>
-            <h2>{{helper::getTestimonialSection()->testimonial_desc}} <span class="overlay"></span></h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                <div class="single-testimonial-box">
-                    <div class="top-content">
-                        <ul class="d-flex justify-content-between">
-                            <li>
-                                <div class="quote">
-                                    <i class="ri-double-quotes-l"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="number">
-                                    <span>01</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <p>It is a long established fact that reader will be distracted page its when looking at its layout.
-                    </p>
-                    <div class="clients-info">
-                        <h3>Martina Grady</h3>
-                        <span>Cardio Trainer</span>
-                    </div>
-                </div>
+@if(helper::getTestimonialSection()->status == 'Show')
+    <div class="testimonials-area pb-70">
+        <div class="container">
+            <div class="section-title style2">
+                <span>{{ helper::getTestimonialSection()->testimonial_title }}</span>
+                <h2>{{ helper::getTestimonialSection()->testimonial_desc }} <span class="overlay"></span></h2>
             </div>
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                <div class="single-testimonial-box">
-                    <div class="top-content">
-                        <ul class="d-flex justify-content-between">
-                            <li>
-                                <div class="quote">
-                                    <i class="ri-double-quotes-l"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="number">
-                                    <span>02</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <p>It is a long established fact that reader will be distracted page its when looking at its layout.
-                    </p>
-                    <div class="clients-info">
-                        <h3>Weldon Hegmann</h3>
-                        <span>Boxing Trainer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                <div class="single-testimonial-box">
-                    <div class="top-content">
-                        <ul class="d-flex justify-content-between">
-                            <li>
-                                <div class="quote">
-                                    <i class="ri-double-quotes-l"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="number">
-                                    <span>03</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <p>It is a long established fact that reader will be distracted page its when looking at its layout.
-                    </p>
-                    <div class="clients-info">
-                        <h3>Frederick Kling</h3>
-                        <span>Crossfit Trainer</span>
+            @php
+                $counter = 1;
+            @endphp
+            <div class="row">
+                @foreach ($testimonials as $item)
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="single-testimonial-box">
+                        <div class="top-content">
+                            <ul class="d-flex justify-content-between">
+                                <li>
+                                    <div class="quote">
+                                        <i class="ri-double-quotes-l"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="number">
+                                        <span>{{$counter}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>{!! $item->description !!}
+                        </p>
+                        <div class="clients-info">
+                            <h3>{{$item->name}}</h3>
+                            <span>{{$item->position}}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
-                <div class="single-testimonial-box">
-                    <div class="top-content">
-                        <ul class="d-flex justify-content-between">
-                            <li>
-                                <div class="quote">
-                                    <i class="ri-double-quotes-l"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="number">
-                                    <span>04</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <p>It is a long established fact that reader will be distracted page its when looking at its layout.
-                    </p>
-                    <div class="clients-info">
-                        <h3>Vivian Durgan</h3>
-                        <span>Zumba Trainer</span>
-                    </div>
-                </div>
+                @php
+                    $counter++;
+                @endphp
+
+                @endforeach
+
+
             </div>
         </div>
     </div>
-</div>
 @else
 @endif
 
-@if (helper::getBlogSection()->status == 'Show')
-<div class="blog-area pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span>{{helper::getBlogSection()->blog_title}}</span>
-            <h2>{{helper::getBlogSection()->blog_desc}} <span class="overlay"></span></h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                <div class="single-blog-card">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/images/blog/blog-img-1.jpg" alt="Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
-                        <h2><a href="blog-details.html">The Best Effective Strategies And Tips From Everyone</a></h2>
-                        <a class="default-btn" href="blog-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
+@if(helper::getBlogSection()->status == 'Show')
+    <div class="blog-area pb-70">
+        <div class="container">
+            <div class="section-title">
+                <span>{{ helper::getBlogSection()->blog_title }}</span>
+                <h2>{{ helper::getBlogSection()->blog_desc }} <span class="overlay"></span></h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="single-blog-card">
+                        <div class="blog-img">
+                            <a href="blog-details.html"><img src="assets/images/blog/blog-img-1.jpg" alt="Image"></a>
+                        </div>
+                        <div class="blog-content">
+                            <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
+                            <h2><a href="blog-details.html">The Best Effective Strategies And Tips From Everyone</a>
+                            </h2>
+                            <a class="default-btn" href="blog-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                <div class="single-blog-card">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/images/blog/blog-img-2.jpg" alt="Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
-                        <h2><a href="blog-details.html">Keeps You Motivated And Committed To Continuing The Program</a>
-                        </h2>
-                        <a class="default-btn" href="blog-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                    <div class="single-blog-card">
+                        <div class="blog-img">
+                            <a href="blog-details.html"><img src="assets/images/blog/blog-img-2.jpg" alt="Image"></a>
+                        </div>
+                        <div class="blog-content">
+                            <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
+                            <h2><a href="blog-details.html">Keeps You Motivated And Committed To Continuing The
+                                    Program</a>
+                            </h2>
+                            <a class="default-btn" href="blog-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                <div class="single-blog-card">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/images/blog/blog-img-3.jpg" alt="Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
-                        <h2><a href="blog-details.html">Finding A Physical Activity Presents Many Additional
-                                Challenges</a></h2>
-                        <a class="default-btn" href="blog-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+                    <div class="single-blog-card">
+                        <div class="blog-img">
+                            <a href="blog-details.html"><img src="assets/images/blog/blog-img-3.jpg" alt="Image"></a>
+                        </div>
+                        <div class="blog-content">
+                            <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
+                            <h2><a href="blog-details.html">Finding A Physical Activity Presents Many Additional
+                                    Challenges</a></h2>
+                            <a class="default-btn" href="blog-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @else
 @endif
 

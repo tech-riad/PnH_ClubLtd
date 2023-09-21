@@ -10,7 +10,7 @@ class IntroVideoController extends Controller
 {
     public function index()
     {
-        $introVideo = IntroVideo::all();
+        $introVideo = IntroVideo::orderBy('id', 'desc')->get();
         return view('backend.pagesettings.introvideo.index',compact('introVideo'));
     }
 

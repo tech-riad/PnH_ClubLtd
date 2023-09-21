@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\AboutSection;
 use App\Models\HomeAboutSection;
 use App\Models\HomeBlogSection;
 use App\Models\HomeMemberSection;
 use App\Models\HomePortfolioSection;
 use App\Models\HomeServiceSection;
 use App\Models\HomeTestimonialSection;
+use App\Models\IntroVideo;
 
 class helper
 {
@@ -33,5 +35,13 @@ class helper
     public static function getBlogSection()
     {
         return HomeBlogSection::first();
+    }
+    public static function getAboutId()
+    {
+        return AboutSection::first();
+    }
+    public static function getLatestVideoThumb()
+    {
+        return IntroVideo::latest()->first();
     }
 }
