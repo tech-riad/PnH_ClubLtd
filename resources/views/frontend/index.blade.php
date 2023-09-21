@@ -394,7 +394,7 @@
             <div class="col-lg-6">
                 <div class="about-content pl-15">
                     <div class="about-title">
-                        <span>About Us</span>
+                        <span>{{helper::getAboutSection()->abouttitle}}</span>
                         <h2>Most Fitness Routines Fail Due To Lack Of Results <span class="overlay"></span></h2>
                     </div>
                     <p>It is a long established fact that a reader will be distracted by the readable content page it
@@ -430,11 +430,11 @@
 @endif
 
 
-<div class="course-area bg pt-100">
+{{-- <div class="course-area bg pt-100">
     <div class="container">
         <div class="section-title white-title">
-            <span>Training Course</span>
-            <h2>Our Top Boxing Course <span class="overlay"></span></h2>
+            <span>{{helper::getMemberSection()->member_title}}</span>
+            <h2>{{helper::getMemberSection()->member_desc}} <span class="overlay"></span></h2>
         </div>
         <div class="row">
             <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -539,10 +539,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
-<div class="schedule-time-area pt-70 pb-100">
+{{-- <div class="schedule-time-area pt-70 pb-100">
     <div class="container">
         <div class="section-title">
             <span>Schedule Time</span>
@@ -689,14 +689,14 @@
             </table>
         </div>
     </div>
-</div>
+</div> --}}
 
-
+@if (helper::getMemberSection()->status == 'Show')
 <div class="team-area pb-70">
     <div class="container">
         <div class="section-title">
-            <span>Our Members</span>
-            <h2>Training With Our Experts <span class="overlay"></span></h2>
+            <span>{{helper::getMemberSection()->member_title}}</span>
+            <h2>{{helper::getMemberSection()->member_desc}} <span class="overlay"></span></h2>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -795,7 +795,8 @@
         </div>
     </div>
 </div>
-
+@else
+@endif
 
 <div class="intro-video-area ptb-100">
     <div class="container">
@@ -830,12 +831,12 @@
     </div>
 </div>
 
-
+@if (helper::getPortfolioSection()->status == 'Show')
 <div class="portfolio-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span>Portfolio</span>
-            <h2>Will Help You Completely <span class="overlay"></span></h2>
+            <span>{{helper::getPortfolioSection()->portfolio_title}}</span>
+            <h2>{{helper::getPortfolioSection()->portfolio_desc}} <span class="overlay"></span></h2>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -943,13 +944,16 @@
         </div>
     </div>
 </div>
+@else
+@endif
 
 
+@if (helper::getTestimonialSection()->status == 'Show')
 <div class="testimonials-area pb-70">
     <div class="container">
         <div class="section-title style2">
-            <span>Testimonials</span>
-            <h2>See Reviews From Our Clients <span class="overlay"></span></h2>
+            <span>{{helper::getTestimonialSection()->testimonial_title}}</span>
+            <h2>{{helper::getTestimonialSection()->testimonial_desc}} <span class="overlay"></span></h2>
         </div>
         <div class="row">
             <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -1051,13 +1055,15 @@
         </div>
     </div>
 </div>
+@else
+@endif
 
-
+@if (helper::getBlogSection()->status == 'Show')
 <div class="blog-area pb-70">
     <div class="container">
         <div class="section-title">
-            <span>Daily News</span>
-            <h2>Latest News And Articles <span class="overlay"></span></h2>
+            <span>{{helper::getBlogSection()->blog_title}}</span>
+            <h2>{{helper::getBlogSection()->blog_desc}} <span class="overlay"></span></h2>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -1104,6 +1110,9 @@
         </div>
     </div>
 </div>
+@else
+@endif
+
 
 
 <div class="footer-area bg-1 pt-100">
