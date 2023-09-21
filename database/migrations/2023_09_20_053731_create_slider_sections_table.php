@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('slider_title')->nullable();
             $table->longText('slider_description')->nullable();
             $table->string('slider_image')->nullable();
+            $table->string('slider_profile_image')->nullable();
+            $table->string('slider_profile_button_name')->nullable();
+            $table->string('slider_profile_button_url')->nullable();
             $table->timestamps();
         });
     }

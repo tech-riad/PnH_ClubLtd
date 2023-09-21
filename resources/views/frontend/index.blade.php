@@ -299,19 +299,22 @@
 
 <div class="banner-area">
     <div class="banner-slider owl-carousel owl-theme">
-        <div class="banner-slider-item bg-1">
+        @foreach ($sliders as $item)
+        <div class="banner-slider-item bg-1" style="background-image: url({{asset($item->slider_image)}})">
             <div class="container-fluid">
                 <div class="banner-content">
-                    <span>Welcome To The Martial Arts, Boxing & Karate School</span>
-                    <h1>There Is A Hard Way To Strengthen Yourself <span class="overlay"></span></h1>
-                    <p>Many desktop publishing package and web page editor now use Lorem Ipsum their default search for
-                        'lorem ipsum' will uncover many web sites still in their infancy.</p>
+                    <span>{{@$item->welcome_text}}</span>
+                    <h1>{{@$item->slider_title}}<span class="overlay"></span></h1>
+                    <p>{!! $item->slider_description !!}</p>
                     <div class="apply-content">
                         <div class="row align-items-center">
                             <div class="col-lg-4 col-md-4">
                                 <div class="apply-img">
                                     <ul>
                                         <li><img src="assets/images/banner/sm-img-1.png" alt="Image"></li>
+                                        <li><img src="assets/images/banner/sm-img-2.png" alt="Image"></li>
+                                        <li><img src="assets/images/banner/sm-img-3.png" alt="Image"></li>
+                                        <li><img src="assets/images/banner/sm-img-4.png" alt="Image"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -331,6 +334,10 @@
                 </div>
             </div>
         </div>
+        @endforeach
+
+
+{{--
         <div class="banner-slider-item bg-2">
             <div class="container-fluid">
                 <div class="banner-content">
@@ -400,7 +407,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 

@@ -50,28 +50,46 @@
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1">Slider Description</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1" aria-label="Action: activate to sort column ascending">Action
-                                        </th>
+                                            colspan="1">Slider Profile Image</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1">Button Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1">Button Url</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($slider as $item)
-                                    <tr role="row" class="odd">
-                                        <td>{{$item->id}}</td>
-                                        <td><img class="mt-2" id="oldlogo" src="{{ asset($item->slider_image) }}"
-                                            alt="logo" width="100" height="100" /></td>
-                                        <td>{{$item->welcome_text}}</td>
-                                        <td>{{$item->slider_title}}</td>
-                                        <td>{{$item->slider_description}}</td>
-                                        <td>
-                                            <a href="{{route('admin.slider.edit',$item->id)}}" class="btn btn-success">Edit</a>
-                                            <a href="{{route('admin.slider.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
-                                        </td>
-                                    </tr>
+                                    @foreach($slider as $item)
+                                        <tr role="row">
+                                            <td>{{ $item->id }}</td>
+                                            <td><img class="mt-2" id="oldlogo" src="{{ asset($item->slider_image) }}"
+                                                    alt="logo" width="100" height="100" /></td>
+                                            <td>{{ $item->welcome_text }}</td>
+                                            <td>{{ $item->slider_title }}</td>
+                                            <td>{{ $item->slider_description }}</td>
 
+                                            <td>
+                                                @php
+                                                $profileImages = json_decode($item->slider_profile_image);
+                                                @endphp
+                                                @if (is_array($profileImages))
+                                                    @foreach ($profileImages as $profileimage)
+                                                        <img class="mt-2" src="{{ asset($profileimage) }}" alt="logo" width="100" height="100" />
+                                                    @endforeach
+                                                @endif
+                                            </td>
+
+                                            <td>{{ $item->slider_profile_button_name }}</td>
+                                            <td>{{ $item->slider_profile_button_url }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.slider.edit',$item->id) }}"
+                                                    class="btn btn-success">Edit</a>
+                                                <a href="{{ route('admin.slider.delete',$item->id) }}"
+                                                    class="btn btn-danger deleteBtn">Delete</a>
+                                            </td>
+                                        </tr>
                                     @endforeach
-
-
                                 </tbody>
                             </table>
                         </div>

@@ -12,8 +12,8 @@ class WebsiteController extends Controller
     {
 
         $sliders = SliderSection::orderBy('id', 'desc')->get();
-        dd($sliders);
+        
 
-        return view('frontend.index');
+        return view('frontend.index',compact('sliders'));
     }
 }
