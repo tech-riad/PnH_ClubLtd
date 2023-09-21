@@ -340,99 +340,27 @@
             </div>
         @endforeach
 
-
-        {{--
-        <div class="banner-slider-item bg-2">
-            <div class="container-fluid">
-                <div class="banner-content">
-                    <span>Welcome To The Martial Arts, Boxing & Karate School</span>
-                    <h1>Prominent Peregrinate Begins In One Step! <span class="overlay"></span></h1>
-                    <p>Many desktop publishing package and web page editor now use Lorem Ipsum as their text, & a search
-                        for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
-                    <div class="apply-content">
-                        <div class="row align-items-center">
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-img">
-                                    <ul>
-                                        <li><img src="assets/images/banner/sm-img-1.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-2.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-3.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-4.png" alt="Image"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-text">
-                                    <span>Join Our 500+ Students For Boxing Class</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-btn">
-                                    <a class="default-btn active" href="apply.html">Apply Now <i
-                                            class="ri-arrow-right-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="banner-slider-item bg-3">
-            <div class="container-fluid">
-                <div class="banner-content ">
-                    <span>Welcome To The Martial Arts, Boxing & Karate School</span>
-                    <h1>Champion Training In The Competition <span class="overlay"></span></h1>
-                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as search for 'lorem
-                        ipsum' will uncover many web sites still in their infancy. </p>
-                    <div class="apply-content">
-                        <div class="row align-items-center">
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-img">
-                                    <ul>
-                                        <li><img src="assets/images/banner/sm-img-1.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-2.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-3.png" alt="Image"></li>
-                                        <li><img src="assets/images/banner/sm-img-4.png" alt="Image"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-text">
-                                    <span>Join Our 500+ Students For Boxing Class</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="apply-btn">
-                                    <a class="default-btn active" href="apply.html">Apply Now <i
-                                            class="ri-arrow-right-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </div>
 
-
+@if (helper::getServiceSection()->status == 'Show')
 <div class="services-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span>Services</span>
-            <h2>Some Of Our Services <span class="overlay"></span></h2>
+            <span>{{helper::getServiceSection()->servicetitle}}</span>
+            <h2>{{helper::getServiceSection()->shortdesc}} <span class="overlay"></span></h2>
         </div>
         <div class="row">
+            @foreach ($services as $item)
             <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                 <div class="single-services-card">
                     <div class="services-content">
                         <div class="icon">
-                            <i class="flaticon-boxer"></i>
+                            <i class="{{$item->service_icon_tag}}"></i>
                         </div>
-                        <h3><a href="services-details.html">Fully Equipped Facility</a></h3>
-                        <p>Many desktop publishing packages and web page editors now
-                            use will uncover many web sites still in their infancy.</p>
-                        <a class="default-btn" href="services-details.html">Read More <i
+                        <h3><a href="#">{{$item->service_title}}</a></h3>
+                        <p>{{$item->service_description}}</p>
+                        <a class="default-btn" href="#">Read More <i
                                 class="ri-arrow-right-line"></i></a>
                     </div>
                     <div class="number">
@@ -440,62 +368,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                <div class="single-services-card">
-                    <div class="services-content">
-                        <div class="icon">
-                            <i class="flaticon-boxing-gloves-1"></i>
-                        </div>
-                        <h3><a href="services-details.html">Protect Yourself</a></h3>
-                        <p>Many desktop publishing packages and web page editors now
-                            use will uncover many web sites still in their infancy.</p>
-                        <a class="default-btn" href="services-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                    <div class="number">
-                        <span>02</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                <div class="single-services-card">
-                    <div class="services-content">
-                        <div class="icon">
-                            <i class="flaticon-boxing-1"></i>
-                        </div>
-                        <h3><a href="services-details.html">Probably Complete</a></h3>
-                        <p>Many desktop publishing packages and web page editors now
-                            use will uncover many web sites still in their infancy.</p>
-                        <a class="default-btn" href="services-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                    <div class="number">
-                        <span>03</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
-                <div class="single-services-card">
-                    <div class="services-content">
-                        <div class="icon">
-                            <i class="flaticon-boxing"></i>
-                        </div>
-                        <h3><a href="services-details.html">Top Rank Boxing</a></h3>
-                        <p>Many desktop publishing packages and web page editors now
-                            use will uncover many web sites still in their infancy.</p>
-                        <a class="default-btn" href="services-details.html">Read More <i
-                                class="ri-arrow-right-line"></i></a>
-                    </div>
-                    <div class="number">
-                        <span>04</span>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+
         </div>
     </div>
 </div>
+@else
+
+@endif
 
 
+@if (helper::getAboutSection()->status == 'Show')
 <div class="about-area pb-100">
     <div class="container">
         <div class="row">
@@ -542,6 +426,8 @@
         </div>
     </div>
 </div>
+@else
+@endif
 
 
 <div class="course-area bg pt-100">
