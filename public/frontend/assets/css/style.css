@@ -5529,7 +5529,9 @@ textarea {
     overflow: hidden;
     border-radius: 10px 10px 0 0;
     -webkit-transition: all ease .5s;
-    transition: all ease .5s
+    transition: all ease .5s;
+    height: 300px;
+    width: auto;
 }
 
 .single-blog-card .blog-content {

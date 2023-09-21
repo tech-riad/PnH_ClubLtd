@@ -947,49 +947,24 @@ z-index: 1">
                 <h2>{{ helper::getBlogSection()->blog_desc }} <span class="overlay"></span></h2>
             </div>
             <div class="row justify-content-center">
+                @foreach ($blogs as $item)
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                     <div class="single-blog-card">
                         <div class="blog-img">
-                            <a href="blog-details.html"><img src="assets/images/blog/blog-img-1.jpg" alt="Image"></a>
+                            <a href="#"><img src="{{asset($item->image)}}" alt="Image"></a>
                         </div>
                         <div class="blog-content">
-                            <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
-                            <h2><a href="blog-details.html">The Best Effective Strategies And Tips From Everyone</a>
+                            <span><i class="ri-calendar-check-line"></i>{{$item->created_at}}</span>
+                            <h2><a href="#">{{$item->title}}</a>
                             </h2>
-                            <a class="default-btn" href="blog-details.html">Read More <i
+                            <a class="default-btn" href="#">Read More <i
                                     class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                    <div class="single-blog-card">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="assets/images/blog/blog-img-2.jpg" alt="Image"></a>
-                        </div>
-                        <div class="blog-content">
-                            <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
-                            <h2><a href="blog-details.html">Keeps You Motivated And Committed To Continuing The
-                                    Program</a>
-                            </h2>
-                            <a class="default-btn" href="blog-details.html">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                    <div class="single-blog-card">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="assets/images/blog/blog-img-3.jpg" alt="Image"></a>
-                        </div>
-                        <div class="blog-content">
-                            <span><i class="ri-calendar-check-line"></i>06 - Jun - 2022</span>
-                            <h2><a href="blog-details.html">Finding A Physical Activity Presents Many Additional
-                                    Challenges</a></h2>
-                            <a class="default-btn" href="blog-details.html">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
+
+                @endforeach
+
             </div>
         </div>
     </div>

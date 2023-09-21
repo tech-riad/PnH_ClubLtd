@@ -34,6 +34,6 @@ class WebsiteController extends Controller
 
 
         return view('frontend.index',compact('sliders','services','about','members','introvideo',
-                'testimonials'));
+                'testimonials','blogs'));
     }
 }
