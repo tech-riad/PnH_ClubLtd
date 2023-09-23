@@ -10,7 +10,7 @@
                     <ul>
                         <li>
                             <i class="ri-headphone-line"></i>
-                            <a href="tel:{{ helper::getLatestsetting()->phone }}">{{ helper::getLatestsetting()->phone }}</a>
+                            <a href="tel:{{ helper::getLatestsetting()->phone ?? Null}}">{{ helper::getLatestsetting()->phone ?? Null}}</a>
                         </li>
                         {{-- <li>
                             <i class="ri-time-line"></i>
@@ -21,7 +21,7 @@
                             <a
                                 href="#"><span
                                     class="__cf_email__"
-                                    >{{ helper::getLatestsetting()->email }}</span></a>
+                                    >{{ helper::getLatestsetting()->email ?? Null}}</span></a>
                         </li>
                     </ul>
                 </div>
@@ -31,17 +31,17 @@
                     <div class="social-content">
                         <ul>
                             <li>
-                                <a href="{{ helper::getLatestsetting()->facebook_link }}" target="_blank"><i class="ri-facebook-line"></i></a>
+                                <a href="{{ helper::getLatestsetting()->facebook_link ?? Null}}" target="_blank"><i class="ri-facebook-line"></i></a>
                             </li>
                             <li>
-                                <a href="{{ helper::getLatestsetting()->twitter_link }}" target="_blank"><i class="ri-twitter-line"></i></a>
+                                <a href="{{ helper::getLatestsetting()->twitter_link ?? Null}}" target="_blank"><i class="ri-twitter-line"></i></a>
                             </li>
                             <li>
-                                <a href="{{ helper::getLatestsetting()->instagram_link }}" target="_blank"><i
+                                <a href="{{ helper::getLatestsetting()->instagram_link ?? Null}}" target="_blank"><i
                                         class="ri-instagram-line"></i></a>
                             </li>
                             <li>
-                                <a href="{{ helper::getLatestsetting()->linkdein_link }}" target="_blank"><i
+                                <a href="{{ helper::getLatestsetting()->linkdein_link ?? Null}}" target="_blank"><i
                                         class="ri-linkedin-line"></i></a>
                             </li>
                         </ul>

@@ -43,16 +43,15 @@
                                     <i class="ri-map-pin-line"></i>
                                 </div>
                                 <h4>Location</h4>
-                                <span>20 Mercantile Plaza, Suite 546, Fort Worth,
-                                    TX, 16734, USA</span>
+                                <span>{{ helper::getLatestsetting()->address ?? Null}}</span>
                             </div>
                             <div class="single-contact-item">
                                 <div class="icon">
                                     <i class="ri-phone-line"></i>
                                 </div>
                                 <h4>Call Us</h4>
-                                <a href="tel:+1823456789">+1 (823-456-789)</a>
-                                <a href="tel:2546585738)">(254 - 658 - 5738)</a>
+                                <a href="tel:{{ helper::getLatestsetting()->phone ?? Null }}">{{ helper::getLatestsetting()->phone ?? Null }}</a>
+
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5">
@@ -62,21 +61,8 @@
                                 </div>
                                 <h4>Email Address</h4>
                                 <a
-                                    href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#e1828e8f95808295a1988e949395888f86cf828e8c"><span
-                                        class="__cf_email__"
-                                        data-cfemail="6d0e0203190c0e192d1402181f1904030a430e0200">[email&#160;protected]</span></a>
-                                <a
-                                    href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#0d7e787d7d627f794d7964636a236e6260"><span
-                                        class="__cf_email__"
-                                        data-cfemail="fb888e8b8b94898fbb8f92959cd5989496">[email&#160;protected]</span></a>
-                            </div>
-                            <div class="single-contact-item">
-                                <div class="icon">
-                                    <i class="ri-time-line"></i>
-                                </div>
-                                <h4>Office Open</h4>
-                                <span>Sun - Tue (08AM - 10PM)</span>
-                                <span>Wed - Fri (08AM - 10PM)</span>
+                                    >{{ helper::getLatestsetting()->email ?? Null }}</span></a>
+
                             </div>
                         </div>
                     </div>
@@ -85,19 +71,17 @@
                             <ul>
                                 <li><span>Follow Us</span></li>
                                 <li>
-                                    <a href="https://www.facebook.com/" target="_blank"><i
-                                            class="ri-facebook-line"></i></a>
+                                    <a href="{{ helper::getLatestsetting()->facebook_link ?? Null}}" target="_blank"><i class="ri-facebook-line"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://www.twitter.com/" target="_blank"><i
-                                            class="ri-twitter-line"></i></a>
+                                    <a href="{{ helper::getLatestsetting()->twitter_link ?? Null}}" target="_blank"><i class="ri-twitter-line"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://instagram.com/?lang=en" target="_blank"><i
+                                    <a href="{{ helper::getLatestsetting()->instagram_link ?? Null}}" target="_blank"><i
                                             class="ri-instagram-line"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://linkedin.com/?lang=en" target="_blank"><i
+                                    <a href="{{ helper::getLatestsetting()->linkdein_link ?? Null}}" target="_blank"><i
                                             class="ri-linkedin-line"></i></a>
                                 </li>
                             </ul>
