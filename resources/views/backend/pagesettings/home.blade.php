@@ -253,52 +253,28 @@
                             </form>
                             <!-- // Tab 7 -->
                         </div>
-                        {{--<div class="tab-pane fade" id="v-pills-8" role="tabpanel" aria-labelledby="v-pills-8-tab">
+                        
+                        <div class="tab-pane fade" id="v-pills-8" role="tabpanel" aria-labelledby="v-pills-8-tab">
                             <!-- Tab 8 -->
-                            <form action="https://agmesconsultants.com/admin/page/home/8" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="current_photo" value="appointment_bg.jpeg">
-                                <input type="hidden" name="_token" value="u2lbaoQ57lgdG3rdwH04ufhtWR37eBOSzpDTbxv8">                                <div class="form-group">
-                                    <label for="">Title</label>
-                                    <input type="text" name="appointment_title" class="form-control" value="Want to hire us for your business?">
+                            <form id="edit-contactUs">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="edit-testimonial-title">Title</label>
+                                    <input type="text" name="headline" id="edit-testimonial-title" class="form-control" value="{{ $testimonialSection->testimonial_title ?? '' }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Text</label>
-                                    <textarea name="appointment_text" class="form-control h_100" cols="30" rows="10">If you want to take our service to build your business, our expert team members are always here to help you to make you successful.</textarea>
+                                    <label for="edit-testimonial-desc">Description</label>
+                                    <input type="text" name="title" id="edit-testimonial-title" class="form-control" value="{{ $testimonialSection->testimonial_title ?? '' }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Button Text</label>
-                                    <input type="text" name="appointment_btn_text" class="form-control" value="Make An Appointment">
+                                    <label for="edit-testimonial-desc">Description</label>
+                                    <textarea name="short_description" id="edit-testimonial-desc" class="form-control">{{ $testimonialSection->testimonial_desc ?? '' }}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Button URL</label>
-                                    <input type="text" name="appointment_btn_url" class="form-control" value="/contact">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Existing Background</label>
-                                    <div><img src="https://agmesconsultants.com/public/uploads/appointment_bg.jpeg" alt="" class="w_200"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Change Background</label>
-                                    <div><input type="file" name="appointment_bg"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Status</label>
-                                    <div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="appointment_status" id="rr1" value="Show" checked="">
-                                            <label class="form-check-label font-weight-normal" for="rr1">Show</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="appointment_status" id="rr2" value="Hide">
-                                            <label class="form-check-label font-weight-normal" for="rr2">Hide</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-success">Update</button>
+                                <button type="submit" id="update-testimonial-button" class="btn btn-success">Update</button>
                             </form>
                             <!-- // Tab 8 -->
                         </div>
-                        <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-9-tab">
+                        {{--<div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-9-tab">
                             <!-- Tab 9 -->
                             <form action="https://agmesconsultants.com/admin/page/home/9" method="post">
                                 <input type="hidden" name="_token" value="u2lbaoQ57lgdG3rdwH04ufhtWR37eBOSzpDTbxv8">                                <div class="form-group">

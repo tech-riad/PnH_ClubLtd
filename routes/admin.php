@@ -26,6 +26,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/metaupdate/{id}', [HomeSectionController::class, 'metaupdate'])->name('admin.metaupdate');
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');
     Route::any('/schedule/{id}', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
+    Route::any('/contact-us-section/{id}', [HomeSectionController::class, 'contactUsUpdate'])->name('admin.contactUsUpdate');
 
     Route::any('/portfolio/{id}', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
     Route::any('/testimonial/{id}', [HomeSectionController::class, 'testimonialUpdate'])->name('admin.testimonialUpdate');

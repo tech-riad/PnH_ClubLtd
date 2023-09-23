@@ -64,9 +64,9 @@
                                         <td>{{@$item->id}}</td>
                                         <td><img class="mt-2" id="oldlogo" src="{{ asset(@$item->video_image) }}"
                                             alt="logo" width="100" height="100" /></td>
-                                        <td>{{@$item->video_title}}</td>
-                                        <td><a href="{{@$item->video_url}}"target="_blank">{{@$item->video_url}}</a></td>
-                                        <td>{{@$item->video_description}}</td>
+                                        <td>{{Str::limit(@$item->video_title,20)}}</td>
+                                        <td><a href="{{@$item->video_url}}"target="_blank">{{Str::limit(@$item->video_url,20)}}</a></td>
+                                        <td>{{Str::limit(@$item->video_description,20)}}</td>
 
                                         <td>
                                             <a href="{{route('admin.introvideo.edit',@$item->id)}}" class="btn btn-success">Edit</a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutSection;
+use Exception;
 use Illuminate\Http\Request;
 
 class AboutSectionController extends Controller
@@ -87,9 +88,14 @@ class AboutSectionController extends Controller
             $aboutImageName = date('YmdHis') . "." . $aboutImage->getClientOriginalExtension();
             $aboutImage->move($destinationPath, $aboutImageName);
 
-            if (file_exists(public_path($aboutdata->about_image))) {
-                unlink(public_path($aboutdata->about_image));
+            try{
+                if (file_exists(public_path($aboutdata->about_image))) {
+                    unlink(public_path($aboutdata->about_image));
+                }
             }
+            catch(Exception $e){}
+
+
 
             $aboutdata->about_image = $destinationPath . $aboutImageName;
         }
@@ -99,9 +105,12 @@ class AboutSectionController extends Controller
             $aboutImageAdditionalName = date('YmdHis') . "." . $aboutImageAdditional->getClientOriginalExtension();
             $aboutImageAdditional->move($destinationPath, $aboutImageAdditionalName);
 
-            if (file_exists(public_path($aboutdata->about_image_additional))) {
-                unlink(public_path($aboutdata->about_image_additional));
-            }
+            try{
+
+                if (file_exists(public_path($aboutdata->about_image_additional))) {
+                    unlink(public_path($aboutdata->about_image_additional));
+                }
+            }catch(Exception $e){}
 
             $aboutdata->about_image_additional = $destinationPath . $aboutImageAdditionalName;
         }

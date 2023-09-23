@@ -58,7 +58,7 @@
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->position}}</td>
-                                        <td>{{$item->description}}</td>
+                                        <td>{!!Str::limit(@$item->description,20)!!}</td>
                                         <td>
                                             <a href="{{route('admin.testimonialsection.edit',$item->id)}}" class="btn btn-success">Edit</a>
                                             <a href="{{route('admin.testimonialsection.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>

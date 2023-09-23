@@ -194,6 +194,8 @@ class HomeSectionController extends Controller
         return response()->json(['success' => 'Blog section updated successfully']);
     }
 
+    
+
 
 
 }
