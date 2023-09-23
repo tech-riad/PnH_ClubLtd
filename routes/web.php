@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
+Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contactUs');
+Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('contact-us.store');
 
 
 require (base_path('routes/admin.php'));

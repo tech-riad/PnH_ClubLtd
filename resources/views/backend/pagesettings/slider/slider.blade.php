@@ -67,9 +67,9 @@
                                             <td>{{ $item->id }}</td>
                                             <td><img class="mt-2" id="oldlogo" src="{{ asset($item->slider_image) }}"
                                                     alt="logo" width="100" height="100" /></td>
-                                            <td>{{ $item->welcome_text }}</td>
-                                            <td>{{ $item->slider_title }}</td>
-                                            <td>{{ $item->slider_description }}</td>
+                                            <td>{{ Str::limit(@$item->welcome_text,20) }}</td>
+                                            <td>{{ Str::limit(@$item->slider_title,20) }}</td>
+                                            <td>{{ Str::limit(@$item->slider_description,20) }}</td>
 
                                             <td>
                                                 @php
@@ -77,14 +77,14 @@
                                                 @endphp
                                                 @if (is_array($profileImages))
                                                     @foreach ($profileImages as $profileimage)
-                                                        <img class="mt-2" src="{{ asset($profileimage) }}" alt="logo" width="100" height="100" />
+                                                        <img class="mt-2" src="{{ asset($profileimage) ?? Null }}" alt="logo" width="100" height="100" />
                                                     @endforeach
                                                 @endif
                                             </td>
 
-                                            <td>{{ $item->slider_profile_button_name }}</td>
-                                            <td>{{ $item->slider_profile_button_url }}</td>
-                                            <td>{{ $item->slider_profile_short_desc }}</td>
+                                            <td>{{ @$item->slider_profile_button_name }}</td>
+                                            <td>{{ @$item->slider_profile_button_url }}</td>
+                                            <td>{{ Str::limit($item->slider_profile_short_desc ,20)}}</td>
                                             <td>
                                                 <a href="{{ route('admin.slider.edit',$item->id) }}"
                                                     class="btn btn-success">Edit</a>
