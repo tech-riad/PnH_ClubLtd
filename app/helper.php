@@ -4,6 +4,7 @@ use App\Models\AboutSection;
 use App\Models\GeneralSetting;
 use App\Models\HomeAboutSection;
 use App\Models\HomeBlogSection;
+use App\Models\HomeContactUsSection;
 use App\Models\HomeMemberSection;
 use App\Models\HomePortfolioSection;
 use App\Models\HomeServiceSection;
@@ -48,5 +49,9 @@ class helper
     public static function getLatestsetting()
     {
         return GeneralSetting::latest()->first();
+    }
+    public static function getContactUs()
+    {
+        return HomeContactUsSection::latest()->first();
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('headline');
             $table->string('title');
+            $table->longText('map_location');
             $table->longText('short_description');
             $table->timestamps();
         });

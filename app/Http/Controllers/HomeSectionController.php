@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use App\Models\HomeAboutSection;
 use App\Models\HomeBlogSection;
+use App\Models\HomeContactUsSection;
 use App\Models\HomeMemberSection;
 use App\Models\HomeMetaInformation;
 use App\Models\HomePortfolioSection;
@@ -25,9 +27,10 @@ class HomeSectionController extends Controller
         $portfolioSection     = HomePortfolioSection::first();
         $testimonialSection   = HomeTestimonialSection::first();
         $blogSection          = HomeBlogSection::first();
+        $homecontactus        = HomeContactUsSection::first();
 
         return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection'
-        ,'memberSection','portfolioSection','testimonialSection','blogSection'));
+        ,'memberSection','portfolioSection','testimonialSection','blogSection','homecontactus'));
     }
 
     public function metaupdate(Request $request,$id)
@@ -194,7 +197,26 @@ class HomeSectionController extends Controller
         return response()->json(['success' => 'Blog section updated successfully']);
     }
 
-    
+    public function contactUsUpdate(Request $request,$id)
+    {
+        $validatedData = $request->validate([
+            'headline' => 'required|string|max:255',
+            'title' => 'required|string',
+            'short_description' => 'required|string',
+            'map_location' => 'required',
+        ]);
+
+        $contactData = HomeContactUsSection::findOrFail($id);
+
+        $contactData->headline = $validatedData['headline'];
+        $contactData->title = $validatedData['title'];
+        $contactData->short_description = $validatedData['short_description'];
+        $contactData->map_location = $validatedData['map_location'];
+
+        $contactData->save();
+
+        return response()->json(['message' => 'Contact data updated successfully']);
+    }
 
 
 

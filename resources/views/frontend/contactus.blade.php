@@ -31,10 +31,9 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="contact-title">
-                        <span>Get In Touch</span>
-                        <h2>Contact Us To Get Better Information <span class="overlay"></span></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable content page
-                            it when using Lorem Ipsum is that it normal distribution of a opposed it look English.</p>
+                        <span>{{helper::getContactUs()->headline ?? Null}}</span>
+                        <h2>{{helper::getContactUs()->title ?? Null}} <span class="overlay"></span></h2>
+                        <p>{{helper::getContactUs()->short_description ?? Null}} </p>
                     </div>
                     <div class="row">
                         <div class="col-lg-7 col-md-7">
@@ -129,7 +128,7 @@
 
     <div class="map-area">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12711295.912702927!2d-97.8942370839028!3d38.93897514662292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1654928837073!5m2!1sen!2sbd"
+            src="{{helper::getContactUs()->map_location ?? Null}}"
             style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 

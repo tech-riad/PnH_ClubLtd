@@ -4,11 +4,11 @@
 @section('content')
 <div class="container-fluid">
 
-    <h1 class="h3 mb-3 text-gray-800">About</h1>
+    <h1 class="h3 mb-3 text-gray-800">Blog</h1>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 mt-2 font-weight-bold text-primary">View About</h6>
+            <h6 class="m-0 mt-2 font-weight-bold text-primary">View Blog</h6>
             <div class="float-right d-inline">
                 <a href="{{route('admin.blogsection.create') }}" class="btn btn-primary btn-sm"><i
                         class="fa fa-plus"></i> Add New</a>
@@ -61,8 +61,8 @@
                                         <td>{{@$item->id}}</td>
                                         <td><img class="mt-2" id="oldlogo" src="{{ asset($item->image) ?? Null }}"
                                             alt="logo" width="100" height="100" /></td>
-                                        <td>{{@$item->title}}</td>
-                                        <td>{{@$item->description}}</td>
+                                        <td>{{Str::limit(@$item->title,20)}}</td>
+                                        <td>{!! Str::limit(@$item->description,20)!!}</td>
 
                                         <td>
                                             <a href="{{route('admin.blogsection.edit',@$item->id)}}" class="btn btn-success">Edit</a>

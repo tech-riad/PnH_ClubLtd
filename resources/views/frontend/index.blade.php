@@ -133,11 +133,11 @@
                 <div class="col-lg-6">
                     <div class="about-content pl-15">
                         <div class="about-title">
-                            <span>{{ helper::getAboutSection()->abouttitle }}</span>
+                            <span>{{ helper::getAboutSection()->abouttitle ?? Null}}</span>
                             <h2>{{ @$about->about_title }} <span class="overlay"></span></h2>
                         </div>
                         <p>{!! @$about->about_description !!}</p>
-                        <div class="features-list">
+                        {{-- <div class="features-list">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <ul>
@@ -156,7 +156,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         {{-- <a class="default-btn active" href="about-us.html">Read More <i class="ri-arrow-right-line"></i></a> --}}
                     </div>
                 </div>

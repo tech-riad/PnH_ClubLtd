@@ -12,10 +12,6 @@
                             <i class="ri-headphone-line"></i>
                             <a href="tel:{{ helper::getLatestsetting()->phone ?? Null}}">{{ helper::getLatestsetting()->phone ?? Null}}</a>
                         </li>
-                        {{-- <li>
-                            <i class="ri-time-line"></i>
-                            Mon-Fri 8:00 to 2:00
-                        </li> --}}
                         <li>
                             <i class="ri-mail-send-line"></i>
                             <a
@@ -89,123 +85,7 @@
                             <a href="#" class="nav-link">
                                 Training
                             </a>
-                            {{-- <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">Training</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">Training Details</a>
-                                </li>
-                            </ul> --}}
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">
-                                Shop
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="shop.html" class="nav-link">Shop</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="shop-details.html" class="nav-link">Shop Details</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="cart.html" class="nav-link">Cart</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="checkout.html" class="nav-link">Checkout</a>
-                                </li>
-                            </ul>
-                        </li> --}}
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">
-                                Pages
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">
-                                        Team
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="team-style-one.html" class="nav-link">Team Style One</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="team-style-two.html" class="nav-link">Team Style Two</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="team-style-three.html" class="nav-link">Team Style Three</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">
-                                        Services
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="services.html" class="nav-link">Services</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="services-details.html" class="nav-link">Services Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">
-                                        Portfolio
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="portfolio.html" class="nav-link">Portfolio</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="portfolio-details.html" class="nav-link">Portfolio Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pricing.html" class="nav-link">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="faq.html" class="nav-link">FAQ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="apply.html" class="nav-link">Apply</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">
-                                        Users
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="login.html" class="nav-link">Login</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="register.html" class="nav-link">Register</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="recover-password.html" class="nav-link">Recover Password</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="terms-conditions.html" class="nav-link">Terms And Conditions</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="404.html" class="nav-link">404 Page</a>
-                                </li>
-                            </ul>
-                        </li> --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 Blog
@@ -213,12 +93,12 @@
 
                         </li>
                         <li class="nav-item">
-                            <a href="contact-us.html" class="nav-link">Contact Us</a>
+                            <a href="{{route('contactUs')}}" class="nav-link">Contact Us</a>
                         </li>
                     </ul>
                     <div class="others-options">
                         <div class="option-item">
-                            <a href="contact-us.html" class="default-btn btn style-2">Get In Touch <i
+                            <a href="{{route('contactUs')}}" class="default-btn btn style-2">Get In Touch <i
                                     class="ri-arrow-right-line"></i></a>
                         </div>
                         <div class="option-item">

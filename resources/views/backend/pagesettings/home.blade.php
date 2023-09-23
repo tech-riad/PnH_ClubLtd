@@ -19,6 +19,7 @@
                         <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Portfolio Section</a>
                         <a class="nav-link" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Testimonial Section</a>
                         <a class="nav-link" id="v-pills-7-tab" data-toggle="pill" href="#v-pills-7" role="tab" aria-controls="v-pills-7" aria-selected="false">Daily News</a>
+                        <a class="nav-link" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="false">Contact Us</a>
                     </div>
                 </div>
 
@@ -253,24 +254,28 @@
                             </form>
                             <!-- // Tab 7 -->
                         </div>
-                        
+
                         <div class="tab-pane fade" id="v-pills-8" role="tabpanel" aria-labelledby="v-pills-8-tab">
                             <!-- Tab 8 -->
                             <form id="edit-contactUs">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="edit-testimonial-title">Title</label>
-                                    <input type="text" name="headline" id="edit-testimonial-title" class="form-control" value="{{ $testimonialSection->testimonial_title ?? '' }}">
+                                    <label for="edit-contact-headline">Headline</label>
+                                    <input type="text" name="headline" id="edit-contact-headline" class="form-control" value="{{ $homecontactus->headline ?? '' }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="edit-testimonial-desc">Description</label>
-                                    <input type="text" name="title" id="edit-testimonial-title" class="form-control" value="{{ $testimonialSection->testimonial_title ?? '' }}">
+                                    <label for="edit-contact-title">Title</label>
+                                    <input type="text" name="title" id="edit-contact-title" class="form-control" value="{{ $homecontactus->title ?? '' }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="edit-testimonial-desc">Description</label>
-                                    <textarea name="short_description" id="edit-testimonial-desc" class="form-control">{{ $testimonialSection->testimonial_desc ?? '' }}</textarea>
+                                    <label for="edit-contact-map-location">Map Location</label>
+                                    <input type="text" name="map_location" id="edit-contact-map-location" class="form-control" value="{{ $homecontactus->map_location ?? '' }}">
                                 </div>
-                                <button type="submit" id="update-testimonial-button" class="btn btn-success">Update</button>
+                                <div class="form-group">
+                                    <label for="edit-contact-desc">Description</label>
+                                    <textarea name="short_description" id="edit-contact-desc" class="form-control">{{ $homecontactus->short_description ?? '' }}</textarea>
+                                </div>
+                                <button type="submit" id="update-contact-button" class="btn btn-success">Update</button>
                             </form>
                             <!-- // Tab 8 -->
                         </div>
@@ -394,12 +399,14 @@
                 $("#v-pills-5").removeClass('show active');
                 $("#v-pills-10").removeClass('show active');
                 $("#v-pills-7").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
                 $("#v-pills-4-tab").removeClass("active");
                 $("#v-pills-2-tab").removeClass("active");
                 $("#v-pills-10-tab").removeClass("active");
                 $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
             });
 
             // Tab-2
@@ -415,12 +422,14 @@
                 $("#v-pills-5").removeClass('show active');
                 $("#v-pills-10").removeClass('show active');
                 $("#v-pills-7").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
                 $("#v-pills-4-tab").removeClass("active");
                 $("#v-pills-2-tab").removeClass("active");
                 $("#v-pills-10-tab").removeClass("active");
                 $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
             });
             // Tab-3
              $("#v-pills-6-tab").click(function(){
@@ -435,12 +444,14 @@
                 $("#v-pills-5").removeClass('show active');
                 $("#v-pills-10").removeClass('show active');
                 $("#v-pills-7").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
                 $("#v-pills-4-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
                 $("#v-pills-2-tab").removeClass("active");
                 $("#v-pills-10-tab").removeClass("active");
                 $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
             });
             // Tab-4
              $("#v-pills-3-tab").click(function(){
@@ -456,11 +467,13 @@
                 $("#v-pills-5").removeClass('show active');
                 $("#v-pills-10").removeClass('show active');
                 $("#v-pills-7").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-2-tab").removeClass("active");
                 $("#v-pills-10-tab").removeClass("active");
                 $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
 
             });
             // Tab-5
@@ -476,12 +489,14 @@
                 $("#v-pills-5").removeClass('show active');
                 $("#v-pills-10").removeClass('show active');
                 $("#v-pills-7").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
                 $("#v-pills-2-tab").removeClass("active");
                 $("#v-pills-10-tab").removeClass("active");
                 $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
             });
             // Tab-6
              $("#v-pills-2-tab").click(function(){
@@ -496,12 +511,14 @@
                 $("#v-pills-4").removeClass('show active');
                 $("#v-pills-10").removeClass('show active');
                 $("#v-pills-11").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
                 $("#v-pills-4-tab").removeClass("active");
                 $("#v-pills-10-tab").removeClass("active");
                 $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
             });
             // Tab-6
              $("#v-pills-10-tab").click(function(){
@@ -516,17 +533,41 @@
                 $("#v-pills-5").removeClass('show active');
                 $("#v-pills-11").removeClass('show active');
                 $("#v-pills-7").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
                 $("#v-pills-11-tab").removeClass("active");
                 $("#v-pills-6-tab").removeClass("active");
                 $("#v-pills-3-tab").removeClass("active");
                 $("#v-pills-4-tab").removeClass("active");
                 $("#v-pills-2-tab").removeClass("active");
                 $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
             });
             // Tab-7
              $("#v-pills-7-tab").click(function(){
                 $("#v-pills-7-tab").addClass("active");
                 $("#v-pills-7").addClass('show active');
+
+                $("#v-pills-1-tab").removeClass('active');
+                $("#v-pills-1").removeClass('show active');
+                $("#v-pills-10").removeClass('show active');
+                $("#v-pills-3").removeClass('show active');
+                $("#v-pills-2").removeClass('show active');
+                $("#v-pills-4").removeClass('show active');
+                $("#v-pills-5").removeClass('show active');
+                $("#v-pills-11").removeClass('show active');
+                $("#v-pills-8").removeClass('show active');
+                $("#v-pills-11-tab").removeClass("active");
+                $("#v-pills-6-tab").removeClass("active");
+                $("#v-pills-3-tab").removeClass("active");
+                $("#v-pills-4-tab").removeClass("active");
+                $("#v-pills-2-tab").removeClass("active");
+                $("#v-pills-10-tab").removeClass("active");
+                $("#v-pills-8-tab").removeClass("active");
+            });
+            // Tab-7
+             $("#v-pills-8-tab").click(function(){
+                $("#v-pills-8-tab").addClass("active");
+                $("#v-pills-8").addClass('show active');
 
                 $("#v-pills-1-tab").removeClass('active');
                 $("#v-pills-1").removeClass('show active');
@@ -542,6 +583,8 @@
                 $("#v-pills-4-tab").removeClass("active");
                 $("#v-pills-2-tab").removeClass("active");
                 $("#v-pills-10-tab").removeClass("active");
+                $("#v-pills-7-tab").removeClass("active");
+                $("#v-pills-7").removeClass('show active');
             });
     });
 </script>
@@ -794,6 +837,33 @@
             $.ajax({
                 type: "POST",
                 url: "{{ route('admin.blogUpdate',['id' => $aboutId])}}",
+                data: formData,
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $("#edit-contactUs").submit(function(e) {
+            e.preventDefault();
+
+            var formData = {
+                headline: $("#edit-contact-headline").val(),
+                title: $("#edit-contact-title").val(),
+                short_description: $("#edit-contact-desc").val(),
+                map_location: $("#edit-contact-map-location").val(),
+                _token: $("input[name='_token']").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin.contactUsUpdate',['id' => $aboutId])}}",
                 data: formData,
                 success: function(response) {
                     console.log(response);
