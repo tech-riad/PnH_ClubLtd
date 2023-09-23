@@ -59,12 +59,12 @@ class HomeSectionController extends Controller
         $validatedData = $request->validate([
             'servicetitle' => 'required',
             'shortdesc' => 'required',
-            'status' => 'required|in:Show,Hide',
+            'servicestatus' => 'nullable|in:Hide,Show',
         ]);
 
         $service->servicetitle = $validatedData['servicetitle'];
         $service->shortdesc = $validatedData['shortdesc'];
-        $service->status = $validatedData['status'];
+        $service->servicestatus = $validatedData['servicestatus'];
 
         $service->save();
 
@@ -75,18 +75,17 @@ class HomeSectionController extends Controller
 
     public function aboutUpdate(Request $request, $id)
     {
-        // Validate the form data
         $validatedData = $request->validate([
             'abouttitle' => 'nullable|string',
             'aboutdesc' => 'nullable|string',
-            'status' => 'required|in:Show,Hide',
+            'aboutstatus' => 'nullable|in:Hide,Show',
         ]);
 
         $about = HomeAboutSection::find($id);
 
         $about->abouttitle = $validatedData['abouttitle'];
         $about->aboutdesc = $validatedData['aboutdesc'];
-        $about->status = $validatedData['status'];
+        $about->aboutstatus = $validatedData['aboutstatus'];
 
         $about->save();
 
@@ -97,18 +96,17 @@ class HomeSectionController extends Controller
 
     public function scheduleupdate(Request $request,$id)
     {
-        // Validate the form data
         $validatedData = $request->validate([
             'schedule_title' => 'nullable|string',
             'schedule_desc' => 'nullable|string',
-            'status' => 'required|in:Show,Hide',
+            'schedulestatus' => 'nullable|in:Hide,Show',
         ]);
 
         $scheduleSection = HomeScheduleSection::find($id);
 
         $scheduleSection->schedule_title = $validatedData['schedule_title'];
-        $scheduleSection->schedule_desc = $validatedData['schedule_desc'];
-        $scheduleSection->status = $validatedData['status'];
+        $scheduleSection->schedule_desc  = $validatedData['schedule_desc'];
+        $scheduleSection->schedulestatus         = $validatedData['schedulestatus'];
 
         $scheduleSection->save();
 
@@ -121,14 +119,14 @@ class HomeSectionController extends Controller
         $validatedData = $request->validate([
             'member_title' => 'nullable|string',
             'member_desc' => 'nullable|string',
-            'status' => 'required|in:Show,Hide',
+            'memberstatus' => 'nullable|in:Hide,Show',
         ]);
 
         $memberSection = HomeMemberSection::find($id);
 
         $memberSection->member_title = $validatedData['member_title'];
         $memberSection->member_desc = $validatedData['member_desc'];
-        $memberSection->status = $validatedData['status'];
+        $memberSection->memberstatus = $validatedData['memberstatus'];
 
         $memberSection->save();
 
@@ -139,18 +137,17 @@ class HomeSectionController extends Controller
 
     public function portfolioUpdate(Request $request,$id)
     {
-        // Validate the form data
         $validatedData = $request->validate([
             'portfolio_title' => 'nullable|string',
             'portfolio_desc' => 'nullable|string',
-            'status' => 'required|in:Show,Hide',
+            'portfoliostatus' => 'nullable|in:Hide,Show',
         ]);
 
         $portfolioSection = HomePortfolioSection::find($id);
 
         $portfolioSection->portfolio_title = $validatedData['portfolio_title'];
         $portfolioSection->portfolio_desc = $validatedData['portfolio_desc'];
-        $portfolioSection->status = $validatedData['status'];
+        $portfolioSection->portfoliostatus = $validatedData['portfoliostatus'];
 
         $portfolioSection->save();
 
@@ -162,14 +159,14 @@ class HomeSectionController extends Controller
         $validatedData = $request->validate([
             'testimonial_title' => 'nullable|string',
             'testimonial_desc' => 'nullable|string',
-            'status' => 'required|in:Show,Hide',
+            'testimonialstatus' => 'nullable|in:Hide,Show',
         ]);
 
         $testimonialSection = HomeTestimonialSection::find($id);
 
         $testimonialSection->testimonial_title = $validatedData['testimonial_title'];
         $testimonialSection->testimonial_desc = $validatedData['testimonial_desc'];
-        $testimonialSection->status = $validatedData['status'];
+        $testimonialSection->testimonialstatus =$validatedData['testimonialstatus'];
 
         $testimonialSection->save();
 
@@ -183,14 +180,14 @@ class HomeSectionController extends Controller
         $validatedData = $request->validate([
             'blog_title' => 'nullable|string',
             'blog_desc' => 'nullable|string',
-            'status' => 'required|in:Show,Hide',
+            'blogstatus' => 'nullable|in:Hide,Show',
         ]);
 
         $blogSection = HomeBlogSection::find($id);
 
         $blogSection->blog_title = $validatedData['blog_title'];
         $blogSection->blog_desc = $validatedData['blog_desc'];
-        $blogSection->status = $validatedData['status'];
+        $blogSection->blogstatus = $validatedData['blogstatus'];
 
         $blogSection->save();
 

@@ -344,7 +344,7 @@
     </div>
 </div>
 
-@if(helper::getServiceSection()->status == 'Show')
+@if(helper::getServiceSection()->servicestatus == 'Show')
     <div class="services-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
@@ -352,7 +352,7 @@
                 <h2>{{ helper::getServiceSection()->shortdesc }} <span class="overlay"></span></h2>
             </div>
             @php
-            $counter = 1;
+                $counter = 1;
             @endphp
             <div class="row">
                 @foreach($services as $item)
@@ -367,13 +367,13 @@
                                 <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a>
                             </div>
                             <div class="number">
-                                <span>{{$counter}}</span>
+                                <span>{{ $counter }}</span>
                             </div>
                         </div>
                     </div>
-                        @php
+                    @php
                         $counter++;
-                        @endphp
+                    @endphp
 
                 @endforeach
 
@@ -385,15 +385,15 @@
 @endif
 
 
-@if(helper::getAboutSection()->status == 'Show')
+@if(helper::getAboutSection()->aboutstatus == 'Show')
     <div class="about-area pb-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-img pr-15">
-                        <img src="{{ asset($about->about_image) }}" class="main-img" alt="Image">
+                        <img src="{{ asset($about->about_image ?? Null) }}" class="main-img" alt="Image">
                         <div class="small-img">
-                            <img src="{{ asset($about->about_image_additional) }}" alt="Image">
+                            <img src="{{ asset($about->about_image_additional ?? Null) }}" alt="Image">
                         </div>
                     </div>
                 </div>
@@ -401,9 +401,9 @@
                     <div class="about-content pl-15">
                         <div class="about-title">
                             <span>{{ helper::getAboutSection()->abouttitle }}</span>
-                            <h2>{{ $about->about_title }} <span class="overlay"></span></h2>
+                            <h2>{{ @$about->about_title }} <span class="overlay"></span></h2>
                         </div>
-                        <p>{!! $about->about_description !!}</p>
+                        <p>{!! @$about->about_description !!}</p>
                         <div class="features-list">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
@@ -687,7 +687,7 @@
     </div>
 </div> --}}
 
-@if(helper::getMemberSection()->status == 'Show')
+@if(helper::getMemberSection()->memberstatus == 'Show')
     <div class="team-area pb-70">
         <div class="container">
             <div class="section-title">
@@ -736,7 +736,7 @@
 @endif
 
 
-<div class="intro-video-area ptb-100" style="background-image: url({{ asset(helper::getLatestVideoThumb()->video_image) }});
+<div class="intro-video-area ptb-100" style="background-image: url({{ asset(helper::getLatestVideoThumb()->video_image ?? Null) }} );
 background-size: cover;
 background-position: center center;
 position: relative;
@@ -747,7 +747,8 @@ z-index: 1">
             <div class="col-lg-6">
                 <div class="video-btn-content">
                     <div class="play-btn">
-                        <a class="popup-youtube" href="{{$introvideo->video_url}}">
+                        <a class="popup-youtube"
+                            href="{{ $introvideo->video_url ?? '#' }}">
                             <i class="ri-play-fill"></i>
                         </a>
                     </div>
@@ -757,9 +758,9 @@ z-index: 1">
                 <div class="video-content">
                     <div class="video-title">
                         <span>Intro Video</span>
-                        <h2>{{$introvideo->video_title}}<span class="overlay"></span></h2>
+                        <h2>{{ @$introvideo->video_title }}<span class="overlay"></span></h2>
                     </div>
-                    <p>{!! $introvideo->video_description !!}</p>
+                    <p>{!! @$introvideo->video_description !!}</p>
                     {{-- <ul>
                         <li><i class="ri-check-double-line"></i>Expanding Range Of Female Boxers</li>
                         <li><i class="ri-check-double-line"></i>Including Two World Champions</li>
@@ -773,7 +774,7 @@ z-index: 1">
 </div>
 
 
-@if(helper::getPortfolioSection()->status == 'Hide')
+@if(helper::getPortfolioSection()->portfoliostatus == 'Show')
     <div class="portfolio-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
@@ -890,7 +891,7 @@ z-index: 1">
 @endif
 
 
-@if(helper::getTestimonialSection()->status == 'Show')
+@if(helper::getTestimonialSection()->testimonialstatus == 'Show')
     <div class="testimonials-area pb-70">
         <div class="container">
             <div class="section-title style2">
@@ -901,34 +902,34 @@ z-index: 1">
                 $counter = 1;
             @endphp
             <div class="row">
-                @foreach ($testimonials as $item)
-                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                    <div class="single-testimonial-box">
-                        <div class="top-content">
-                            <ul class="d-flex justify-content-between">
-                                <li>
-                                    <div class="quote">
-                                        <i class="ri-double-quotes-l"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="number">
-                                        <span>{{$counter}}</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <p>{!! $item->description !!}
-                        </p>
-                        <div class="clients-info">
-                            <h3>{{$item->name}}</h3>
-                            <span>{{$item->position}}</span>
+                @foreach($testimonials as $item)
+                    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                        <div class="single-testimonial-box">
+                            <div class="top-content">
+                                <ul class="d-flex justify-content-between">
+                                    <li>
+                                        <div class="quote">
+                                            <i class="ri-double-quotes-l"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="number">
+                                            <span>{{ $counter }}</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>{!! @$item->description !!}
+                            </p>
+                            <div class="clients-info">
+                                <h3>{{ @$item->name }}</h3>
+                                <span>{{ @$item->position }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @php
-                    $counter++;
-                @endphp
+                    @php
+                        $counter++;
+                    @endphp
 
                 @endforeach
 
@@ -939,7 +940,7 @@ z-index: 1">
 @else
 @endif
 
-@if(helper::getBlogSection()->status == 'Show')
+@if(helper::getBlogSection()->blogstatus == 'Show')
     <div class="blog-area pb-70">
         <div class="container">
             <div class="section-title">
@@ -947,21 +948,20 @@ z-index: 1">
                 <h2>{{ helper::getBlogSection()->blog_desc }} <span class="overlay"></span></h2>
             </div>
             <div class="row justify-content-center">
-                @foreach ($blogs as $item)
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                    <div class="single-blog-card">
-                        <div class="blog-img">
-                            <a href="#"><img src="{{asset($item->image)}}" alt="Image"></a>
-                        </div>
-                        <div class="blog-content">
-                            <span><i class="ri-calendar-check-line"></i>{{$item->created_at}}</span>
-                            <h2><a href="#">{{$item->title}}</a>
-                            </h2>
-                            <a class="default-btn" href="#">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
+                @foreach($blogs as $item)
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                        <div class="single-blog-card">
+                            <div class="blog-img">
+                                <a href="#"><img src="{{ asset($item->image) ?? Null }}" alt="Image"></a>
+                            </div>
+                            <div class="blog-content">
+                                <span><i class="ri-calendar-check-line"></i>{{ @$item->created_at }}</span>
+                                <h2><a href="#">{{ @$item->title }}</a>
+                                </h2>
+                                <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 @endforeach
 

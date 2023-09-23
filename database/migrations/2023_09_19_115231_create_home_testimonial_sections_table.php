@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('testimonial_title')->nullable();
             $table->string('testimonial_desc')->nullable();
-            $table->string('status')->default('Show');
+            $table->string('testimonialstatus')->default('Show');
             $table->timestamps();
         });
     }

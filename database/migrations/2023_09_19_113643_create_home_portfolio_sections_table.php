@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('portfolio_title')->nullable();
             $table->string('portfolio_desc')->nullable();
-            $table->string('status')->default('Show');
+            $table->string('portfoliostatus')->default('Show');
             $table->timestamps();
         });
     }

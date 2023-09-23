@@ -48,21 +48,21 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="edit-service-title">Title</label>
-                                    <input type="text" name="servicetitle" id="edit-service-title" class="form-control" value="{{ $service->servicetitle ?? '' }}">
+                                    <input type="text" name="servicetitle" id="edit-service-title" class="form-control" value="{{ @$service->servicetitle ?? '' }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-shortdesc">Short Description</label>
-                                    <input type="text" name="shortdesc" id="edit-shortdesc" class="form-control" value="{{ $service->shortdesc ?? '' }}">
+                                    <input type="text" name="shortdesc" id="edit-shortdesc" class="form-control" value="{{ @$service->shortdesc ?? '' }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="rr1" value="Show" {{ $service->status === 'Show' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="servicestatus" id="rr1" value="Show" {{ @$service->servicestatus === 'Show' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="rr1">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="rr2" value="Hide" {{ $service->status === 'Hide' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="servicestatus" id="rr2" value="Hide" {{ @$service->servicestatus === 'Hide' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="rr2">Hide</label>
                                         </div>
                                     </div>
@@ -81,21 +81,21 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="edit-about-title">Title</label>
-                                    <input type="text" name="abouttitle" id="edit-about-title" class="form-control" value="{{ $about->abouttitle ?? '' }}">
+                                    <input type="text" name="abouttitle" id="edit-about-title" class="form-control" value="{{ @$about->abouttitle ?? '' }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-about-desc">Short Description</label>
-                                    <input type="text" name="aboutdesc" id="edit-about-desc" class="form-control" value="{{ $about->aboutdesc ?? '' }}">
+                                    <input type="text" name="aboutdesc" id="edit-about-desc" class="form-control" value="{{ @$about->aboutdesc ?? '' }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-about-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-about-status-show" value="Show" {{ $about->status === 'Show' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="aboutstatus" id="edit-about-status-show" value="Show" {{ @$about->aboutstatus === 'Show' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-about-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-about-status-hide" value="Hide" {{ $about->status === 'Hide' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="aboutstatus" id="edit-about-status-hide" value="Hide" {{ @$about->aboutstatus === 'Hide' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-about-status-hide">Hide</label>
                                         </div>
                                     </div>
@@ -110,21 +110,21 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="edit-schedule-title">Title</label>
-                                    <input type="text" name="schedule_title" id="edit-schedule-title" class="form-control" value="{{ $scheduleSection->schedule_title ?? '' }}">
+                                    <input type="text" name="schedule_title" id="edit-schedule-title" class="form-control" value="{{ @$scheduleSection->schedule_title ?? '' }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-schedule-desc">Description</label>
-                                    <textarea name="schedule_desc" id="edit-schedule-desc" class="form-control">{{ $scheduleSection->schedule_desc ?? '' }}</textarea>
+                                    <textarea name="schedule_desc" id="edit-schedule-desc" class="form-control">{{ @$scheduleSection->schedule_desc ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-schedule-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-schedule-status-show" value="Show" {{ $scheduleSection->status === 'Show' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="schedulestatus" id="edit-schedule-status-show" value="Show" {{ @$scheduleSection->schedulestatus === 'Show' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-schedule-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-schedule-status-hide" value="Hide" {{ $scheduleSection->status === 'Hide' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="schedulestatus" id="edit-schedule-status-hide" value="Hide" {{ @$scheduleSection->schedulestatus === 'Hide' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-schedule-status-hide">Hide</label>
                                         </div>
                                     </div>
@@ -140,21 +140,21 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="edit-member-title">Title</label>
-                                    <input type="text" name="member_title" id="edit-member-title" class="form-control" value="{{ $memberSection->member_title ?? '' }}">
+                                    <input type="text" name="member_title" id="edit-member-title" class="form-control" value="{{ @$memberSection->member_title ?? '' }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-member-desc">Description</label>
-                                    <textarea name="member_desc" id="edit-member-desc" class="form-control">{{ $memberSection->member_desc ?? '' }}</textarea>
+                                    <textarea name="member_desc" id="edit-member-desc" class="form-control">{{ @$memberSection->member_desc ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-member-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-member-status-show" value="Show" {{ $memberSection->status === 'Show' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="memberstatus" id="edit-member-status-show" value="Show" {{ @$memberSection->memberstatus === 'Show' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-member-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-member-status-hide" value="Hide" {{ $memberSection->status === 'Hide' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="memberstatus" id="edit-member-status-hide" value="Hide" {{ @$memberSection->memberstatus === 'Hide' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-member-status-hide">Hide</label>
                                         </div>
                                     </div>
@@ -170,21 +170,21 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="edit-portfolio-title">Title</label>
-                                    <input type="text" name="portfolio_title" id="edit-portfolio-title" class="form-control" value="{{ $portfolioSection->portfolio_title ?? '' }}">
+                                    <input type="text" name="portfolio_title" id="edit-portfolio-title" class="form-control" value="{{ @$portfolioSection->portfolio_title ?? '' }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-portfolio-desc">Description</label>
-                                    <textarea name="portfolio_desc" id="edit-portfolio-desc" class="form-control">{{ $portfolioSection->portfolio_desc ?? '' }}</textarea>
+                                    <textarea name="portfolio_desc" id="edit-portfolio-desc" class="form-control">{{ @$portfolioSection->portfolio_desc ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-portfolio-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-portfolio-status-show" value="Show" {{ $portfolioSection->status === 'Show' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="portfoliostatus" id="edit-portfolio-status-show" value="Show" {{ @$portfolioSection->portfoliostatus === 'Show' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-portfolio-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-portfolio-status-hide" value="Hide" {{ $portfolioSection->status === 'Hide' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="portfoliostatus" id="edit-portfolio-status-hide" value="Hide" {{ @$portfolioSection->portfoliostatus === 'Hide' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-portfolio-status-hide">Hide</label>
                                         </div>
                                     </div>
@@ -210,11 +210,11 @@
                                     <label for="edit-testimonial-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-testimonial-status-show" value="Show" {{ $testimonialSection->status === 'Show' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="testimonialstatus" id="edit-testimonial-status-show" value="Show" {{ @$testimonialSection->testimonialstatus === 'Show' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-testimonial-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-testimonial-status-hide" value="Hide" {{ $testimonialSection->status === 'Hide' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="testimonialstatus" id="edit-testimonial-status-hide" value="Hide" {{ @$testimonialSection->testimonialstatus === 'Hide' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-testimonial-status-hide">Hide</label>
                                         </div>
                                     </div>
@@ -240,11 +240,11 @@
                                     <label for="edit-blog-status">Status</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-blog-status-show" value="Show" {{ $blogSection->status === 'Show' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="blogstatus" id="edit-blog-status-show" value="Show" {{ @$blogSection->blogstatus === 'Show' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-blog-status-show">Show</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="edit-blog-status-hide" value="Hide" {{ $blogSection->status === 'Hide' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="blogstatus" id="edit-blog-status-hide" value="Hide" {{ @$blogSection->blogstatus === 'Hide' ? 'checked' : '' }}>
                                             <label class="form-check-label font-weight-normal" for="edit-blog-status-hide">Hide</label>
                                         </div>
                                     </div>
@@ -594,6 +594,15 @@
         $serviceid = $service->id;
     }
 @endphp
+@php
+    $schedule = App\Models\HomeScheduleSection::first();
+
+
+    $scheduleId = null;
+    if ($schedule) {
+        $scheduleId = $schedule->id;
+    }
+@endphp
 
 <script>
     $(document).ready(function() {
@@ -606,7 +615,6 @@
                 _token: $("input[name='_token']").val()
             };
 
-            // Send the AJAX request
             $.ajax({
                 type: "POST",
                 url: "{{ route('admin.metaupdate', ['id' => $metaid]) }}",
@@ -627,13 +635,40 @@
 
 <script>
     $(document).ready(function() {
+        $("#edit-about").submit(function(e) {
+            e.preventDefault();
+
+            var formData = {
+                abouttitle: $("#edit-about-title").val(),
+                aboutdesc: $("#edit-about-desc").val(),
+                aboutstatus: $("input[name='aboutstatus']:checked").val(),
+                _token: $("input[name='_token']").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin.aboutUpdate',['id' => $aboutId]) }}",
+                data: formData,
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
         $("#edit-service").submit(function(e) {
             e.preventDefault();
 
             var formData = {
                 servicetitle: $("#edit-service-title").val(),
                 shortdesc: $("#edit-shortdesc").val(),
-                status: $("input[name='status']:checked").val(),
+                servicestatus: $("input[name='servicestatus']:checked").val(),
                 _token: $("input[name='_token']").val()
             };
 
@@ -654,34 +689,7 @@
     });
 </script>
 
-<script>
-    $(document).ready(function() {
-        $("#edit-about").submit(function(e) {
-            e.preventDefault();
 
-            var formData = {
-                abouttitle: $("#edit-about-title").val(),
-                aboutdesc: $("#edit-about-desc").val(),
-                status: $("input[name='status']:checked").val(),
-                _token: $("input[name='_token']").val()
-            };
-
-            $.ajax({
-                type: "POST",
-                url: "{{ route('admin.aboutUpdate',['id' => $aboutId]) }}",
-                data: formData,
-                success: function(response) {
-                    console.log(response);
-                    // Handle success, e.g., show success message
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                    // Handle error, e.g., show error message
-                }
-            });
-        });
-    });
-</script>
 
 <script>
     $(document).ready(function() {
@@ -691,21 +699,19 @@
             var formData = {
                 schedule_title: $("#edit-schedule-title").val(),
                 schedule_desc: $("#edit-schedule-desc").val(),
-                status: $("input[name='status']:checked").val(),
+                schedulestatus: $("input[name='schedulestatus']:checked").val(),
                 _token: $("input[name='_token']").val()
             };
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.scheduleUpdate',['id' => $aboutId]) }}",
+                url: "{{ route('admin.scheduleUpdate',['id' => $scheduleId]) }}",
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    // Handle success, e.g., show success message
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
-                    // Handle error, e.g., show error message
                 }
             });
         });
@@ -720,7 +726,7 @@
             var formData = {
                 member_title: $("#edit-member-title").val(),
                 member_desc: $("#edit-member-desc").val(),
-                status: $("input[name='status']:checked").val(),
+                memberstatus: $("input[name='memberstatus']:checked").val(),
                 _token: $("input[name='_token']").val()
             };
 
@@ -749,7 +755,7 @@
             var formData = {
                 portfolio_title: $("#edit-portfolio-title").val(),
                 portfolio_desc: $("#edit-portfolio-desc").val(),
-                status: $("input[name='status']:checked").val(),
+                portfoliostatus: $("input[name='portfoliostatus']:checked").val(),
                 _token: $("input[name='_token']").val()
             };
 
@@ -778,7 +784,7 @@
             var formData = {
                 testimonial_title: $("#edit-testimonial-title").val(),
                 testimonial_desc: $("#edit-testimonial-desc").val(),
-                status: $("input[name='status']:checked").val(),
+                testimonialstatus: $("input[name='testimonialstatus']:checked").val(),
                 _token: $("input[name='_token']").val()
             };
 
@@ -789,7 +795,7 @@
                 success: function(response) {
                     console.log(response);
                 },
-                error: function(xhr, status, error) {
+                error: function(xhr, testimonialstatus, error) {
                     console.error(xhr.responseText);
                 }
             });
@@ -805,7 +811,7 @@
             var formData = {
                 blog_title: $("#edit-blog-title").val(),
                 blog_desc: $("#edit-blog-desc").val(),
-                status: $("input[name='status']:checked").val(),
+                blogstatus: $("input[name='blogstatus']:checked").val(),
                 _token: $("input[name='_token']").val()
             };
 

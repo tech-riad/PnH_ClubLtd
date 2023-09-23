@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('blog_title')->nullable();
             $table->string('blog_desc')->nullable();
-            $table->string('status')->default('Show');
+            $table->string('blogstatus')->default('Show');
             $table->timestamps();
         });
     }

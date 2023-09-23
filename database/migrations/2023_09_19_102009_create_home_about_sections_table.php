@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('abouttitle')->nullable();
             $table->string('aboutdesc')->nullable();
-            $table->string('status')->default('Show');
+            $table->string('aboutstatus')->default('Show');
             $table->timestamps();
         });
     }

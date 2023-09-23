@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('schedule_title')->nullable();
             $table->string('schedule_desc')->nullable();
-            $table->string('status')->default('Show');
+            $table->string('schedulestatus')->default('Show');
             $table->timestamps();
         });
     }

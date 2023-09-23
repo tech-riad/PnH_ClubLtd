@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('home_service_sections', function (Blueprint $table) {
+        Schema::create('general_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('servicetitle')->nullable();
-            $table->string('shortdesc')->nullable();
-            $table->string('servicestatus')->default('Show');
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('home_service_sections');
+        Schema::dropIfExists('general_settings');
     }
 };
