@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\BlogControllerController;
+use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\IntroVideoController;
 use App\Http\Controllers\MemberSectionController;
@@ -18,6 +19,9 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 Route::prefix('admin')->group(function () {
     Route::get('/page', [HomeSectionController::class, 'index'])->name('admin.homepage');
+    Route::get('/setting', [GeneralSettingController::class, 'generalSetting'])->name('admin.setting');
+    Route::any('/update-general-settings',[GeneralSettingController::class, 'update'])->name('admin.setting.update');
+
 
     Route::any('/metaupdate/{id}', [HomeSectionController::class, 'metaupdate'])->name('admin.metaupdate');
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');

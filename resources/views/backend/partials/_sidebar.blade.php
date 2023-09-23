@@ -15,7 +15,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="#">
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-home menu-icon"></i>
       </a>
@@ -53,12 +53,12 @@
       </div>
     </li> --}}
     <li class="nav-item">
-      <a class="nav-link" href="pages/icons/mdi.html">
-        <span class="menu-title">Icons</span>
+      <a class="nav-link" href="{{route('admin.setting')}}">
+        <span class="menu-title">Setting</span>
         <i class="mdi mdi-contacts menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link" href="pages/forms/basic_elements.html">
         <span class="menu-title">Forms</span>
         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
@@ -108,6 +108,6 @@
           </ul>
         </div>
       </span>
-    </li>
+    </li> --}}
   </ul>
 </nav>

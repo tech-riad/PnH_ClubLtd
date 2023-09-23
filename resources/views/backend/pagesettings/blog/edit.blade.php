@@ -20,7 +20,8 @@
                 <div class="form-group">
                     <label for="">Title *</label>
                     <input type="text" name="title" class="form-control" value="{{@$blogs->title ?? @old('title')}}" autofocus="">
-                </div><div class="form-group">
+                </div>
+                <div class="form-group">
                     <label for="">Intro Video Photo *</label>
                     <div>
                         <input type="file" name="image" class="custom-file-input" id="customFile"

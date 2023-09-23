@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('general_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('facebook_link')->nullable();
+            $table->string('twitter_link')->nullable();
+            $table->string('instagram_link')->nullable();
+            $table->string('linkdein_link')->nullable();
+            $table->longText('address')->nullable();
             $table->timestamps();
         });
     }

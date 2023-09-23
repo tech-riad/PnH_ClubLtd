@@ -58,21 +58,19 @@
                                 <tbody>
                                     @foreach ($blogs as $item)
                                     <tr role="row" class="odd">
-                                        <td>{{$item->id}}</td>
-                                        <td><img class="mt-2" id="oldlogo" src="{{ asset($item->image) }}"
+                                        <td>{{@$item->id}}</td>
+                                        <td><img class="mt-2" id="oldlogo" src="{{ asset($item->image) ?? Null }}"
                                             alt="logo" width="100" height="100" /></td>
-                                        <td>{{$item->title}}</td>
-                                        <td>{{$item->description}}</td>
+                                        <td>{{@$item->title}}</td>
+                                        <td>{{@$item->description}}</td>
 
                                         <td>
-                                            <a href="{{route('admin.blogsection.edit',$item->id)}}" class="btn btn-success">Edit</a>
-                                            <a href="{{route('admin.blogsection.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
+                                            <a href="{{route('admin.blogsection.edit',@$item->id)}}" class="btn btn-success">Edit</a>
+                                            <a href="{{route('admin.blogsection.delete',@$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
                                         </td>
                                     </tr>
 
                                     @endforeach
-
-
                                 </tbody>
                             </table>
                         </div>

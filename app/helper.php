@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\AboutSection;
+use App\Models\GeneralSetting;
 use App\Models\HomeAboutSection;
 use App\Models\HomeBlogSection;
 use App\Models\HomeMemberSection;
@@ -43,5 +44,9 @@ class helper
     public static function getLatestVideoThumb()
     {
         return IntroVideo::latest()->first();
+    }
+    public static function getLatestsetting()
+    {
+        return GeneralSetting::latest()->first();
     }
 }
