@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">About Description *</label>
-                    <textarea name="about_description" class="form-control h_100" cols="30" rows="10">{{@$aboutdata->about_description ?? @old('about_description')}}</textarea>
+                    <textarea class="editor" name="about_description" class="form-control h_100" cols="30" rows="10">{{@$aboutdata->about_description ?? @old('about_description')}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Main Image*</label>

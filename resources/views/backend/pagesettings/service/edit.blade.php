@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Service Sescription</label>
-                    <textarea name="service_description" class="form-control h_100" cols="30" rows="10">{{@$services->service_description ?? @old('service_description')}}</textarea>
+                    <textarea class="editor" name="service_description" class="form-control h_100" cols="30" rows="10">{{@$services->service_description ?? @old('service_description')}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>

@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label for="">Video Description</label>
-                    <textarea name="video_description" class="form-control h_100" cols="30" rows="10">{{@$introVideo->video_description ?? @old('video_description')}}</textarea>
+                    <textarea class="editor" name="video_description" class="form-control h_100" cols="30" rows="10">{{@$introVideo->video_description ?? @old('video_description')}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Intro Video Photo *</label>

@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="slider_description">Slider Description</label>
-                    <textarea name="slider_description" class="form-control h_100" cols="30" rows="10">{{ old('slider_description', $slider->slider_description) }}</textarea>
+                    <textarea class="editor" name="slider_description" class="form-control h_100" cols="30" rows="10">{{ old('slider_description', $slider->slider_description) }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="slider_image">Slider Photo *</label>

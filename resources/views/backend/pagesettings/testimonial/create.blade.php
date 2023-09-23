@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Testimonial Sescription</label>
-                    <textarea name="description" class="form-control h_100" cols="30" rows="10"></textarea>
+                    <textarea class="editor" name="description" class="form-control h_100" cols="30" rows="10"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-success">Submit</button>
