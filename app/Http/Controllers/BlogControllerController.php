@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\BlogController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogControllerController extends Controller
 {
@@ -19,17 +20,16 @@ class BlogControllerController extends Controller
     }
     public function store(Request $request)
     {
-        // Validate the form data
         $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|unique:blog_controllers,slug',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'blog_view_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'description' => 'nullable|string',
         ]);
         $blog = new BlogController();
 
         $blog->title = $request->input('title');
-        $blog->slug = $request->input('title');
+        $blog->slug = Str::slug($request->title);
         $blog->description = $request->input('description');
 
         if ($request->hasFile('image')) {
@@ -37,6 +37,13 @@ class BlogControllerController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('blog_images'), $imageName);
             $blog->image = 'blog_images/' . $imageName;
+        }
+
+        if ($request->hasFile('blog_view_image')) {
+            $blogViewImage = $request->file('blog_view_image');
+            $blogViewImageName = time() . '_view.' . $blogViewImage->getClientOriginalExtension();
+            $blogViewImage->move(public_path('blog_images'), $blogViewImageName);
+            $blog->blog_view_image = 'blog_images/' . $blogViewImageName;
         }
 
         $blog->save();
@@ -66,7 +73,7 @@ class BlogControllerController extends Controller
         }
 
         $blog->title = $request->input('title');
-        $blog->slug = $request->input('title');
+        $blog->slug = Str::slug($request->title);
         $blog->description = $request->input('description');
 
         if ($request->hasFile('image')) {
@@ -74,11 +81,23 @@ class BlogControllerController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('blog_images'), $imageName);
 
-            if (file_exists(public_path($blog->image))) {
+            if ($blog->image && file_exists(public_path($blog->image))) {
                 unlink(public_path($blog->image));
             }
 
             $blog->image = 'blog_images/' . $imageName;
+        }
+
+        if ($request->hasFile('blog_view_image')) {
+            $blogViewImage = $request->file('blog_view_image');
+            $blogViewImageName = time() . '_view.' . $blogViewImage->getClientOriginalExtension();
+            $blogViewImage->move(public_path('blog_images'), $blogViewImageName);
+
+            if ($blog->blog_view_image && file_exists(public_path($blog->blog_view_image))) {
+                unlink(public_path($blog->blog_view_image));
+            }
+
+            $blog->blog_view_image = 'blog_images/' . $blogViewImageName;
         }
 
         $blog->save();

@@ -22,7 +22,7 @@
                     <input type="text" name="title" class="form-control" value="{{@$blogs->title ?? @old('title')}}" autofocus="">
                 </div>
                 <div class="form-group">
-                    <label for="">Intro Video Photo *</label>
+                    <label for="">Thumbnail Image *</label>
                     <div>
                         <input type="file" name="image" class="custom-file-input" id="customFile"
                         onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
@@ -38,8 +38,23 @@
                         </div>
                     @endif
                     </div>
-
                 </div>
+                <div class="form-group">
+                    <label for="">Blog View Image *</label>
+                    <div>
+                        <input type="file" name="blog_view_image" class="custom-file-input" id="customFile" onchange="document.getElementById('blog_view_image').src = window.URL.createObjectURL(this.files[0])">
+                        <br>
+                        <img class="mt-2" id="blog_view_image"  alt="blog_view_image Image" width="100" height="100" />
+                        @if ($blogs->blog_view_image)
+                        <div class="blog_view_image mt-2">
+                            <label class="mb-0" for="blog_view_image">Old Image:</label><br>
+                            <img class="mt-2" id="blog_view_image" src="{{ asset($blogs->blog_view_image) }}" alt="Old portfolio Image" width="100" height="100" />
+                        </div>
+                        @endif
+                    </div>
+                </div>
+
+
 
                 <div class="form-group">
                     <label for=""> Description*</label>

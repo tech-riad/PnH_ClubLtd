@@ -599,13 +599,13 @@ z-index: 1">
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                         <div class="single-blog-card">
                             <div class="blog-img">
-                                <a href="#"><img src="{{ asset($item->image) ?? Null }}" alt="Image"></a>
+                                <a href="{{route('blog.show',$item->slug)}}"><img src="{{ asset($item->image) ?? Null }}" alt="Image"></a>
                             </div>
                             <div class="blog-content">
                                 <span><i class="ri-calendar-check-line"></i>{{ @$item->created_at }}</span>
-                                <h2><a href="#">{{ @$item->title }}</a>
+                                <h2><a href="{{route('blog.show',$item->slug)}}">{{ @$item->title }}</a>
                                 </h2>
-                                <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a>
+                                <a class="default-btn" href="{{route('blog.show',$item->slug)}}">Read More <i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
                     </div>

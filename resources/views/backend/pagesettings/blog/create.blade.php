@@ -22,7 +22,13 @@
                     <input type="text" name="title" class="form-control" value="" autofocus="">
                 </div>
                 <div class="form-group">
-                    <label for="">Image *</label>
+                    <label for="">Thumbnail Image *</label>
+                    <div>
+                        <input type="file" name="image">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Blog View Image *</label>
                     <div>
                         <input type="file" name="image">
                     </div>

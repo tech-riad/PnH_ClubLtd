@@ -47,4 +47,12 @@ class WebsiteController extends Controller
 
         return view('frontend.portfolio-details', compact('portfolio'));
     }
+    public function newsShow($slug)
+    {
+        $blogs = BlogController::where('slug', $slug)->first();
+        // dd($portfolio);
+
+
+        return view('frontend.blog-details', compact('blogs'));
+    }
 }

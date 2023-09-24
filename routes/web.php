@@ -20,6 +20,7 @@ Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contactUs');
 Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('contact-us.store');
 Route::get('/portfolio/{slug}', [WebsiteController::class, 'show'])->name('portfolio.show');
+Route::get('/news/{slug}', [WebsiteController::class, 'newsShow'])->name('blog.show');
 
 
 require (base_path('routes/admin.php'));
