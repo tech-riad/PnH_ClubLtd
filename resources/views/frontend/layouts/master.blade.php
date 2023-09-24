@@ -72,6 +72,7 @@
     <script src="{{ asset('frontend/assets/js/ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
 
+  
 
 
 </body>
