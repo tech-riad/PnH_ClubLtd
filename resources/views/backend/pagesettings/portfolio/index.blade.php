@@ -66,15 +66,13 @@
                                             alt="logo" width="100" height="100" /></td>
                                         <td>{{$item->portfolio_category}}</td>
                                         <td>{{$item->button_name}}</td>
+                                        <td>{!!Str::limit($item->portfolio_description,20)!!}</td>
                                         <td>
                                             <a href="{{route('admin.portfolios.edit',$item->id)}}" class="btn btn-success">Edit</a>
                                             <a href="{{route('admin.portfolios.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
                                         </td>
                                     </tr>
-
                                     @endforeach
-
-
                                 </tbody>
                             </table>
                         </div>

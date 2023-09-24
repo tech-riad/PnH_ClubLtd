@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('button_name');
             $table->string('portfolio_image')->nullable();
             $table->string('portfolio_image_view')->nullable();
+            $table->longText('portfolio_description')->nullable();
             $table->timestamps();
         });
     }

@@ -27,16 +27,21 @@
                     <input type="text" name="button_name" class="form-control" value="" autofocus="">
                 </div>
                 <div class="form-group">
-                    <label for="">Portfolio Image *</label>
+                    <label for="">Thumbnail Image *</label>
                     <div>
                         <input type="file" name="portfolio_image">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Portfolio Image For View*</label>
+                    <label for="">Portfolio Main Image For View*</label>
                     <div>
                         <input type="file" name="portfolio_image_view">
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="portfolio_description">Portfolio Description</label>
+                    <textarea class="editor" name="portfolio_description" id="portfolio_description" class="form-control" rows="5"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>

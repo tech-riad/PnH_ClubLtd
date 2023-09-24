@@ -27,6 +27,7 @@ class PortfolioController extends Controller
             'button_name' => 'required|string',
             'portfolio_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'portfolio_image_view' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'portfolio_description' => 'required|string',
         ]);
 
         $portfolio = new Portfolio();
@@ -34,6 +35,7 @@ class PortfolioController extends Controller
         $portfolio->portfolio_category = $request->input('portfolio_category');
         $portfolio->slug = Str::slug($request->portfolio_category);
         $portfolio->button_name = $request->input('button_name');
+        $portfolio->portfolio_description = $request->input('portfolio_description');
 
         if ($request->hasFile('portfolio_image')) {
             $portfolioImage = $request->file('portfolio_image');
@@ -69,6 +71,7 @@ class PortfolioController extends Controller
             'button_name' => 'required|string',
             'portfolio_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'portfolio_image_view' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'portfolio_description' => 'required|string',
         ]);
 
         $portfolio = Portfolio::findOrFail($id);
@@ -76,6 +79,7 @@ class PortfolioController extends Controller
         $portfolio->portfolio_category = $request->input('portfolio_category');
         $portfolio->slug = Str::slug($request->portfolio_category);
         $portfolio->button_name = $request->input('button_name');
+        $portfolio->portfolio_description = $request->input('portfolio_description');
 
         if ($request->hasFile('portfolio_image')) {
             $portfolioImage = $request->file('portfolio_image');

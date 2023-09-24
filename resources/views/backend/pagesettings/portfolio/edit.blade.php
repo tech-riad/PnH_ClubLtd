@@ -29,7 +29,7 @@
 
 
                 <div class="form-group">
-                    <label for="">Portfolio Image *</label>
+                    <label for="">Thumbnail Image *</label>
                     <div>
                         <input type="file" name="portfolio_image" class="custom-file-input" id="customFile" onchange="document.getElementById('portfolio_image').src = window.URL.createObjectURL(this.files[0])">
                         <br>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Portfolio Image For View*</label>
+                    <label for="">Portfolio Main Image For View*</label>
                     <div>
                         <input type="file" name="portfolio_image_view" class="custom-file-input" id="customFile" onchange="document.getElementById('portfolio_image_view').src = window.URL.createObjectURL(this.files[0])">
                         <br>
@@ -55,6 +55,10 @@
                         </div>
                         @endif
                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="portfolio_description">Portfolio Description</label>
+                    <textarea class="editor" name="portfolio_description" id="portfolio_description" class="form-control" rows="5">{{@$portfolios->portfolio_description ?? @old('portfolio_description')}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>

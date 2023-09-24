@@ -24,12 +24,6 @@
     </div>
 </div> --}}
 
-
-
-
-
-
-
 <div class="banner-area">
     <div class="banner-slider owl-carousel owl-theme">
         @foreach($sliders as $item)
@@ -515,108 +509,28 @@ z-index: 1">
                 <h2>{{ helper::getPortfolioSection()->portfolio_desc }} <span class="overlay"></span></h2>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-                    <div class="single-portfolio-card">
-                        <div class="portfolio-img">
-                            <img src="assets/images/portfolio/portfolio-img-1.jpg" alt="Image">
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio-details.html">
-                                <div class="icon">
-                                    <i class="ri-add-line"></i>
-                                </div>
-                            </a>
-                            <h3>Boxing</h3>
-                            <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-                    <div class="single-portfolio-card">
-                        <div class="portfolio-img">
-                            <img src="assets/images/portfolio/portfolio-img-2.jpg" alt="Image">
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio-details.html">
-                                <div class="icon">
-                                    <i class="ri-add-line"></i>
-                                </div>
-                            </a>
-                            <h3>Boxing And Kickboxing For Teens</h3>
-                            <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                    <div class="single-portfolio-card">
-                        <div class="portfolio-img">
-                            <img src="assets/images/portfolio/portfolio-img-3.jpg" alt="Image">
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio-details.html">
-                                <div class="icon">
-                                    <i class="ri-add-line"></i>
-                                </div>
-                            </a>
-                            <h3>Boxing</h3>
-                            <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($portfolios as $item)
                 <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
                     <div class="single-portfolio-card">
                         <div class="portfolio-img">
-                            <img src="assets/images/portfolio/portfolio-img-4.jpg" alt="Image">
+                            <img src="{{asset($item->portfolio_image)}}" alt="Image">
                         </div>
                         <div class="portfolio-content">
-                            <a href="portfolio-details.html">
+                            <a href="{{route('portfolio.show',$item->slug)}}">
                                 <div class="icon">
                                     <i class="ri-add-line"></i>
                                 </div>
                             </a>
-                            <h3>Boxing</h3>
-                            <a class="default-btn active" href="portfolio-details.html">Read More <i
+                            <h3>{{$item->portfolio_category}}</h3>
+                            <a class="default-btn active" href="{{route('portfolio.show',$item->slug)}}">{{$item->button_name}}<i
                                     class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1000">
-                    <div class="single-portfolio-card">
-                        <div class="portfolio-img">
-                            <img src="assets/images/portfolio/portfolio-img-5.jpg" alt="Image">
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio-details.html">
-                                <div class="icon">
-                                    <i class="ri-add-line"></i>
-                                </div>
-                            </a>
-                            <h3>Boxing</h3>
-                            <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1200">
-                    <div class="single-portfolio-card">
-                        <div class="portfolio-img">
-                            <img src="assets/images/portfolio/portfolio-img-6.jpg" alt="Image">
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio-details.html">
-                                <div class="icon">
-                                    <i class="ri-add-line"></i>
-                                </div>
-                            </a>
-                            <h3>Boxing</h3>
-                            <a class="default-btn active" href="portfolio-details.html">Read More <i
-                                    class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
+
+                @endforeach
+
+
             </div>
         </div>
     </div>
