@@ -7,6 +7,7 @@ use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\IntroVideoController;
 use App\Http\Controllers\MemberSectionController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SliderSectionController;
 use App\Http\Controllers\TestimonialController;
@@ -28,7 +29,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/schedule/{id}', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
     Route::any('/contact-us-section/{id}', [HomeSectionController::class, 'contactUsUpdate'])->name('admin.contactUsUpdate');
 
-    Route::any('/portfolio/{id}', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
+
     Route::any('/testimonial/{id}', [HomeSectionController::class, 'testimonialUpdate'])->name('admin.testimonialUpdate');
     Route::any('/blog/{id}', [HomeSectionController::class, 'blogUpdate'])->name('admin.blogUpdate');
 
@@ -101,6 +102,16 @@ Route::prefix('admin')->group(function () {
   Route::any('/blog/{id}', [HomeSectionController::class, 'blogUpdate'])->name('admin.blogUpdate');
 
 
+  //Portfolio
+
+  Route::get('/portfolios', [PortfolioController::class, 'index'])->name('admin.portfolios');
+  Route::get('/portfolios/create', [PortfolioController::class, 'create'])->name('admin.portfolios.create');
+  Route::post('/portfolios/store', [PortfolioController::class, 'store'])->name('admin.portfolios.store');
+  Route::get('/portfolios/edit/{id}', [PortfolioController::class, 'edit'])->name('admin.portfolios.edit');
+  Route::any('/portfolios/update/{id}', [PortfolioController::class, 'update'])->name('admin.portfolios.update');
+  Route::any('/portfolios/delete/{id}', [PortfolioController::class, 'delete'])->name('admin.portfolios.delete');
+
+  Route::any('/portfolio/{id}', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
 
 
 
