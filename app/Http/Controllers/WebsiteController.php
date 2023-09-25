@@ -55,7 +55,19 @@ class WebsiteController extends Controller
     public function pageShow($slug)
     {
         $pages = Page::where('slug', $slug)->first();
-        
         return view('frontend.page-details', compact('pages'));
     }
+
+    public function blogs()
+    {
+        $allblogs  = BlogController::orderBy('id', 'desc')->get();
+        return view('frontend.blogs',compact('allblogs'));
+    }
+
+    public function abc()
+    {
+        $allportfolios  = Portfolio::orderBy('id', 'desc')->get();
+        return view('frontend.portfolio.all',compact('allportfolios'));
+    }
+
 }

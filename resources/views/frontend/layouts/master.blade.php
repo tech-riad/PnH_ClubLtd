@@ -72,7 +72,14 @@
     <script src="{{ asset('frontend/assets/js/ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
 
-  
+
+        <script>
+            function scrollWin() {
+            window.scrollTo(0, 1300);
+            }
+            </script>
+
+
 
 
 </body>

@@ -79,16 +79,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">About Us</a>
+                            <a onclick="scrollWin()" type="button" class="nav-link">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Training
-                            </a>
+                            <a href="{{route('abc.index')}}" class="nav-link">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Blog
+                            <a href="{{route('blog.index')}}" class="nav-link">
+                                Daily News
                             </a>
 
                         </li>
