@@ -10,6 +10,7 @@ use App\Models\HomePortfolioSection;
 use App\Models\HomeServiceSection;
 use App\Models\HomeTestimonialSection;
 use App\Models\IntroVideo;
+use App\Models\Page;
 
 class helper
 {
@@ -53,5 +54,9 @@ class helper
     public static function getContactUs()
     {
         return HomeContactUsSection::latest()->first();
+    }
+    public static function pageName()
+    {
+        return Page::all();
     }
 }

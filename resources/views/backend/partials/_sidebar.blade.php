@@ -37,6 +37,7 @@
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.testimonialsection')}}">Testimonial</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.blogsection')}}">Blog</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.portfolios')}}">Portfolio</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('admin.pages')}}">Pages</a></li>
         </ul>
       </div>
     </li>

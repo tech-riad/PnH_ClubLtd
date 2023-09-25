@@ -7,6 +7,7 @@ use App\Models\AboutSection;
 use App\Models\BlogController;
 use App\Models\IntroVideo;
 use App\Models\MemberSection;
+use App\Models\Page;
 use App\Models\Portfolio;
 use App\Models\ServiceSection;
 use App\Models\SliderSection;
@@ -33,26 +34,27 @@ class WebsiteController extends Controller
         $blogs  = BlogController::latest()->take(3)->get();
         $portfolios = Portfolio::latest()->take(6)->get();
 
+        $pages = Page::all();
+
 
 
         return view('frontend.index',compact('sliders','services','about','members','introvideo',
-                'testimonials','blogs','portfolios'));
+                'testimonials','blogs','portfolios','pages'));
     }
 
     public function show($slug)
     {
         $portfolio = Portfolio::where('slug', $slug)->first();
-        // dd($portfolio);
-
-
         return view('frontend.portfolio-details', compact('portfolio'));
     }
     public function newsShow($slug)
     {
         $blogs = BlogController::where('slug', $slug)->first();
-        // dd($portfolio);
-
-
         return view('frontend.blog-details', compact('blogs'));
+    }
+    public function pageShow($slug)
+    {
+        $pages = Page::where('slug', $slug)->first();
+        return view('frontend.page-details', compact('blogs'));
     }
 }

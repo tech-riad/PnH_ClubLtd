@@ -53,55 +53,43 @@
                                     <li>
                                         <a href="{{url('/')}}">Home</a>
                                     </li>
-                                    <li>
-                                        <a href="#">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">FAQ's</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Terms Of Service</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Privacy Policy</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Our Services</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meet Our Team</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Latest News</a>
-                                    </li>
+                                    @php
+                                    if (helper::pageName()):
+                                        for ($i=0; $i<3;$i++):
+
+                                            if($i==count(helper::pageName()))
+                                                break;
+                                            $item = helper::pageName()[$i];
+                                    @endphp
+                                                <li>
+                                                    <a href="{{@$item->slug}}">{{@$item->title}}</a>
+                                                </li>
+                                    @php
+                                            endfor;
+                                        endif;
+                                    @endphp
+
+
                                 </ul>
                             </div>
                             <div class="col-6">
                                 <ul>
-                                    <li>
-                                        <a href="#">Intro Video</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Our Pricing Plan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Schedule Time</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Our Portfolio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Contact Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Testimonials</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Subscribe Now</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Training Course</a>
-                                    </li>
+                                    @php
+                                        if (helper::pageName()):
+                                            for ($i=3; $i<6;$i++):
+
+                                                if($i==count(helper::pageName()))
+                                                    break;
+                                                $item = helper::pageName()[$i];
+                                    @endphp
+                                                <li>
+                                                    <a href="{{@$item->slug}}">{{@$item->title}}</a>
+                                                </li>
+                                    @php
+                                            endfor;
+                                        endif;
+                                    @endphp
+
                                 </ul>
                             </div>
                         </div>

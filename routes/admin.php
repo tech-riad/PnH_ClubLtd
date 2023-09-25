@@ -7,6 +7,7 @@ use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\IntroVideoController;
 use App\Http\Controllers\MemberSectionController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SliderSectionController;
@@ -113,6 +114,16 @@ Route::prefix('admin')->group(function () {
 
   Route::any('/portfolio/{id}', [HomeSectionController::class, 'portfolioUpdate'])->name('admin.portfolioUpdate');
 
+
+//   Page
+//Portfolio
+
+Route::get('/pages', [PageController::class, 'index'])->name('admin.pages');
+Route::get('/pages/create', [PageController::class, 'create'])->name('admin.pages.create');
+Route::post('/pages/store', [PageController::class, 'store'])->name('admin.pages.store');
+Route::get('/pages/edit/{id}', [PageController::class, 'edit'])->name('admin.pages.edit');
+Route::any('/pages/update/{id}', [PageController::class, 'update'])->name('admin.pages.update');
+Route::any('/pages/delete/{id}', [PageController::class, 'delete'])->name('admin.pages.delete');
 
 
 });
