@@ -55,6 +55,7 @@ class WebsiteController extends Controller
     public function pageShow($slug)
     {
         $pages = Page::where('slug', $slug)->first();
-        return view('frontend.page-details', compact('blogs'));
+        
+        return view('frontend.page-details', compact('pages'));
     }
 }

@@ -7,16 +7,16 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="page-banner-content">
-                        <h1>Terms & Conditions</h1>
+                        <h1>{{$pages->title}}</h1>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>Terms & Conditions</li>
+                            <li><a href="{{url('/')}}">Home</a></li>
+                            <li>{{$pages->title}}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="page-banner-image">
-                        <img src="assets/images/page-banner/page-banner-image-15.png" alt="Image">
+                        <img src="{{asset($pages->image)}}" alt="Image">
                     </div>
                 </div>
             </div>
@@ -29,111 +29,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="condition-content">
-                        <h2>Terms & Conditions</h2>
-                        <h4>Overview</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverrmaecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                            ipsum suspendisse ultrices gravida. commodo viverra maecenas accumsan lacus vel facilisis.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like
-                            Aldus PageMaker including versions of Lorem Ipsum</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverra maecen accumsan lacus vel facilisis. Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                            a type specimen book. It has survived not only five centuries, but also the leap into
-                            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                            with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-                            desktop publishing software like Aldus PageMaker includi versions of Lorem IpsumLorem Ipsum
-                            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s, when an unknowprinter took a galley of
-                            type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                            but also the leap into electronic</p>
-                        <h4>When Do We Collect Information</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverrmaecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                            ipsum suspendisse ultrices gravida. commodo viverra maecenas accumsan lacus vel facilisis.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like
-                            Aldus PageMaker including versions of Lorem Ipsum</p>
-                        <h4>What We Use Your Personal Data For</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverrmaecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                            ipsum suspendisse ultrices gravida. commodo viverra maecenas accumsan lacus vel facilisis.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like
-                            Aldus PageMaker including versions of Lorem Ipsum</p>
-                        <div class="list">
-                            <ul>
-                                <li><i class="ri-check-line"></i>Lorem ipsum dolor sit amet, adipiscing elit, sed do
-                                    eiusmod tempor commodo viverra</li>
-                                <li><i class="ri-check-line"></i>It is a long established fact that a reader will be
-                                    distracted</li>
-                                <li><i class="ri-check-line"></i>Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text.</li>
-                            </ul>
-                        </div>
-                        <h4>How Do We Protect Information?</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverrmaecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                            ipsum suspendisse ultrices gravida. commodo viverra maecenas accumsan lacus vel facilisis.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like
-                            Aldus PageMaker including versions of Lorem Ipsum</p>
-                        <h4>Password</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverrmaecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                            ipsum suspendisse ultrices gravida. commodo viverra maecenas accumsan lacus vel facilisis.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like
-                            Aldus PageMaker including versions of Lorem Ipsum</p>
-                        <h4>How You Can Access, Update or Delete Your Personal Data</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverrmaecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                            ipsum suspendisse ultrices gravida. commodo viverra maecenas accumsan lacus vel facilisis.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like
-                            Aldus PageMaker including versions of Lorem Ipsum</p>
+                        <h2>{{$pages->title}}</h2>
+
+                        {!!$pages->description!!}
+
                     </div>
                 </div>
-                <div class="col-lg-4">
+                {{-- <div class="col-lg-4">
                     <div class="sidebar">
                         <div class="single-sidebar-widget search-bar">
                             <h3>Search Here</h3>
@@ -213,7 +115,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

@@ -59,4 +59,8 @@ class helper
     {
         return Page::all();
     }
+    public static function pageContent($slug)
+    {
+        return Page::where('slug',$slug)->first();
+    }
 }

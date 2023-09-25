@@ -21,6 +21,7 @@ Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contactU
 Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('contact-us.store');
 Route::get('/portfolio/{slug}', [WebsiteController::class, 'show'])->name('portfolio.show');
 Route::get('/news/{slug}', [WebsiteController::class, 'newsShow'])->name('blog.show');
+Route::get('/{slug}', [WebsiteController::class, 'pageShow'])->name('page.show');
 
 
 require (base_path('routes/admin.php'));
