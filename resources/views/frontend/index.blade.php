@@ -91,7 +91,7 @@
                                 </div>
                                 <h3><a href="#">{{ $item->service_title }}</a></h3>
                                 <p>{{ $item->service_description }}</p>
-                                <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a>
+                                {{-- <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a> --}}
                             </div>
                             <div class="number">
                                 <span>{{ $counter }}</span>
