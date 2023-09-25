@@ -9,16 +9,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="page-banner-content">
-                        <h1>Our Projects</h1>
+                        <h1>{{ helper::getPortfolioSection()->portfolio_title }}</h1>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>Projects</li>
+                            <li><a href="{{url('/')}}">Home</a></li>
+                            <li>{{ helper::getPortfolioSection()->portfolio_title }}</li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="page-banner-image">
-                        <img src="assets/images/page-banner/page-banner-image-9.png" alt="Image">
                     </div>
                 </div>
             </div>

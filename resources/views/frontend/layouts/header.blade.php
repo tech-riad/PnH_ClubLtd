@@ -81,15 +81,20 @@
                         <li class="nav-item">
                             <a onclick="scrollWin()" type="button" class="nav-link">About Us</a>
                         </li>
+                        @if(helper::getPortfolioSection()->portfoliostatus == 'Show')
                         <li class="nav-item">
-                            <a href="{{route('abc.index')}}" class="nav-link">Portfolio</a>
+                            <a href="{{route('abc.index')}}" class="nav-link">{{ helper::getPortfolioSection()->portfolio_title}}</a>
                         </li>
+                        @endif
+
+                        @if(helper::getBlogSection()->blogstatus == 'Show')
                         <li class="nav-item">
                             <a href="{{route('blog.index')}}" class="nav-link">
-                                Daily News
+                                {{ helper::getBlogSection()->blog_title }}
                             </a>
 
                         </li>
+                        @endif
                         <li class="nav-item">
                             <a href="{{route('contactUs')}}" class="nav-link">Contact Us</a>
                         </li>
