@@ -59,7 +59,7 @@
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->service_title}}</td>
                                         <td>{{$item->service_icon_tag}}</td>
-                                        <td>{{$item->service_description}}</td>
+                                        <td>{!!Str::limit($item->service_description,20)!!}</td>
                                         <td>
                                             <a href="{{route('admin.services.edit',$item->id)}}" class="btn btn-success">Edit</a>
                                             <a href="{{route('admin.services.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a>
