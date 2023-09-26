@@ -6,6 +6,7 @@ use App\Models\HomeAboutSection;
 use App\Models\HomeBlogSection;
 use App\Models\HomeContactUsSection;
 use App\Models\HomeMemberSection;
+use App\Models\HomeMetaInformation;
 use App\Models\HomePortfolioSection;
 use App\Models\HomeServiceSection;
 use App\Models\HomeTestimonialSection;
@@ -63,4 +64,10 @@ class helper
     {
         return Page::where('slug',$slug)->first();
     }
+
+    public static function metaInformation()
+    {
+        return HomeMetaInformation::first();
+    }
+
 }

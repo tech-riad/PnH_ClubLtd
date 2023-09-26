@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="{{asset(helper::getLatestsetting()->favicon ?? Null)}}">
-    <title>Purple Admin</title>
+    <title>{{helper::metaInformation()->title}}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
