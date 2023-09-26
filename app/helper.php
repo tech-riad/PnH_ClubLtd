@@ -12,6 +12,7 @@ use App\Models\HomeServiceSection;
 use App\Models\HomeTestimonialSection;
 use App\Models\IntroVideo;
 use App\Models\Page;
+use App\Models\User;
 
 class helper
 {
@@ -69,5 +70,9 @@ class helper
     {
         return HomeMetaInformation::first();
     }
+    // public static function getUser()
+    // {
+    //     return User::first();
+    // }
 
 }

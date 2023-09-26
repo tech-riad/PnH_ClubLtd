@@ -54,8 +54,8 @@
         <div class="container">
             <div class="mobile-responsive-menu">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/images/favicon.png" class="logo-icon-1" alt="logo">
+                    <a href="{{url('/')}}">
+                        <img src="{{asset( helper::getLatestsetting()->logo )}}" class="logo-icon-1" alt="logo">
                         <img src="assets/images/favicon-2.png" class="logo-icon-2" alt="logo">
                         <img src="{{asset( helper::getLatestsetting()->logo )}}" class="main-logo" alt="logo">
                         <img src="assets/images/white-logo.png" class="white-logo" alt="logo">
@@ -123,7 +123,7 @@
                 <div class="inner">
                     <div class="others-options">
                         <div class="option-item">
-                            <a href="contact-us.html" class="default-btn btn style-2">Get In Touch</a>
+                            <a href="{{route('contactUs')}}" class="default-btn btn style-2">Get In Touch</a>
                         </div>
                         <div class="option-item">
                             <div class="switch-box">
