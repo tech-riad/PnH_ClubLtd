@@ -62,7 +62,7 @@
                                             $item = helper::pageName()[$i];
                                     @endphp
                                                 <li>
-                                                    <a href="{{@$item->slug}}">{{@$item->title}}</a>
+                                                    <a href="{{route('page.show',$item->slug)}}">{{@$item->title}}</a>
                                                 </li>
                                     @php
                                             endfor;
@@ -83,7 +83,7 @@
                                                 $item = helper::pageName()[$i];
                                     @endphp
                                                 <li>
-                                                    <a href="{{@$item->slug}}">{{@$item->title}}</a>
+                                                    <a href="{{route('page.show',$item->slug)}}">{{@$item->title}}</a>
                                                 </li>
                                     @php
                                             endfor;
