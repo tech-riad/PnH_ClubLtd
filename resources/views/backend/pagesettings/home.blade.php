@@ -641,6 +641,7 @@
                 success: function(response) {
 
                     console.log(response);
+                    alert('Meta IInformation Update Successfully !');
                 },
                 error: function(xhr, status, error) {
 
@@ -670,6 +671,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
+                    alert('About Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -697,7 +699,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    // Handle success, e.g., show success message
+                    alert('Service Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -728,6 +730,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
+                    alert('Schedule Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -755,11 +758,10 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    // Handle success, e.g., show success message
+                    alert('Member Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
-                    // Handle error, e.g., show error message
                 }
             });
         });
@@ -784,11 +786,10 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    // Handle success, e.g., show success message
+                    alert('Portfolio Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
-                    // Handle error, e.g., show error message
                 }
             });
         });
@@ -813,6 +814,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
+                    alert('Testimonial Section Update Successfully !');
                 },
                 error: function(xhr, testimonialstatus, error) {
                     console.error(xhr.responseText);
@@ -840,6 +842,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
+                    alert('Blog Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -867,6 +870,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
+                    alert('Contact Us Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
