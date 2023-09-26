@@ -21,7 +21,7 @@ Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contactU
 Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('contact-us.store');
 Route::get('/portfolio/{slug}', [WebsiteController::class, 'show'])->name('portfolio.show');
 Route::get('/news/{slug}', [WebsiteController::class, 'newsShow'])->name('blog.show');
-Route::get('/{slug}', [WebsiteController::class, 'pageShow'])->name('page.show');
+Route::get('/page/{slug}', [WebsiteController::class, 'pageShow'])->name('page.show');
 Route::get('/blogs/all-blogs', [WebsiteController::class, 'blogs'])->name('blog.index');
 
 Route::get('/portfolios/all-portfolios', [WebsiteController::class, 'abc'])->name('abc.index');
