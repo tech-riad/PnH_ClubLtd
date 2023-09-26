@@ -16,57 +16,76 @@ class GeneralSettingController extends Controller
     }
 
     public function update(Request $request)
-    {
+{
+    $request->validate([
+        'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+        'white_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+        'favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+        'phone' => 'nullable|string',
+        'email' => 'nullable|email',
+        'facebook_link' => 'nullable|string',
+        'twitter_link' => 'nullable|string',
+        'instagram_link' => 'nullable|string',
+        'linkedin_link' => 'nullable|string',
+        'address' => 'nullable|string',
+    ]);
 
-        $request->validate([
-            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'white_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'phone' => 'nullable|string',
-            'email' => 'nullable|email',
-            'facebook_link' => 'nullable|string',
-            'twitter_link' => 'nullable|string',
-            'instagram_link' => 'nullable|string',
-            'linkedin_link' => 'nullable|string',
-            'address' => 'nullable|string',
-        ]);
+    $generalSettings = GeneralSetting::firstOrFail();
 
-        $generalSettings = GeneralSetting::firstOrFail();
-
-        $generalSettings->update([
-            'phone' => $request->input('phone'),
-            'email' => $request->input('email'),
-            'facebook_link' => $request->input('facebook_link'),
-            'twitter_link' => $request->input('twitter_link'),
-            'instagram_link' => $request->input('instagram_link'),
-            'linkedin_link' => $request->input('linkedin_link'),
-            'address' => $request->input('address'),
-        ]);
-
-        // Handle logo update
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logoName = time() . '.' . $logo->getClientOriginalExtension();
-            $logo->move(public_path('uploads'), $logoName);
-            $generalSettings->logo = 'uploads/' . $logoName;
-        }
-        // Handle logo update
-        if ($request->hasFile('white_logo')) {
-            $white_logo = $request->file('white_logo');
-            $white_logoName = time() . '.' . $white_logo->getClientOriginalExtension();
-            $white_logo->move(public_path('uploads'), $white_logoName);
-            $generalSettings->white_logo = 'uploads/' . $white_logoName;
-        }
-
-        if ($request->hasFile('favicon')) {
-            $favicon = $request->file('favicon');
-            $faviconName = time() . '.' . $favicon->getClientOriginalExtension();
-            $favicon->move(public_path('uploads'), $faviconName);
-            $generalSettings->favicon = 'uploads/' . $faviconName;
-        }
-
-        $generalSettings->save();
-
-        return redirect()->route('admin.setting')->with('success', 'General settings updated successfully');
+    // Delete old images if new ones are provided
+    if ($request->hasFile('logo') && !empty($generalSettings->logo)) {
+        $this->deleteImage($generalSettings->logo);
     }
+    if ($request->hasFile('white_logo') && !empty($generalSettings->white_logo)) {
+        $this->deleteImage($generalSettings->white_logo);
+    }
+    if ($request->hasFile('favicon') && !empty($generalSettings->favicon)) {
+        $this->deleteImage($generalSettings->favicon);
+    }
+
+    $generalSettings->update([
+        'phone' => $request->input('phone'),
+        'email' => $request->input('email'),
+        'facebook_link' => $request->input('facebook_link'),
+        'twitter_link' => $request->input('twitter_link'),
+        'instagram_link' => $request->input('instagram_link'),
+        'linkedin_link' => $request->input('linkedin_link'),
+        'address' => $request->input('address'),
+    ]);
+
+    // Handle logo update
+    if ($request->hasFile('logo')) {
+        $logo = $request->file('logo');
+        $logoName = time() . '.' . $logo->getClientOriginalExtension();
+        $logo->move(public_path('uploads'), $logoName);
+        $generalSettings->logo = 'uploads/' . $logoName;
+    }
+
+    // Handle white_logo update
+    if ($request->hasFile('white_logo')) {
+        $whiteLogo = $request->file('white_logo');
+        $whiteLogoName = time() . '.' . $whiteLogo->getClientOriginalExtension();
+        $whiteLogo->move(public_path('uploads'), $whiteLogoName);
+        $generalSettings->white_logo = 'uploads/' . $whiteLogoName;
+    }
+
+    // Handle favicon update
+    if ($request->hasFile('favicon')) {
+        $favicon = $request->file('favicon');
+        $faviconName = time() . '.' . $favicon->getClientOriginalExtension();
+        $favicon->move(public_path('uploads'), $faviconName);
+        $generalSettings->favicon = 'uploads/' . $faviconName;
+    }
+
+    $generalSettings->save();
+
+    return redirect()->route('admin.setting')->with('success', 'General settings updated successfully');
+}
+
+private function deleteImage($imagePath)
+{
+    if (file_exists(public_path($imagePath))) {
+        unlink(public_path($imagePath));
+    }
+}
 }

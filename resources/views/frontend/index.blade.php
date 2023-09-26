@@ -90,7 +90,7 @@
                                     <i class="{{ $item->service_icon_tag }}"></i>
                                 </div>
                                 <h3><a href="#">{{ $item->service_title }}</a></h3>
-                                <p>{!! $item->service_description !!}</p>
+                                {!! $item->service_description !!}
                                 {{-- <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a> --}}
                             </div>
                             <div class="number">
