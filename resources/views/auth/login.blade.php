@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{{asset(helper::getLatestsetting()->favicon ?? Null)}}">
     <title>Purple Admin</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- plugins:css -->
@@ -18,7 +19,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}}" />
+    {{-- <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}}" /> --}}
   </head>
   <body>
     <div class="container-scroller">
