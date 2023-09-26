@@ -56,9 +56,9 @@
                 <div class="logo">
                     <a href="{{url('/')}}">
                         <img src="{{asset( helper::getLatestsetting()->logo )}}" class="logo-icon-1" alt="logo">
-                        <img src="assets/images/favicon-2.png" class="logo-icon-2" alt="logo">
+                        <img src="{{asset( helper::getLatestsetting()->white_logo )}}" class="logo-icon-2" alt="logo">
                         <img src="{{asset( helper::getLatestsetting()->logo )}}" class="main-logo" alt="logo">
-                        <img src="assets/images/white-logo.png" class="white-logo" alt="logo">
+                        <img src="{{asset( helper::getLatestsetting()->white_logo )}}" class="white-logo" alt="logo">
                     </a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{asset( helper::getLatestsetting()->logo )}}" class="main-logo" alt="logo">
-                    {{-- <img src="assets/images/white-logo.png" class="white-logo" alt="logo"> --}}
+                    <img src="{{asset( helper::getLatestsetting()->white_logo )}}" class="white-logo" alt="logo" >
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">

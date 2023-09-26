@@ -20,6 +20,7 @@ class GeneralSettingController extends Controller
 
         $request->validate([
             'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'white_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
@@ -48,6 +49,13 @@ class GeneralSettingController extends Controller
             $logoName = time() . '.' . $logo->getClientOriginalExtension();
             $logo->move(public_path('uploads'), $logoName);
             $generalSettings->logo = 'uploads/' . $logoName;
+        }
+        // Handle logo update
+        if ($request->hasFile('white_logo')) {
+            $white_logo = $request->file('white_logo');
+            $white_logoName = time() . '.' . $white_logo->getClientOriginalExtension();
+            $white_logo->move(public_path('uploads'), $white_logoName);
+            $generalSettings->white_logo = 'uploads/' . $white_logoName;
         }
 
         if ($request->hasFile('favicon')) {

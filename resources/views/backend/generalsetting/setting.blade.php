@@ -48,6 +48,26 @@
                     </div>
                     <div class="col-lg-6 col-6">
                         <div class="form-group">
+                            <label for="">White Logo </label>
+                            <div>
+                                <input type="file" name="white_logo" class="custom-file-input" id="customFile"
+                                onchange="document.getElementById('white_logo').src = window.URL.createObjectURL(this.files[0])"
+                                class="@error('white_logo') is-invalid @enderror"><br>
+
+                                <img class="mt-2" id="white_logo" alt="white_logo" width="100" height="100" />
+
+                                @if (isset($setting) && $setting->white_logo)
+                                <div class="old_white_logo mt-2">
+                                    <label class="mb-0" for="">Old white logo:</label><br>
+                                    <img class="mt-2" id="oldwhite_logo" src="{{ asset($setting->white_logo) }}"
+                                        alt="white_logo" width="100" height="100" />
+                                </div>
+                            @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <div class="form-group">
                             <label for="">Fav Icon</label>
                             <div>
                                 <input type="file" name="favicon" class="custom-file-input" id="customFile"
@@ -108,9 +128,11 @@
 <script>
     $("#logo").hide();
     $("#favicon").hide();
+    $("#white_logo").hide();
     $("#customFile").change(function () {
         $("#logo").show();
         $("#favicon").show();
+        $("#white_logo").show();
     });
 </script>
 
