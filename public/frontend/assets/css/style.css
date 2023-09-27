@@ -1622,6 +1622,7 @@ textarea {
 
 
 
+
 .banner-slider-item .container-fluid {
     max-width: 1580px;
     padding-left: 30px;
@@ -1774,13 +1775,13 @@ textarea {
     padding-bottom: 250px
 }
 
-.banner-slider-item-style2.bg-1 {
+/* .banner-slider-item-style2.bg-1 {
     background-image: url(../images/banner/banner-bg-5.jpg)
 }
 
 .banner-slider-item-style2.bg-2 {
     background-image: url(../images/banner/banner-bg-6.jpg)
-}
+} */
 
 .banner-slider-item-style2 .container-fluid {
     max-width: 1580px;
