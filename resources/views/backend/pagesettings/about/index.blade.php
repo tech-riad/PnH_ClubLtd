@@ -62,7 +62,7 @@
                                         <td><img class="mt-2" id="oldlogo" src="{{ asset($item->about_image) }}"
                                             alt="logo" width="100" height="100" /></td>
                                         <td>{{$item->about_title}}</td>
-                                        <td>{{$item->about_description}}</td>
+                                        <td>{!!Str::limit($item->about_description,30)!!}</td>
 
                                         <td>
                                             <a href="{{route('admin.about.edit',$item->id)}}" class="btn btn-success">Edit</a>

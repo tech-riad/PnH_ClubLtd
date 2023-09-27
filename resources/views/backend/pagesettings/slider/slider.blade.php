@@ -62,6 +62,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if ($slider)
                                     @foreach($slider as $item)
                                         <tr role="row">
                                             <td>{{ $item->id }}</td>
@@ -69,7 +70,7 @@
                                                     alt="logo" width="100" height="100" /></td>
                                             <td>{{ Str::limit(@$item->welcome_text,20) }}</td>
                                             <td>{{ Str::limit(@$item->slider_title,20) }}</td>
-                                            <td>{{ Str::limit(@$item->slider_description,20) }}</td>
+                                            <td>{!! Str::limit(@$item->slider_description,20) !!}</td>
 
                                             <td>
                                                 @php
@@ -93,6 +94,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

@@ -66,7 +66,7 @@
                                             alt="logo" width="100" height="100" /></td>
                                         <td>{{Str::limit(@$item->video_title,20)}}</td>
                                         <td><a href="{{@$item->video_url}}"target="_blank">{{Str::limit(@$item->video_url,20)}}</a></td>
-                                        <td>{{Str::limit(@$item->video_description,20)}}</td>
+                                        <td>{!!Str::limit(@$item->video_description,20)!!}</td>
 
                                         <td>
                                             <a href="{{route('admin.introvideo.edit',@$item->id)}}" class="btn btn-success">Edit</a>
