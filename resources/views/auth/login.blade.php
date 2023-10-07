@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="{{ asset(helper::getLatestsetting()->favicon ?? Null) }}">
     <title>{{ helper::metaInformation()->title }}</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <!-- plugins:css -->
     <link rel="stylesheet"
         href="{{ asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
@@ -56,15 +56,15 @@
                                     {{-- <a href="#" class="auth-link text-black">Forgot password?</a> --}}
                                 </div>
                                 {{-- <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.html" class="text-primary">Create</a> --}}
-                        
-                        </form>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- content-wrapper ends -->
         </div>
-        <!-- content-wrapper ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
+        <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
