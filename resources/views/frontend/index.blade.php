@@ -90,7 +90,7 @@
                                     <i class="{{ $item->service_icon_tag }}"></i>
                                 </div>
                                 <h3><a href="#">{{ $item->service_title }}</a></h3>
-                                {!! $item->service_description !!}
+                                {!! Str::limit($item->service_description,85) !!}
                                 {{-- <a class="default-btn" href="#">Read More <i class="ri-arrow-right-line"></i></a> --}}
                             </div>
                             <div class="number">
