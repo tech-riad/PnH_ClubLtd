@@ -21,16 +21,16 @@ class SliderSectionController extends Controller
     }
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'welcome_text' => 'string',
-        //     'slider_title' => 'string',
-        //     'slider_description' => 'string',
-        //     'slider_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'slider_profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'slider_profile_button_name' => 'string',
-        //     'slider_profile_button_url' => 'string',
-        //     'slider_profile_short_desc' => 'string',
-        // ]);
+        $request->validate([
+            'welcome_text' => 'string|nullable',
+            'slider_title' => 'string|nullable',
+            'slider_description' => 'string|nullable',
+            'slider_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'slider_profile_image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'slider_profile_button_name' => 'string|nullable',
+            'slider_profile_button_url' => 'string|nullable',
+            'slider_profile_short_desc' => 'string|nullable',
+        ]);
 
         $sliderSection = new SliderSection();
 
@@ -75,6 +75,7 @@ class SliderSectionController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $request->validate([
             'welcome_text' => 'string|nullable',
             'slider_title' => 'string|nullable',
