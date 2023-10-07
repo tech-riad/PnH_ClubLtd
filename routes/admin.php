@@ -16,8 +16,6 @@ use App\Models\HomePortfolioSection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
     Route::get('/page', [HomeSectionController::class, 'index'])->name('admin.homepage');

@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contactUs');
 Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('contact-us.store');
