@@ -76,6 +76,8 @@
     <script src="{{ asset('backend/assets/js/dashboard.js') }}"></script>
     <script src="{{ asset('backend/assets/js/todolist.js') }}"></script>
 
+
+
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
     {{-- <script>
         var allEditors = document.querySelectorAll('.editor');

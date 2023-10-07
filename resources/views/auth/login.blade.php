@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="{{ asset(helper::getLatestsetting()->favicon ?? Null) }}">
-    <title>{{ helper::metaInformation()->title }}</title>
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
-    <!-- plugins:css -->
-    <link rel="stylesheet"
-        href="{{ asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('backend/assets/vendors/css/vendor.bundle.base.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
-
-</head>
-
-<body>
+@extends('frontend.layouts.master')
+@section('content')
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth">
@@ -69,15 +50,6 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="{{ asset('backend/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ asset('backend/assets/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/misc.js') }}"></script>
-    <!-- endinject -->
-</body>
 
-</html>
+
+@endsection

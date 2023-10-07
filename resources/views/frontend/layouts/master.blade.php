@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
 
+
+    <link rel="stylesheet"
+    href="{{ asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('backend/assets/vendors/css/vendor.bundle.base.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
+
+
     @stack('css')
 
 </head>
@@ -74,6 +83,12 @@
     <script src="{{ asset('frontend/assets/js/ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
 
+
+
+    <script src="{{ asset('backend/assets/vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/off-canvas.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/misc.js') }}"></script>
 
         <script>
             function scrollWin() {
