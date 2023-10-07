@@ -19,22 +19,23 @@ class WebsiteController extends Controller
     public function index()
     {
 
-        $sliders = SliderSection::orderBy('id', 'desc')->get();
+        $sliders      = SliderSection::orderBy('id', 'desc')->get();
 
-        $services = ServiceSection::orderBy('id', 'desc')->get();
+        $services     = ServiceSection::orderBy('id', 'desc')->get();
 
-        $about = AboutSection::first();
+        $about        = AboutSection::first();
 
-        $members = MemberSection::latest()->take(3)->get();
+        $members      = MemberSection::latest()->take(3)->get();
 
-        $introvideo = IntroVideo::latest()->first();
+        $introvideo   = IntroVideo::latest()->first();
 
-        $testimonials  = Testimonial::latest()->take(4)->get();
+        $testimonials = Testimonial::latest()->take(4)->get();
 
-        $blogs  = BlogController::latest()->take(3)->get();
-        $portfolios = Portfolio::latest()->take(6)->get();
+        $blogs        = BlogController::latest()->take(3)->get();
+        $portfolios   = Portfolio::latest()->take(6)->get();
+        // dd($portfolios);
 
-        $pages = Page::all();
+        $pages        = Page::all();
 
 
 

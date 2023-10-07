@@ -47,8 +47,8 @@ class PortfolioController extends Controller
         if ($request->hasFile('portfolio_image_view')) {
             $portfolioImageView = $request->file('portfolio_image_view');
             $portfolioImageViewName = time() . '_view.' . $portfolioImageView->getClientOriginalExtension();
-            $portfolioImageView->move(public_path('portfolio_images'), $portfolioImageViewName);
-            $portfolio->portfolio_image_view = 'portfolio_images/' . $portfolioImageViewName;
+            $portfolioImageView->move(public_path('portfolio_image_view'), $portfolioImageViewName);
+            $portfolio->portfolio_image_view = 'portfolio_image_view/' . $portfolioImageViewName;
         }
 
         $portfolio->save();
@@ -96,13 +96,13 @@ class PortfolioController extends Controller
         if ($request->hasFile('portfolio_image_view')) {
             $portfolioImageView = $request->file('portfolio_image_view');
             $portfolioImageViewName = time() . '_view.' . $portfolioImageView->getClientOriginalExtension();
-            $portfolioImageView->move(public_path('portfolio_images'), $portfolioImageViewName);
+            $portfolioImageView->move(public_path('portfolio_image_view'), $portfolioImageViewName);
 
             if ($portfolio->portfolio_image_view && file_exists(public_path($portfolio->portfolio_image_view))) {
                 unlink(public_path($portfolio->portfolio_image_view));
             }
 
-            $portfolio->portfolio_image_view = 'portfolio_images/' . $portfolioImageViewName;
+            $portfolio->portfolio_image_view = 'portfolio_image_view/' . $portfolioImageViewName;
         }
 
         $portfolio->save();
