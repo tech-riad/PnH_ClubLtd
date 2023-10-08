@@ -92,7 +92,6 @@
                     <div class="form-group">
                         <label for="">Event Image For Details*</label>
                         <div>
-                            {{-- <input type="file" name="event_details_image[]" multiple> --}}
                             <input type="file" name="event_details_image[]" class="custom-file-input" id="customProfileImage" multiple>
                         <br>
                         @if ($event->event_details_image)
