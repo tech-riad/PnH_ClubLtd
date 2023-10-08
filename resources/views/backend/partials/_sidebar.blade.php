@@ -38,6 +38,7 @@
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.blogsection')}}">Blog</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.portfolios')}}">Portfolio</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{route('admin.pages')}}">Pages</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('admin.events')}}">Event</a></li>
         </ul>
       </div>
     </li>

@@ -98,6 +98,14 @@
             } );}
     </script>
 
+<script>
+    $("#event_image").hide();
+    $("#customFile").change(function () {
+        $("#event_image").show();
+    });
+
+</script>
+
 
 
 </body>

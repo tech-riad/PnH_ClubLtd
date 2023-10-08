@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\BlogControllerController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\IntroVideoController;
@@ -123,6 +124,13 @@ Route::get('/pages/edit/{id}', [PageController::class, 'edit'])->name('admin.pag
 Route::any('/pages/update/{id}', [PageController::class, 'update'])->name('admin.pages.update');
 Route::any('/pages/delete/{id}', [PageController::class, 'delete'])->name('admin.pages.delete');
 
+//Events
+Route::get('/events',[EventController::class, 'index'])->name('admin.events');
+Route::get('/events/create',[EventController::class, 'create'])->name('admin.events.create');
+Route::post('/events/store',[EventController::class, 'store'])->name('admin.events.store');
+Route::get('/events/edit/{id}',[EventController::class, 'edit'])->name('admin.events.edit');
+Route::any('/events/update/{id}',[EventController::class, 'update'])->name('admin.events.update');
+Route::any('/events/delete/{id}',[EventController::class, 'delete'])->name('admin.events.delete');
 
 });
 
