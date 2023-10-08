@@ -17,25 +17,84 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="form-group">
-                    <label for="">Title *</label>
-                    <input type="text" name="title" class="form-control" value="" autofocus="">
-                </div>
-                <div class="form-group">
-                    <label for="">Button Name *</label>
-                    <input type="text" name="btn_name" class="form-control" value="" autofocus="">
-                </div>
-                <div class="form-group">
-                    <label for="">Button URL * </label>
-                    <input type="text" name="brn_link" class="form-control" value="" autofocus="">
-                </div>
-                <div class="form-group">
-                    <label for="">Event Image *</label>
-                    <div>
-                        <input type="file" name="event_image">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Eent Name *</label>
+                            <input type="text" name="event_name" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Event Cost *</label>
+                            <input type="number" name="event_cost" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Contact Number For Event *</label>
+                            <input type="text" name="event_contact" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Contact Email For Event *</label>
+                            <input type="email" name="event_mail" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Event Location *</label>
+                            <input type="text" name="event_location" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Event Map Location *</label>
+                            <input type="text" name="event_map_location" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Event Date *</label>
+                            <input type="date" name="event_date" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Event Time *</label>
+                            <input type="text" name="event_time" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Button Name *</label>
+                            <input type="text" name="btn_name" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Button URL * </label>
+                            <input type="text" name="btn_link" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Event Image Front*</label>
+                            <div>
+                                <input type="file" name="event_front_image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Event Image For Details*</label>
+                            <div>
+                                <input type="file" name="event_details_image[]" multiple>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="">Description *</label>
                     <textarea class="editor" name="description" class="form-control h_100" cols="30" rows="10"></textarea>

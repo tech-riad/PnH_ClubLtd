@@ -105,6 +105,13 @@
     });
 
 </script>
+<script>
+    $("#event_front_image_preview").hide();
+    $("#customFile").change(function () {
+        $("#event_front_image_preview").show();
+    });
+
+</script>
 
 
 

@@ -13,11 +13,20 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('event_image');
+            $table->string('event_name')->nullable();
+            $table->string('event_slug')->nullable();
+            $table->date('event_date')->nullable();
+            $table->string('event_cost')->nullable();
+            $table->string('event_contact')->nullable();
+            $table->string('event_mail')->nullable();
+            $table->string('event_location')->nullable();
+            $table->string('event_map_location')->nullable();
+            $table->string('event_time')->nullable();
             $table->string('btn_name')->nullable();
             $table->string('btn_link')->nullable();
-            $table->longText('description');
+            $table->string('event_front_image')->nullable();
+            $table->string('event_details_image')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
