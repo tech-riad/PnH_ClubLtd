@@ -127,7 +127,7 @@
                 <div class="col-lg-6">
                     <div class="about-content pl-15">
                         <div class="about-title">
-                            <span>{{ helper::getAboutSection()->abouttitle ?? Null}}</span>
+                            <span>{{ helper::getAboutSection()->abouttitle ?? Null }}</span>
                             <h2>{{ @$about->about_title }} <span class="overlay"></span></h2>
                         </div>
                         <p>{!! @$about->about_description !!}</p>
@@ -161,108 +161,119 @@
 @endif
 
 
-{{-- <div class="course-area bg pt-100">
-    <div class="container">
-        <div class="section-title white-title">
-            <span>{{ helper::getMemberSection()->member_title }}</span>
-<h2>{{ helper::getMemberSection()->member_desc }} <span class="overlay"></span></h2>
-</div>
-<div class="row">
-    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-        <div class="single-course-card">
-            <div class="course-img">
-                <a href="training-details.html"><img src="assets/images/course/course-img-1.jpg" alt="Image"></a>
+@if(helper::eventInformation()->eventstatus == 'Show')
+    <div class="course-area bg pt-100">
+        <div class="container">
+            <div class="section-title white-title">
+                <span>{{ helper::eventInformation()->title }}</span>
+                <h2>{{ helper::eventInformation()->subtitle }} <span class="overlay"></span></h2>
             </div>
-            <div class="course-content">
-                <a href="training-details.html">
-                    <h3>Boxing Practice</h3>
-                </a>
-                <ul>
-                    <li>
-                        <i class="ri-map-pin-user-fill"></i>
-                        231 King Street, Melbourne
-                    </li>
-                    <li>
-                        <i class="ri-time-line"></i>
-                        01:00pm - 03:00 pm
-                    </li>
-                </ul>
-                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="single-course-card">
+                        <div class="course-img">
+                            <a href="training-details.html"><img src="assets/images/course/course-img-1.jpg"
+                                    alt="Image"></a>
+                        </div>
+                        <div class="course-content">
+                            <a href="training-details.html">
+                                <h3>Boxing Practice</h3>
+                            </a>
+                            <ul>
+                                <li>
+                                    <i class="ri-map-pin-user-fill"></i>
+                                    231 King Street, Melbourne
+                                </li>
+                                <li>
+                                    <i class="ri-time-line"></i>
+                                    01:00pm - 03:00 pm
+                                </li>
+                            </ul>
+                            <a class="default-btn" href="training-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                    <div class="single-course-card">
+                        <div class="course-img">
+                            <a href="training-details.html"><img src="assets/images/course/course-img-2.jpg"
+                                    alt="Image"></a>
+                        </div>
+                        <div class="course-content">
+                            <a href="training-details.html">
+                                <h3>Cardio Training</h3>
+                            </a>
+                            <ul>
+                                <li>
+                                    <i class="ri-map-pin-user-fill"></i>
+                                    231 King Street, Melbourne
+                                </li>
+                                <li>
+                                    <i class="ri-time-line"></i>
+                                    01:00pm - 03:00 pm
+                                </li>
+                            </ul>
+                            <a class="default-btn" href="training-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+                    <div class="single-course-card">
+                        <div class="course-img">
+                            <a href="training-details.html"><img src="assets/images/course/course-img-3.jpg"
+                                    alt="Image"></a>
+                        </div>
+                        <div class="course-content">
+                            <a href="training-details.html">
+                                <h3>Zumba Dance</h3>
+                            </a>
+                            <ul>
+                                <li>
+                                    <i class="ri-map-pin-user-fill"></i>
+                                    231 King Street, Melbourne
+                                </li>
+                                <li>
+                                    <i class="ri-time-line"></i>
+                                    01:00pm - 03:00 pm
+                                </li>
+                            </ul>
+                            <a class="default-btn" href="training-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
+                    <div class="single-course-card">
+                        <div class="course-img">
+                            <a href="training-details.html"><img src="assets/images/course/course-img-4.jpg"
+                                    alt="Image"></a>
+                        </div>
+                        <div class="course-content">
+                            <a href="training-details.html">
+                                <h3>Boxing Class</h3>
+                            </a>
+                            <ul>
+                                <li>
+                                    <i class="ri-map-pin-user-fill"></i>
+                                    231 King Street, Melbourne
+                                </li>
+                                <li>
+                                    <i class="ri-time-line"></i>
+                                    01:00pm - 03:00 pm
+                                </li>
+                            </ul>
+                            <a class="default-btn" href="training-details.html">Read More <i
+                                    class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-        <div class="single-course-card">
-            <div class="course-img">
-                <a href="training-details.html"><img src="assets/images/course/course-img-2.jpg" alt="Image"></a>
-            </div>
-            <div class="course-content">
-                <a href="training-details.html">
-                    <h3>Cardio Training</h3>
-                </a>
-                <ul>
-                    <li>
-                        <i class="ri-map-pin-user-fill"></i>
-                        231 King Street, Melbourne
-                    </li>
-                    <li>
-                        <i class="ri-time-line"></i>
-                        01:00pm - 03:00 pm
-                    </li>
-                </ul>
-                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-        <div class="single-course-card">
-            <div class="course-img">
-                <a href="training-details.html"><img src="assets/images/course/course-img-3.jpg" alt="Image"></a>
-            </div>
-            <div class="course-content">
-                <a href="training-details.html">
-                    <h3>Zumba Dance</h3>
-                </a>
-                <ul>
-                    <li>
-                        <i class="ri-map-pin-user-fill"></i>
-                        231 King Street, Melbourne
-                    </li>
-                    <li>
-                        <i class="ri-time-line"></i>
-                        01:00pm - 03:00 pm
-                    </li>
-                </ul>
-                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
-        <div class="single-course-card">
-            <div class="course-img">
-                <a href="training-details.html"><img src="assets/images/course/course-img-4.jpg" alt="Image"></a>
-            </div>
-            <div class="course-content">
-                <a href="training-details.html">
-                    <h3>Boxing Class</h3>
-                </a>
-                <ul>
-                    <li>
-                        <i class="ri-map-pin-user-fill"></i>
-                        231 King Street, Melbourne
-                    </li>
-                    <li>
-                        <i class="ri-time-line"></i>
-                        01:00pm - 03:00 pm
-                    </li>
-                </ul>
-                <a class="default-btn" href="training-details.html">Read More <i class="ri-arrow-right-line"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div> --}}
+@else
+@endif
 
 
 {{-- <div class="schedule-time-area pt-70 pb-100">
@@ -509,24 +520,25 @@ z-index: 1">
                 <h2>{{ helper::getPortfolioSection()->portfolio_desc }} <span class="overlay"></span></h2>
             </div>
             <div class="row">
-                @foreach ($portfolios as $item)
-                <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
-                    <div class="single-portfolio-card">
-                        <div class="portfolio-img">
-                            <img src="{{asset($item->portfolio_image)}}" alt="Image">
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="{{route('portfolio.show',$item->slug)}}">
-                                <div class="icon">
-                                    <i class="ri-add-line"></i>
-                                </div>
-                            </a>
-                            <h3>{{$item->portfolio_category}}</h3>
-                            <a class="default-btn active" href="{{route('portfolio.show',$item->slug)}}">{{$item->button_name}}<i
-                                    class="ri-arrow-right-line"></i></a>
+                @foreach($portfolios as $item)
+                    <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
+                        <div class="single-portfolio-card">
+                            <div class="portfolio-img">
+                                <img src="{{ asset($item->portfolio_image) }}" alt="Image">
+                            </div>
+                            <div class="portfolio-content">
+                                <a href="{{ route('portfolio.show',$item->slug) }}">
+                                    <div class="icon">
+                                        <i class="ri-add-line"></i>
+                                    </div>
+                                </a>
+                                <h3>{{ $item->portfolio_category }}</h3>
+                                <a class="default-btn active"
+                                    href="{{ route('portfolio.show',$item->slug) }}">{{ $item->button_name }}<i
+                                        class="ri-arrow-right-line"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 @endforeach
 
@@ -599,13 +611,17 @@ z-index: 1">
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                         <div class="single-blog-card">
                             <div class="blog-img">
-                                <a href="{{route('blog.show',$item->slug)}}"><img src="{{ asset($item->image) ?? Null }}" alt="Image"></a>
+                                <a href="{{ route('blog.show',$item->slug) }}"><img
+                                        src="{{ asset($item->image) ?? Null }}" alt="Image"></a>
                             </div>
                             <div class="blog-content">
                                 <span><i class="ri-calendar-check-line"></i>{{ @$item->created_at }}</span>
-                                <h2><a href="{{route('blog.show',$item->slug)}}">{{ @$item->title }}</a>
+                                <h2><a
+                                        href="{{ route('blog.show',$item->slug) }}">{{ @$item->title }}</a>
                                 </h2>
-                                <a class="default-btn" href="{{route('blog.show',$item->slug)}}">Read More <i class="ri-arrow-right-line"></i></a>
+                                <a class="default-btn"
+                                    href="{{ route('blog.show',$item->slug) }}">Read More <i
+                                        class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
                     </div>
@@ -617,6 +633,40 @@ z-index: 1">
     </div>
 @else
 @endif
+
+<section class="upcoming-event-carousel">
+    <div class="container">
+        <h2 class="text-center">Upcoming Events</h2>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="http://www.dhakaclubltd.com/public/uploads/event/1696147105-whatsapp-image-2023-10-01-at-12.59.37-pm.webp"
+                                class="d-block w-100" alt="Event Image 1">
+                            <div class="carousel-caption">
+                                <h3>FOOTBALL TOURNAMENT</h3>
+                                <p>01 Oct 2023</p>
+                            </div>
+                        </div>
+                        <!-- Add more carousel items for additional events -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 

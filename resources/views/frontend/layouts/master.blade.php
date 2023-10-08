@@ -26,9 +26,23 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/dark.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-    
+    <style>
+        /* Customize the appearance of the carousel here */
+        /* You can adjust styles as needed */
+        /* .carousel-item img {
+            max-height: 300px;
+            margin: 0 auto;
+        } */
+
+        .upcoming-event-carousel {
+            background-color: #f2f2f2;
+            padding: 50px 0;
+        }
+    </style>
+
     @stack('css')
 
 </head>
@@ -75,6 +89,7 @@
     <script src="{{ asset('frontend/assets/js/contact-form-script.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.min.js"></script>
 
 
         <script>

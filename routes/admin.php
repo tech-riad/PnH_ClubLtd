@@ -1,4 +1,3 @@
-
 <?php
 
 use App\Http\Controllers\AboutSectionController;
@@ -25,6 +24,7 @@ Route::prefix('admin')->group(function () {
 
 
     Route::any('/metaupdate/{id}', [HomeSectionController::class, 'metaupdate'])->name('admin.metaupdate');
+    Route::any('/event/{id}', [HomeSectionController::class, 'eventUpdate'])->name('admin.eventUpdate');
     Route::any('/service/{id}', [HomeSectionController::class, 'serviceupdate'])->name('admin.serviceupdate');
     Route::any('/schedule/{id}', [HomeSectionController::class, 'scheduleUpdate'])->name('admin.scheduleUpdate');
     Route::any('/contact-us-section/{id}', [HomeSectionController::class, 'contactUsUpdate'])->name('admin.contactUsUpdate');
@@ -133,4 +133,3 @@ Route::any('/events/update/{id}',[EventController::class, 'update'])->name('admi
 Route::any('/events/delete/{id}',[EventController::class, 'delete'])->name('admin.events.delete');
 
 });
-

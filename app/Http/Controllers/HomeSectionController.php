@@ -7,6 +7,7 @@ use App\Models\ContactUs;
 use App\Models\HomeAboutSection;
 use App\Models\HomeBlogSection;
 use App\Models\HomeContactUsSection;
+use App\Models\HomeEventSection;
 use App\Models\HomeMemberSection;
 use App\Models\HomeMetaInformation;
 use App\Models\HomePortfolioSection;
@@ -28,9 +29,10 @@ class HomeSectionController extends Controller
         $testimonialSection   = HomeTestimonialSection::first();
         $blogSection          = HomeBlogSection::first();
         $homecontactus        = HomeContactUsSection::first();
+        $eventsection         = HomeEventSection::first();
 
         return view('backend.pagesettings.home',compact('metainfo','service','about','scheduleSection'
-        ,'memberSection','portfolioSection','testimonialSection','blogSection','homecontactus'));
+        ,'memberSection','portfolioSection','testimonialSection','blogSection','homecontactus','eventsection'));
     }
 
     public function metaupdate(Request $request,$id)
@@ -195,6 +197,24 @@ class HomeSectionController extends Controller
         $blogSection->save();
 
         return response()->json(['success' => 'Blog section updated successfully']);
+    }
+    public function eventUpdate(Request $request,$id)
+    {
+        $validatedData = $request->validate([
+            'title'       => 'nullable|string',
+            'subtitle'    => 'nullable|string',
+            'eventstatus' => 'nullable|in:Hide,Show',
+        ]);
+
+        $eventsection = HomeEventSection::find($id);
+
+        $eventsection->title         = $validatedData['title'];
+        $eventsection->subtitle      = $validatedData['subtitle'];
+        $eventsection->eventstatus   = $validatedData['eventstatus'];
+
+        $eventsection->save();
+
+        return response()->json(['success' => 'Event section updated successfully']);
     }
 
     public function contactUsUpdate(Request $request,$id)

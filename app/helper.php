@@ -5,6 +5,7 @@ use App\Models\GeneralSetting;
 use App\Models\HomeAboutSection;
 use App\Models\HomeBlogSection;
 use App\Models\HomeContactUsSection;
+use App\Models\HomeEventSection;
 use App\Models\HomeMemberSection;
 use App\Models\HomeMetaInformation;
 use App\Models\HomePortfolioSection;
@@ -69,6 +70,10 @@ class helper
     public static function metaInformation()
     {
         return HomeMetaInformation::first();
+    }
+    public static function eventInformation()
+    {
+        return HomeEventSection::first();
     }
     // public static function getUser()
     // {
