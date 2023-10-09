@@ -65,7 +65,7 @@
                                         <td>{!!Str::limit($item->about_description,30)!!}</td>
 
                                         <td>
-                                            <a href="{{route('admin.about.edit',$item->id)}}" class="btn btn-success">Edit</a>
+                                            <a href="{{route('admin.about.edit',$item->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                             {{-- <a href="{{route('admin.about.delete',$item->id)}}" class="btn btn-danger deleteBtn">Delete</a> --}}
                                         </td>
                                     </tr>
