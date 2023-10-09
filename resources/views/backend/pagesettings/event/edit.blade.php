@@ -74,7 +74,7 @@
                                 <img class="mt-2" id="event_front_image_preview"  alt="Slider Image" width="100" height="100" />
                                 @if ($event->event_front_image)
                                 <div class="old_event_front_image mt-2">
-                                    <label class="mb-0" for="old_event_front_image">Old Slider Image:</label><br>
+                                    <label class="mb-0" for="old_event_front_image">Old Image:</label><br>
                                     <img class="mt-2" id="old_event_front_image" src="{{ asset($event->event_front_image) }}" alt="Old Slider Image" width="100" height="100" />
                                 </div>
                                 @endif
@@ -90,7 +90,7 @@
                         <br>
                         @if ($event->event_details_image)
                             <div class="old_profile_images mt-2">
-                                <label class="mb-0" for="old_profile_images">Old Profile Images:</label><br>
+                                <label class="mb-0" for="old_profile_images">Old Images:</label><br>
                                 @foreach (json_decode($event->event_details_image) as $profileImage)
                                     <img class="mt-2" src="{{ asset($profileImage) }}" alt="Old Profile Image" width="100" height="100" />
                                 @endforeach

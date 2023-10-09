@@ -82,36 +82,67 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'          => 'string|max:255',
-            'btn_name'       => 'string|nullable',
-            'btn_link'       => 'string|nullable',
-            'description'    => 'string|required',
-            'event_image'    => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'event_name' => 'required|string|max:255',
+            'event_cost' => 'required|numeric',
+            'event_contact' => 'required|string|max:255',
+            'event_mail' => 'required|string|email|max:255',
+            'event_location' => 'required|string|max:255',
+            'event_map_location' => 'required|string|max:255',
+            'event_date' => 'required',
+            'event_time' => 'required|string|max:255',
+            'btn_name' => 'required|string|max:255',
+            'event_front_image' => 'image|mimes:jpeg,png,jpg,gif',
+            'event_details_image' => 'array',
+            'event_details_image.*' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
 
         $event = Event::findOrFail($id);
-        $event->title         = $request->title;
-        $event->btn_name      = $request->btn_name;
-        $event->btn_link      = $request->btn_link;
-        $event->description   = $request->description;
 
+        $event->event_name = $request->event_name;
+        $event->event_slug = Str::slug($request->event_name);
+        $event->event_cost = $request->event_cost;
+        $event->event_contact = $request->event_contact;
+        $event->event_mail = $request->event_mail;
+        $event->event_location = $request->event_location;
+        $event->event_map_location = $request->event_map_location;
+        $event->event_date = $request->event_date;
+        $event->event_time = $request->event_time;
+        $event->btn_name = $request->btn_name;
+        $event->description = $request->description;
 
-        if ($request->hasFile('event_image')) {
-            $event_image = $request->file('event_image');
-            $event_imageName = time() . '_view.' . $event_image->getClientOriginalExtension();
-            $event_image->move(public_path('eventimage'), $event_imageName);
-
-            if ($event->event_image && file_exists(public_path($event->event_image))) {
-                unlink(public_path($event->event_image));
+        if ($request->hasFile('event_front_image')) {
+            if ($event->event_front_image && file_exists(public_path($event->event_front_image))) {
+                unlink(public_path($event->event_front_image));
             }
+            
+            $frontImage = $request->file('event_front_image');
+            $frontImageName = time() . '.' . $frontImage->getClientOriginalExtension();
+            $frontImage->move(public_path('event_front_images'), $frontImageName);
+            $event->event_front_image = 'event_front_images/' . $frontImageName;
 
-            $event->event_image = 'eventimage/' . $event_imageName;
+
+        }
+
+        $oldProfileImagePaths = json_decode($event->slider_profile_image, true) ?? [];
+        if ($request->hasFile('slider_profile_image')) {
+            $profileImagePaths = [];
+            foreach ($request->file('slider_profile_image') as $profileImage) {
+                $profileImageName = time() . '_' . rand(100, 999) . '.' . $profileImage->getClientOriginalExtension();
+                $profileImage->move(public_path('profile_images'), $profileImageName);
+                $profileImagePaths[] = 'profile_images/' . $profileImageName;
+            }
+            $event->slider_profile_image = json_encode($profileImagePaths);
+
+            foreach ($oldProfileImagePaths as $oldProfileImagePath) {
+                if (file_exists(public_path($oldProfileImagePath))) {
+                    unlink(public_path($oldProfileImagePath));
+                }
+            }
         }
 
         $event->save();
 
-        return redirect()->route('admin.events')->with(['message'=>'Event Update Successfully']);
-
+        return redirect()->route('admin.events')->with('success', 'Event updated successfully');
     }
 
     public function delete($id)

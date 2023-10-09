@@ -97,14 +97,16 @@ class SliderSectionController extends Controller
         $sliderSection->slider_description = $request->input('slider_description');
 
         if ($request->hasFile('slider_image')) {
+
+            if ($sliderSection->slider_image && file_exists(public_path($sliderSection->slider_image))) {
+                unlink(public_path($sliderSection->slider_image));
+            }
+            
             $sliderImage = $request->file('slider_image');
             $sliderImageName = time() . '.' . $sliderImage->getClientOriginalExtension();
             $sliderImage->move(public_path('slider_images'), $sliderImageName);
             $sliderSection->slider_image = 'slider_images/' . $sliderImageName;
 
-            if ($sliderSection->slider_image && file_exists(public_path($sliderSection->slider_image))) {
-                unlink(public_path($sliderSection->slider_image));
-            }
         }
 
         if ($request->hasFile('slider_profile_image')) {

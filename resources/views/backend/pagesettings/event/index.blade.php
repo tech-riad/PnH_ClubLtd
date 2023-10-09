@@ -51,8 +51,6 @@
                                             colspan="1">Title</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1">Button Name</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Url</th>
 
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Action: activate to sort column ascending">Description
@@ -66,11 +64,10 @@
                                     @foreach ($events as $item)
                                     <tr role="row" class="odd">
                                         <td>{{@$item->id}}</td>
-                                        <td><img class="mt-2" id="" src="{{ asset(@$item->event_image) }}"
+                                        <td><img class="mt-2" id="" src="{{ asset(@$item->event_front_image) }}"
                                             alt="event_image" width="100" height="100" /></td>
                                         <td>{{Str::limit(@$item->title,20)}}</td>
                                         <td>{{Str::limit(@$item->btn_name,20)}}</td>
-                                        <td>{{Str::limit(@$item->btn_link,20)}}</td>
                                         <td>{!! Str::limit(@$item->description,20) !!}</td>
                                         <td>
                                             <a href="{{route('admin.events.edit',$item->id)}}" class="btn btn-success">Edit</a>
