@@ -74,12 +74,6 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="">Button URL * </label>
-                            <input type="text" name="btn_link" class="form-control" value="" autofocus="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
                             <label for="">Event Image Front*</label>
                             <div>
                                 <input type="file" name="event_front_image">

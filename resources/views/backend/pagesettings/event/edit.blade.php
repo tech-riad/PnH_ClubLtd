@@ -66,12 +66,6 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="">Button URL * </label>
-                        <input type="text" name="btn_link" class="form-control" value="{{@$event->btn_link ?? @old('btn_link')}}" autofocus="">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
                         <label for="">Event Image Front*</label>
 
                             <div>
