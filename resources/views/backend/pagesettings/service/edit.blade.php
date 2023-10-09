@@ -4,13 +4,13 @@
 
 <div class="container-fluid">
 
-    <h1 class="h3 mb-3 text-gray-800">Add Service</h1>
+    <h1 class="h3 mb-3 text-gray-800">Edit Service</h1>
 
     <form action="{{route('admin.services.update',$services->id)}}" method="post" >
         @csrf
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 mt-2 font-weight-bold text-primary">Add Service</h6>
+                <h6 class="m-0 mt-2 font-weight-bold text-primary">Edit Service</h6>
                 <div class="float-right d-inline">
                     <a href="{{ route('admin.services') }}" class="btn btn-primary btn-sm"><i
                             class="fa fa-plus"></i> View All</a>

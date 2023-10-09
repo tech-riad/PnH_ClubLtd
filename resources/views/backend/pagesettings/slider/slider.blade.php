@@ -51,10 +51,6 @@
                                             colspan="1">Slider Description</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1">Slider Profile Image</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Button Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1">Button Url</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1">Short Desc</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
@@ -82,9 +78,6 @@
                                                     @endforeach
                                                 @endif
                                             </td>
-
-                                            <td>{{ @$item->slider_profile_button_name }}</td>
-                                            <td>{{ @$item->slider_profile_button_url }}</td>
                                             <td>{{ Str::limit($item->slider_profile_short_desc ,20)}}</td>
                                             <td>
                                                 <a href="{{ route('admin.slider.edit',$item->id) }}"
