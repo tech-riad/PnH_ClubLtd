@@ -26,6 +26,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label for="">Eent Title *</label>
+                            <input type="text" name="event_title" class="form-control" value="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
                             <label for="">Event Cost *</label>
                             <input type="number" name="event_cost" class="form-control" value="" autofocus="">
                         </div>

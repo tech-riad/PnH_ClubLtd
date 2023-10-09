@@ -37,11 +37,22 @@
             margin: 0 auto;
         } */
 
-        .upcoming-event-carousel {
-            background-color: #f2f2f2;
-            padding: 50px 0;
-        }
-    </style>
+        <style>
+    .training-details-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center horizontally */
+        text-align: center; /* Center text within the description */
+    }
+
+    .description {
+        margin-bottom: 20px; /* Add some spacing below the description text */
+    }
+
+    .map-container {
+        width: 100%; /* Make the map container full width */
+    }
+</style>
 
     @stack('css')
 

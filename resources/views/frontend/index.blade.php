@@ -169,31 +169,36 @@
                 <h2>{{ helper::eventInformation()->subtitle }} <span class="overlay"></span></h2>
             </div>
             <div class="row">
+
+                @foreach ($events as $item)
                 <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                     <div class="single-course-card">
                         <div class="course-img">
-                            <a href="training-details.html"><img src="assets/images/course/course-img-1.jpg"
+                            <a href="#"><img src="{{asset($item->event_front_image)}}"
                                     alt="Image"></a>
                         </div>
                         <div class="course-content">
-                            <a href="training-details.html">
-                                <h3>Boxing Practice</h3>
+                            <a href="#">
+                                <h3>{{$item->event_name}}</h3>
                             </a>
                             <ul>
                                 <li>
                                     <i class="ri-map-pin-user-fill"></i>
-                                    231 King Street, Melbourne
+                                    {{Str::limit($item->event_location,20)}}
                                 </li>
                                 <li>
                                     <i class="ri-time-line"></i>
-                                    01:00pm - 03:00 pm
+                                    {{$item->event_time}}
                                 </li>
                             </ul>
-                            <a class="default-btn" href="training-details.html">Read More <i
+                            <a class="default-btn" href="{{ route('event.show',$item->event_slug) }}">{{$item->btn_name}} <i
                                     class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
+
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -558,43 +563,5 @@ z-index: 1">
     </div>
 @else
 @endif
-
-<section class="upcoming-event-carousel">
-    <div class="container">
-        <h2 class="text-center">Upcoming Events</h2>
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="http://www.dhakaclubltd.com/public/uploads/event/1696147105-whatsapp-image-2023-10-01-at-12.59.37-pm.webp"
-                                class="d-block w-100" alt="Event Image 1">
-                            <div class="carousel-caption">
-                                <h3>FOOTBALL TOURNAMENT</h3>
-                                <p>01 Oct 2023</p>
-                            </div>
-                        </div>
-                        <!-- Add more carousel items for additional events -->
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
 
 @endsection

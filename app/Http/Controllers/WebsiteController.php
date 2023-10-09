@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\AboutSection;
 use App\Models\BlogController;
+use App\Models\Event;
 use App\Models\IntroVideo;
 use App\Models\MemberSection;
 use App\Models\Page;
@@ -33,20 +34,26 @@ class WebsiteController extends Controller
 
         $blogs        = BlogController::latest()->take(3)->get();
         $portfolios   = Portfolio::latest()->take(6)->get();
-        // dd($portfolios);
+        $events       = Event::latest()->take(4)->get();
+
 
         $pages        = Page::all();
 
 
 
         return view('frontend.index',compact('sliders','services','about','members','introvideo',
-                'testimonials','blogs','portfolios','pages'));
+                'testimonials','blogs','portfolios','pages','events'));
     }
 
     public function show($slug)
     {
         $portfolio = Portfolio::where('slug', $slug)->first();
         return view('frontend.portfolio-details', compact('portfolio'));
+    }
+    public function eventShow($slug)
+    {
+        $event = Event::where('event_slug', $slug)->first();
+        return view('frontend.event-details', compact('event'));
     }
     public function newsShow($slug)
     {

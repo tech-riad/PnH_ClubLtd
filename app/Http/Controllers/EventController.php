@@ -24,33 +24,35 @@ class EventController extends Controller
     public function store(Request $request)
     {
           $request->validate([
-            'event_name' => 'required|string|max:255',
-            'event_cost' => 'required|numeric',
-            'event_contact' => 'required|string|max:255',
-            'event_mail' => 'required|string|email|max:255',
-            'event_location' => 'required|string|max:255',
-            'event_map_location' => 'required|string|max:255',
-            'event_date' => 'required',
-            'event_time' => 'required|string|max:255',
-            'btn_name' => 'required|string|max:255',
-            'event_front_image' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'event_details_image' => 'required|array',
+            'event_name'            => 'required|string|max:255',
+            'event_title'           => 'required|string',
+            'event_cost'            => 'required|numeric',
+            'event_contact'         => 'required|string|max:255',
+            'event_mail'            => 'required|string|email|max:255',
+            'event_location'        => 'required|string',
+            'event_map_location'    => 'required|string',
+            'event_date'            => 'required',
+            'event_time'            => 'required|string|max:255',
+            'btn_name'              => 'required|string|max:255',
+            'event_front_image'     => 'required|image|mimes:jpeg,png,jpg,gif',
+            'event_details_image'   => 'required|array',
             'event_details_image.*' => 'image|mimes:jpeg,png,jpg,gif',
 
         ]);
 
         $event = new Event();
-        $event->event_name = $request->event_name;
-        $event->event_slug = Str::slug($request->event_name);
-        $event->event_cost = $request->event_cost;
-        $event->event_contact = $request->event_contact;
-        $event->event_mail = $request->event_mail;
-        $event->event_location = $request->event_location;
+        $event->event_name         = $request->event_name;
+        $event->event_title        = $request->event_title;
+        $event->event_slug         = Str::slug($request->event_name);
+        $event->event_cost         = $request->event_cost;
+        $event->event_contact      = $request->event_contact;
+        $event->event_mail         = $request->event_mail;
+        $event->event_location     = $request->event_location;
         $event->event_map_location = $request->event_map_location;
-        $event->event_date = $request->event_date;
-        $event->event_time = $request->event_time;
-        $event->btn_name = $request->btn_name;
-        $event->description = $request->description;
+        $event->event_date         = $request->event_date;
+        $event->event_time         = $request->event_time;
+        $event->btn_name           = $request->btn_name;
+        $event->description        = $request->description;
 
         if ($request->hasFile('event_front_image')) {
             $frontImage = $request->file('event_front_image');
@@ -75,40 +77,46 @@ class EventController extends Controller
     }
     public function edit($id)
     {
+
         $event = Event::findOrFail($id);
 
         return view('backend.pagesettings.event.edit',compact('event'));
     }
     public function update(Request $request, $id)
     {
+
         $request->validate([
-            'event_name' => 'required|string|max:255',
-            'event_cost' => 'required|numeric',
-            'event_contact' => 'required|string|max:255',
-            'event_mail' => 'required|string|email|max:255',
-            'event_location' => 'required|string|max:255',
-            'event_map_location' => 'required|string|max:255',
-            'event_date' => 'required',
-            'event_time' => 'required|string|max:255',
-            'btn_name' => 'required|string|max:255',
-            'event_front_image' => 'image|mimes:jpeg,png,jpg,gif',
-            'event_details_image' => 'array',
+            'event_name'            => 'required|string|max:255',
+            'event_title'           => 'required|string',
+            'event_cost'            => 'required|numeric',
+            'event_contact'         => 'required|string|max:255',
+            'event_mail'            => 'required|string|email|max:255',
+            'event_location'        => 'required|string',
+            'event_map_location'    => 'required|string',
+            'event_date'            => 'required',
+            'event_time'            => 'required|string|max:255',
+            'btn_name'              => 'required|string|max:255',
+            // 'event_front_image'     => 'required|image|mimes:jpeg,png,jpg,gif',
+            // 'event_details_image'   => 'required|array',
             'event_details_image.*' => 'image|mimes:jpeg,png,jpg,gif',
+
         ]);
+        // dd($request->all());
 
         $event = Event::findOrFail($id);
 
-        $event->event_name = $request->event_name;
-        $event->event_slug = Str::slug($request->event_name);
-        $event->event_cost = $request->event_cost;
-        $event->event_contact = $request->event_contact;
-        $event->event_mail = $request->event_mail;
-        $event->event_location = $request->event_location;
+        $event->event_name         = $request->event_name;
+        $event->event_title        = $request->event_title;
+        $event->event_slug         = Str::slug($request->event_name);
+        $event->event_cost         = $request->event_cost;
+        $event->event_contact      = $request->event_contact;
+        $event->event_mail         = $request->event_mail;
+        $event->event_location     = $request->event_location;
         $event->event_map_location = $request->event_map_location;
-        $event->event_date = $request->event_date;
-        $event->event_time = $request->event_time;
-        $event->btn_name = $request->btn_name;
-        $event->description = $request->description;
+        $event->event_date         = $request->event_date;
+        $event->event_time         = $request->event_time;
+        $event->btn_name           = $request->btn_name;
+        $event->description        = $request->description;
 
         if ($request->hasFile('event_front_image')) {
             if ($event->event_front_image && file_exists(public_path($event->event_front_image))) {
