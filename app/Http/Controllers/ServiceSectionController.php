@@ -22,15 +22,15 @@ class ServiceSectionController extends Controller
         {
 
             $validatedData = $request->validate([
-                'service_title' => 'required|string|max:255',
-                'service_icon_tag' => 'required|string|max:255',
-                'service_description' => 'nullable|string',
+                'service_title'         => 'required|string|max:255',
+                'service_icon_tag'      => 'required|string|max:255',
+                'service_description'   => 'nullable|string',
             ]);
 
             $service = new ServiceSection();
-            $service->service_title = $validatedData['service_title'];
-            $service->service_icon_tag = $validatedData['service_icon_tag'];
-            $service->service_description = $validatedData['service_description'];
+            $service->service_title        = $validatedData['service_title'];
+            $service->service_icon_tag     = $validatedData['service_icon_tag'];
+            $service->service_description  = $validatedData['service_description'];
 
             $service->save();
 
@@ -46,14 +46,14 @@ class ServiceSectionController extends Controller
             public function update(Request $request,$id)
             {
                 $validatedData = $request->validate([
-                    'service_title' => 'nullable|string|max:255',
-                    'service_icon_tag' => 'nullable|string|max:255',
-                    'service_description' => 'nullable|string',
+                    'service_title'        => 'nullable|string|max:255',
+                    'service_icon_tag'     => 'nullable|string|max:255',
+                    'service_description'  => 'nullable|string',
                 ]);
                 $service = ServiceSection::findOrFail($id);
-                $service->service_title = $validatedData['service_title'];
-                $service->service_icon_tag = $validatedData['service_icon_tag'];
-                $service->service_description = $validatedData['service_description'];
+                $service->service_title        = $validatedData['service_title'];
+                $service->service_icon_tag     = $validatedData['service_icon_tag'];
+                $service->service_description  = $validatedData['service_description'];
 
                 $service->save();
 

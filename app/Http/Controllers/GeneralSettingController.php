@@ -18,21 +18,20 @@ class GeneralSettingController extends Controller
     public function update(Request $request)
 {
     $request->validate([
-        'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-        'white_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-        'favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-        'phone' => 'nullable|string',
-        'email' => 'nullable|email',
-        'facebook_link' => 'nullable|string',
-        'twitter_link' => 'nullable|string',
-        'instagram_link' => 'nullable|string',
-        'linkedin_link' => 'nullable|string',
-        'address' => 'nullable|string',
+        'logo'            => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+        'white_logo'      => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+        'favicon'         => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+        'phone'           => 'nullable|string',
+        'email'           => 'nullable|email',
+        'facebook_link'   => 'nullable|string',
+        'twitter_link'    => 'nullable|string',
+        'instagram_link'  => 'nullable|string',
+        'linkedin_link'   => 'nullable|string',
+        'address'         => 'nullable|string',
     ]);
 
     $generalSettings = GeneralSetting::firstOrFail();
 
-    // Delete old images if new ones are provided
     if ($request->hasFile('logo') && !empty($generalSettings->logo)) {
         $this->deleteImage($generalSettings->logo);
     }
@@ -44,16 +43,15 @@ class GeneralSettingController extends Controller
     }
 
     $generalSettings->update([
-        'phone' => $request->input('phone'),
-        'email' => $request->input('email'),
-        'facebook_link' => $request->input('facebook_link'),
-        'twitter_link' => $request->input('twitter_link'),
-        'instagram_link' => $request->input('instagram_link'),
-        'linkedin_link' => $request->input('linkedin_link'),
-        'address' => $request->input('address'),
+        'phone'           => $request->input('phone'),
+        'email'           => $request->input('email'),
+        'facebook_link'   => $request->input('facebook_link'),
+        'twitter_link'    => $request->input('twitter_link'),
+        'instagram_link'  => $request->input('instagram_link'),
+        'linkedin_link'   => $request->input('linkedin_link'),
+        'address'         => $request->input('address'),
     ]);
 
-    // Handle logo update
     if ($request->hasFile('logo')) {
         $logo = $request->file('logo');
         $logoName = time() . '.' . $logo->getClientOriginalExtension();
@@ -61,7 +59,6 @@ class GeneralSettingController extends Controller
         $generalSettings->logo = 'uploads/' . $logoName;
     }
 
-    // Handle white_logo update
     if ($request->hasFile('white_logo')) {
         $whiteLogo = $request->file('white_logo');
         $whiteLogoName = time() . '.' . $whiteLogo->getClientOriginalExtension();
@@ -69,7 +66,6 @@ class GeneralSettingController extends Controller
         $generalSettings->white_logo = 'uploads/' . $whiteLogoName;
     }
 
-    // Handle favicon update
     if ($request->hasFile('favicon')) {
         $favicon = $request->file('favicon');
         $faviconName = time() . '.' . $favicon->getClientOriginalExtension();
@@ -83,9 +79,9 @@ class GeneralSettingController extends Controller
 }
 
 private function deleteImage($imagePath)
-{
-    if (file_exists(public_path($imagePath))) {
-        unlink(public_path($imagePath));
+    {
+        if (file_exists(public_path($imagePath))) {
+            unlink(public_path($imagePath));
+        }
     }
-}
 }

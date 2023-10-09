@@ -22,15 +22,15 @@ class MemberSectionController extends Controller
     {
         // Validate the form data
         $request->validate([
-            'member_name' => 'string|max:255',
-            'member_position' => 'string|max:255',
-            'member_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'member_name'      => 'string|max:255',
+            'member_position'  => 'string|max:255',
+            'member_image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $memberSection = new MemberSection();
 
-        $memberSection->member_name = $request->input('member_name');
-        $memberSection->member_position = $request->input('member_position');
+        $memberSection->member_name      = $request->input('member_name');
+        $memberSection->member_position  = $request->input('member_position');
 
         if ($memberImage = $request->file('member_image')) {
             $destinationPath = 'member/images/';

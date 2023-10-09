@@ -68,10 +68,10 @@ class AboutSectionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'about_title' => 'string|max:255',
-            'about_description' => 'string',
-            'about_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'about_image_additional' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'about_title'             => 'string|max:255',
+            'about_description'       => 'string',
+            'about_image'             => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'about_image_additional'  => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $aboutdata = AboutSection::find($id);
@@ -80,12 +80,12 @@ class AboutSectionController extends Controller
             return redirect()->route('admin.about')->with('error', 'About information not found.');
         }
 
-        $aboutdata->about_title = $request->input('about_title');
+        $aboutdata->about_title       = $request->input('about_title');
         $aboutdata->about_description = $request->input('about_description');
 
-        if ($aboutImage = $request->file('about_image')) {
-            $destinationPath = 'about/images/';
-            $aboutImageName = date('YmdHis') . "." . $aboutImage->getClientOriginalExtension();
+        if ($aboutImage       = $request->file('about_image')) {
+            $destinationPath  = 'about/images/';
+            $aboutImageName   = date('YmdHis') . "." . $aboutImage->getClientOriginalExtension();
             $aboutImage->move($destinationPath, $aboutImageName);
 
             try{
@@ -100,9 +100,9 @@ class AboutSectionController extends Controller
             $aboutdata->about_image = $destinationPath . $aboutImageName;
         }
 
-        if ($aboutImageAdditional = $request->file('about_image_additional')) {
-            $destinationPath = 'about/images/';
-            $aboutImageAdditionalName = date('YmdHis') . "." . $aboutImageAdditional->getClientOriginalExtension();
+        if ($aboutImageAdditional      = $request->file('about_image_additional')) {
+            $destinationPath           = 'about/images/';
+            $aboutImageAdditionalName  = date('YmdHis') . "." . $aboutImageAdditional->getClientOriginalExtension();
             $aboutImageAdditional->move($destinationPath, $aboutImageAdditionalName);
 
             try{

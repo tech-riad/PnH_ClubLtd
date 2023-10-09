@@ -21,19 +21,19 @@ class BlogControllerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'blog_view_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'description' => 'nullable|string',
+            'title'            => 'required|string|max:255',
+            'image'            => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'blog_view_image'  => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'description'      => 'nullable|string',
         ]);
         $blog = new BlogController();
 
-        $blog->title = $request->input('title');
-        $blog->slug = Str::slug($request->title);
-        $blog->description = $request->input('description');
+        $blog->title        = $request->input('title');
+        $blog->slug         = Str::slug($request->title);
+        $blog->description  = $request->input('description');
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
+            $image  = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('blog_images'), $imageName);
             $blog->image = 'blog_images/' . $imageName;
@@ -61,9 +61,9 @@ class BlogControllerController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'description' => 'nullable|string',
+            'title'        => 'required|string|max:255',
+            'image'        => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'description'  => 'nullable|string',
         ]);
 
         $blog = BlogController::find($id);
@@ -72,8 +72,8 @@ class BlogControllerController extends Controller
             return redirect()->route('blog.index')->with('error', 'Blog post not found.');
         }
 
-        $blog->title = $request->input('title');
-        $blog->slug = Str::slug($request->title);
+        $blog->title       = $request->input('title');
+        $blog->slug        = Str::slug($request->title);
         $blog->description = $request->input('description');
 
         if ($request->hasFile('image')) {
@@ -89,7 +89,7 @@ class BlogControllerController extends Controller
         }
 
         if ($request->hasFile('blog_view_image')) {
-            $blogViewImage = $request->file('blog_view_image');
+            $blogViewImage     = $request->file('blog_view_image');
             $blogViewImageName = time() . '_view.' . $blogViewImage->getClientOriginalExtension();
             $blogViewImage->move(public_path('blog_images'), $blogViewImageName);
 

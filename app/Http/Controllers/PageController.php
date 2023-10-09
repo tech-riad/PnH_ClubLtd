@@ -22,21 +22,21 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'description' => 'nullable|string',
+            'title'        => 'required|string|max:255',
+            'image'        => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'description'  => 'nullable|string',
         ]);
         $page = new Page();
 
-        $page->title = $request->input('title');
-        $page->slug = Str::slug($request->title);
-        $page->description = $request->input('description');
+        $page->title        = $request->input('title');
+        $page->slug         = Str::slug($request->title);
+        $page->description  = $request->input('description');
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image        = $request->file('image');
+            $imageName    = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('pageimages'), $imageName);
-            $page->image = 'pageimages/' . $imageName;
+            $page->image  = 'pageimages/' . $imageName;
         }
 
         $page->save();
@@ -56,8 +56,8 @@ class PageController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'title'       => 'required|string|max:255',
+            'image'       => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'description' => 'nullable|string',
         ]);
 
@@ -65,12 +65,12 @@ class PageController extends Controller
 
 
 
-        $pages->title = $request->input('title');
-        $pages->slug = Str::slug($request->title);
-        $pages->description = $request->input('description');
+        $pages->title        = $request->input('title');
+        $pages->slug         = Str::slug($request->title);
+        $pages->description  = $request->input('description');
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
+            $image     = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('pageimages'), $imageName);
 

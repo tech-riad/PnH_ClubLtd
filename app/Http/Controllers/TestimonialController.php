@@ -33,16 +33,16 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'position' => 'required|string|max:255',
-            'description' => 'required|string',
+            'name'         => 'required|string|max:255',
+            'position'     => 'required|string|max:255',
+            'description'  => 'required|string',
         ]);
 
         $testimonial = new Testimonial();
 
-        $testimonial->name = $request->input('name');
-        $testimonial->position = $request->input('position');
-        $testimonial->description = $request->input('description');
+        $testimonial->name         = $request->input('name');
+        $testimonial->position     = $request->input('position');
+        $testimonial->description  = $request->input('description');
 
         $testimonial->save();
 
@@ -52,9 +52,9 @@ class TestimonialController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'string|max:255',
-            'position' => 'string|max:255',
-            'description' => 'string',
+            'name'         => 'string|max:255',
+            'position'     => 'string|max:255',
+            'description'  => 'string',
         ]);
 
         $testimonial = Testimonial::find($id);
@@ -63,8 +63,8 @@ class TestimonialController extends Controller
             return redirect()->route('admin.testimonialsection')->with('error', 'Testimonial not found.');
         }
 
-        $testimonial->name = $request->input('name');
-        $testimonial->position = $request->input('position');
+        $testimonial->name        = $request->input('name');
+        $testimonial->position    = $request->input('position');
         $testimonial->description = $request->input('description');
 
         $testimonial->save();
