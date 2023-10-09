@@ -33,7 +33,6 @@ class EventController extends Controller
             'event_date' => 'required',
             'event_time' => 'required|string|max:255',
             'btn_name' => 'required|string|max:255',
-            'btn_link' => 'required|max:255',
             'event_front_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'event_details_image' => 'required|array',
             'event_details_image.*' => 'image|mimes:jpeg,png,jpg,gif',
@@ -51,7 +50,6 @@ class EventController extends Controller
         $event->event_date = $request->event_date;
         $event->event_time = $request->event_time;
         $event->btn_name = $request->btn_name;
-        $event->btn_link = $request->btn_link;
         $event->description = $request->description;
 
         if ($request->hasFile('event_front_image')) {

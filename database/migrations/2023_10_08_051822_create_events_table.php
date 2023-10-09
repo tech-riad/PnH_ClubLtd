@@ -13,20 +13,19 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('event_name')->nullable();
-            $table->string('event_slug')->nullable();
-            $table->date('event_date')->nullable();
-            $table->string('event_cost')->nullable();
-            $table->string('event_contact')->nullable();
-            $table->string('event_mail')->nullable();
-            $table->string('event_location')->nullable();
-            $table->string('event_map_location')->nullable();
-            $table->string('event_time')->nullable();
-            $table->string('btn_name')->nullable();
-            $table->string('btn_link')->nullable();
-            $table->string('event_front_image')->nullable();
-            $table->string('event_details_image')->nullable();
-            $table->longText('description')->nullable();
+            $table->string('event_name');
+            $table->string('event_slug');
+            $table->date('event_date');
+            $table->string('event_cost');
+            $table->string('event_contact');
+            $table->string('event_mail');
+            $table->string('event_location');
+            $table->string('event_map_location');
+            $table->string('event_time');
+            $table->string('btn_name');
+            $table->string('event_front_image');
+            $table->string('event_details_image');
+            $table->longText('description');
             $table->timestamps();
         });
     }
