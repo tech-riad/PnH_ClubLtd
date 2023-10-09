@@ -101,7 +101,7 @@ class SliderSectionController extends Controller
             if ($sliderSection->slider_image && file_exists(public_path($sliderSection->slider_image))) {
                 unlink(public_path($sliderSection->slider_image));
             }
-            
+
             $sliderImage = $request->file('slider_image');
             $sliderImageName = time() . '.' . $sliderImage->getClientOriginalExtension();
             $sliderImage->move(public_path('slider_images'), $sliderImageName);
@@ -154,6 +154,4 @@ class SliderSectionController extends Controller
 
         return redirect()->route('admin.slider')->with('success', 'Slider deleted successfully.');
     }
-
-
 }

@@ -114,7 +114,7 @@ class EventController extends Controller
             if ($event->event_front_image && file_exists(public_path($event->event_front_image))) {
                 unlink(public_path($event->event_front_image));
             }
-            
+
             $frontImage = $request->file('event_front_image');
             $frontImageName = time() . '.' . $frontImage->getClientOriginalExtension();
             $frontImage->move(public_path('event_front_images'), $frontImageName);
@@ -123,15 +123,15 @@ class EventController extends Controller
 
         }
 
-        $oldProfileImagePaths = json_decode($event->slider_profile_image, true) ?? [];
-        if ($request->hasFile('slider_profile_image')) {
+        $oldProfileImagePaths = json_decode($event->event_details_image, true) ?? [];
+        if ($request->hasFile('event_details_image')) {
             $profileImagePaths = [];
-            foreach ($request->file('slider_profile_image') as $profileImage) {
+            foreach ($request->file('event_details_image') as $profileImage) {
                 $profileImageName = time() . '_' . rand(100, 999) . '.' . $profileImage->getClientOriginalExtension();
-                $profileImage->move(public_path('profile_images'), $profileImageName);
-                $profileImagePaths[] = 'profile_images/' . $profileImageName;
+                $profileImage->move(public_path('event_details_image'), $profileImageName);
+                $profileImagePaths[] = 'event_details_image/' . $profileImageName;
             }
-            $event->slider_profile_image = json_encode($profileImagePaths);
+            $event->event_details_image = json_encode($profileImagePaths);
 
             foreach ($oldProfileImagePaths as $oldProfileImagePath) {
                 if (file_exists(public_path($oldProfileImagePath))) {
@@ -148,13 +148,21 @@ class EventController extends Controller
     public function delete($id)
     {
         $event = Event::findOrFail($id);
-        if (file_exists(public_path($event->event_image))) {
-            unlink(public_path($event->event_image));
+        if ($event->event_front_image && file_exists(public_path($event->event_front_image))) {
+            unlink(public_path($event->event_front_image));
+        }
+
+        if ($event->event_details_image) {
+            $profileImagePaths = json_decode($event->event_details_image);
+            foreach ($profileImagePaths as $profileImagePath) {
+                if (file_exists(public_path($profileImagePath))) {
+                    unlink(public_path($profileImagePath));
+                }
+            }
         }
 
         $event->delete();
 
-        return redirect()->route('admin.events')->with(['message'=>'Event Delete Successfully']);
-
+        return redirect()->route('admin.events')->with('success', 'Event deleted successfully');
     }
 }
