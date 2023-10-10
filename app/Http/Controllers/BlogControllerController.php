@@ -48,8 +48,13 @@ class BlogControllerController extends Controller
         }
 
         $blog->save();
+        $notification = array(
+            'message' =>'Blog created successfully ',
+            'alert-type' =>'success'
+        );
 
-        return redirect()->route('admin.blogsection')->with('success', 'Blog post created successfully.');
+
+        return redirect()->route('admin.blogsection')->with($notification);
     }
 
     public function edit($id)
@@ -103,8 +108,12 @@ class BlogControllerController extends Controller
         }
 
         $blog->save();
+        $notification = array(
+            'message' =>'Blog updated successfully ',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.blogsection')->with('success', 'Blog post updated successfully.');
+        return redirect()->route('admin.blogsection')->with($notification);
     }
 
 
@@ -122,8 +131,12 @@ class BlogControllerController extends Controller
 
 
         $blog->delete();
+        $notification = array(
+            'message' =>'Blog deleted successfully ',
+            'alert-type' =>'warning'
+        );
 
-        return redirect()->route('admin.blogsection')->with('success', 'Blog deleted successfully');
+        return redirect()->route('admin.blogsection')->with($notification);
     }
 
 

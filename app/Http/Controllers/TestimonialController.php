@@ -45,8 +45,12 @@ class TestimonialController extends Controller
         $testimonial->description  = $request->input('description');
 
         $testimonial->save();
+        $notification = array(
+            'message' =>'Testimonial added successfully',
+            'alert-type' =>'success'
+        );
 
-        return redirect()->route('admin.testimonialsection')->with('success', 'Testimonial added successfully.');
+        return redirect()->route('admin.testimonialsection')->with($notification);
     }
 
     public function update(Request $request, $id)
@@ -68,8 +72,12 @@ class TestimonialController extends Controller
         $testimonial->description = $request->input('description');
 
         $testimonial->save();
+        $notification = array(
+            'message' =>'Testimonial updated successfully',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.testimonialsection')->with('success', 'Testimonial updated successfully.');
+        return redirect()->route('admin.testimonialsection')->with($notification);
     }
 
     public function delete($id)
@@ -82,6 +90,10 @@ class TestimonialController extends Controller
 
         $testimonial->delete();
 
-        return redirect()->route('admin.testimonialsection')->with('success', 'Testimonial deleted successfully.');
+        $notification = array(
+            'message' =>'Testimonial deleted successfully',
+            'alert-type' =>'warning'
+        );
+        return redirect()->route('admin.testimonialsection')->with($notification);
     }
 }

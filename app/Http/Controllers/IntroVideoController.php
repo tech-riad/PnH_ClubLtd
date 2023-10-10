@@ -44,8 +44,12 @@ class IntroVideoController extends Controller
         $introVideo->video_url          = $request->input('video_url');
 
         $introVideo->save();
+        $notification = array(
+            'message' =>'Intro video added successfully ',
+            'alert-type' =>'success'
+        );
 
-        return redirect()->route('admin.introvideo')->with('success', 'Intro video added successfully.');
+        return redirect()->route('admin.introvideo')->with($notification);
     }
 
     public function edit($id)
@@ -89,8 +93,12 @@ class IntroVideoController extends Controller
         $introVideo->video_url          = $request->input('video_url');
 
         $introVideo->save();
+        $notification = array(
+            'message' =>'Intro video updated ',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.introvideo')->with('success', 'Intro video updated successfully.');
+        return redirect()->route('admin.introvideo')->with($notification);
     }
 
 

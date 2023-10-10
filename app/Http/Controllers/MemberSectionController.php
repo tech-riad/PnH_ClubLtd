@@ -40,8 +40,12 @@ class MemberSectionController extends Controller
         }
 
         $memberSection->save();
+        $notification = array(
+            'message' =>'Member added successfully ',
+            'alert-type' =>'success'
+        );
 
-        return redirect()->route('admin.memberinfo')->with('success', 'Member section added successfully.');
+        return redirect()->route('admin.memberinfo')->with($notification);
     }
 
     public function edit($id)
@@ -83,8 +87,12 @@ class MemberSectionController extends Controller
         }
 
         $memberSection->save();
+        $notification = array(
+            'message' =>'Member Info Update successfully ',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.memberinfo')->with('success', 'Member section updated successfully.');
+        return redirect()->route('admin.memberinfo')->with($notification);
     }
 
     public function delete($id)
@@ -100,8 +108,12 @@ class MemberSectionController extends Controller
         }
 
         $memberSection->delete();
+        $notification = array(
+            'message' =>'Member Info deleted successfully ',
+            'alert-type' =>'warning'
+        );
 
-        return redirect()->route('admin.memberinfo')->with('success', 'Member Info deleted successfully.');
+        return redirect()->route('admin.memberinfo')->with($notification);
     }
 
 

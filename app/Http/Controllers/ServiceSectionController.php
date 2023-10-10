@@ -33,8 +33,12 @@ class ServiceSectionController extends Controller
             $service->service_description  = $validatedData['service_description'];
 
             $service->save();
+            $notification = array(
+                'message' =>'Service added successfully',
+                'alert-type' =>'success'
+            );
 
-            return redirect()->route('admin.services')->with('success', 'Service section added successfully');
+            return redirect()->route('admin.services')->with($notification);
         }
             public function edit($id)
             {
@@ -56,8 +60,12 @@ class ServiceSectionController extends Controller
                 $service->service_description  = $validatedData['service_description'];
 
                 $service->save();
+                $notification = array(
+                    'message' =>'Service updated successfully',
+                    'alert-type' =>'info'
+                );
 
-                return redirect()->route('admin.services')->with('success', 'Service section updated successfully');
+                return redirect()->route('admin.services')->with($notification);
             }
 
             public function delete($id)
@@ -65,7 +73,11 @@ class ServiceSectionController extends Controller
                 $service = ServiceSection::findOrFail($id);
 
                 $service->delete();
-                return redirect()->route('admin.services')->with('success', 'Service Deleted successfully');
+                $notification = array(
+                    'message' =>'Service Deleted successfully',
+                    'alert-type' =>'warning'
+                );
+                return redirect()->route('admin.services')->with($notification);
 
 
 

@@ -76,10 +76,14 @@ class GeneralSettingController extends Controller
     }
 
     $generalSettings->save();
+    $notification = array(
+        'message' =>'Setting Update Successfull ',
+        'alert-type' =>'info'
+    );
 
-    
 
-    return redirect()->route('admin.setting')->with('success', 'General settings updated successfully');
+
+    return redirect()->route('admin.setting')->with($notification);
 }
 
 private function deleteImage($imagePath)

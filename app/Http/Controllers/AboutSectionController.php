@@ -116,7 +116,12 @@ class AboutSectionController extends Controller
         }
 
         $aboutdata->save();
+        $notification = array(
+            'message' =>'About information updated successfully ',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->back()->with('success', 'About information updated successfully.');
+
+        return redirect()->back()->with($notification);
     }
 }

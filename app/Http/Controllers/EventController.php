@@ -72,8 +72,12 @@ class EventController extends Controller
         }
 
         $event->save();
+        $notification = array(
+            'message' =>'Event created successfully ',
+            'alert-type' =>'success'
+        );
 
-        return redirect()->route('admin.events')->with('success', 'Event created successfully');
+        return redirect()->route('admin.events')->with($notification);
     }
     public function edit($id)
     {
@@ -149,8 +153,12 @@ class EventController extends Controller
         }
 
         $event->save();
+        $notification = array(
+            'message' =>'Event updated successfully ',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.events')->with('success', 'Event updated successfully');
+        return redirect()->route('admin.events')->with($notification);
     }
 
     public function delete($id)
@@ -170,7 +178,11 @@ class EventController extends Controller
         }
 
         $event->delete();
+        $notification = array(
+            'message' =>'Event deleted successfully ',
+            'alert-type' =>'warning'
+        );
 
-        return redirect()->route('admin.events')->with('success', 'Event deleted successfully');
+        return redirect()->route('admin.events')->with($notification);
     }
 }

@@ -60,9 +60,13 @@ class SliderSectionController extends Controller
         $sliderSection->slider_profile_short_desc = $request->input('slider_profile_short_desc');
 
         $sliderSection->save();
+        $notification = array(
+            'message' =>'Slider added successfully',
+            'alert-type' =>'success'
+        );
 
 
-        return redirect()->route('admin.slider')->with('success', 'Slider added successfully.');
+        return redirect()->route('admin.slider')->with($notification);
     }
 
 
@@ -128,8 +132,12 @@ class SliderSectionController extends Controller
         $sliderSection->slider_profile_short_desc  = $request->input('slider_profile_short_desc');
 
         $sliderSection->save();
+        $notification = array(
+            'message' =>'Slider updated successfully',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.slider')->with('success', 'Slider updated successfully.');
+        return redirect()->route('admin.slider')->with($notification);
     }
 
     public function delete($id)
@@ -149,7 +157,11 @@ class SliderSectionController extends Controller
             }
         }
         $sliderSection->delete();
+        $notification = array(
+            'message' =>'Slider deleted successfully',
+            'alert-type' =>'warning'
+        );
 
-        return redirect()->route('admin.slider')->with('success', 'Slider deleted successfully.');
+        return redirect()->route('admin.slider')->with($notification);
     }
 }

@@ -52,8 +52,12 @@ class PortfolioController extends Controller
         }
 
         $portfolio->save();
+        $notification = array(
+            'message' =>'Portfolio added successfully ',
+            'alert-type' =>'success'
+        );
 
-        return redirect()->route('admin.portfolios')->with('success', 'Portfolio entry added successfully.');
+        return redirect()->route('admin.portfolios')->with($notification);
     }
 
     public function edit($id)
@@ -106,8 +110,12 @@ class PortfolioController extends Controller
         }
 
         $portfolio->save();
+        $notification = array(
+            'message' =>'Portfolio updated successfully ',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.portfolios')->with('success', 'Portfolio entry updated successfully.');
+        return redirect()->route('admin.portfolios')->with($notification);
     }
 
     public function delete($id)
@@ -123,8 +131,12 @@ class PortfolioController extends Controller
         }
 
         $portfolio->delete();
+        $notification = array(
+            'message' =>'Portfolio deleted successfully ',
+            'alert-type' =>'warning'
+        );
 
-        return redirect()->route('admin.portfolios')->with('success', 'Portfolio entry deleted successfully.');
+        return redirect()->route('admin.portfolios')->with($notification);
     }
 
 

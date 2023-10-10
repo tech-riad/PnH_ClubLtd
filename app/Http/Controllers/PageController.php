@@ -40,8 +40,12 @@ class PageController extends Controller
         }
 
         $page->save();
+        $notification = array(
+            'message' =>'Page created successfully ',
+            'alert-type' =>'success'
+        );
 
-        return redirect()->route('admin.pages')->with('success', 'Blog post created successfully.');
+        return redirect()->route('admin.pages')->with($notification);
     }
 
     public function edit($id)
@@ -81,8 +85,12 @@ class PageController extends Controller
             $pages->image = 'pageimages/' . $imageName;
         }
         $pages->save();
+        $notification = array(
+            'message' =>'Page updated successfully ',
+            'alert-type' =>'info'
+        );
 
-        return redirect()->route('admin.pages')->with('success', 'Page updated successfully.');
+        return redirect()->route('admin.pages')->with($notification);
     }
 
     public function delete($id)
@@ -93,7 +101,11 @@ class PageController extends Controller
             unlink(public_path($pages->image));
         }
         $pages->delete();
+        $notification = array(
+            'message' =>'Page entry deleted successfully ',
+            'alert-type' =>'warning'
+        );
 
-        return redirect()->route('admin.pages')->with('success', 'Page entry deleted successfully.');
+        return redirect()->route('admin.pages')->with($notification);
     }
 }
