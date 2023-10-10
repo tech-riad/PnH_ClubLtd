@@ -63,9 +63,10 @@
                 <div class="form-group">
                     <label for="about_image_additional">Additional Image *</label>
                     <div>
-                        <input type="file" name="about_image_additional" id="about_image_additional"
-                            class="custom-file-input @error('about_image_additional') is-invalid @enderror">
-                        <br>
+                        <input type="file" name="about_image_additional" class="custom-file-input" id="customFile"
+                        onchange="document.getElementById('about_image_additional').src = window.URL.createObjectURL(this.files[0])"
+                        class="@error('about_image_additional') is-invalid @enderror"><br>
+
                         <img class="mt-2" id="about_image_additional" alt="about_image_additional" width="100" height="100" />
 
                         @error('about_image_additional')

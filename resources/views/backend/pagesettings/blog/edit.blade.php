@@ -6,8 +6,9 @@
 
     <h1 class="h3 mb-3 text-gray-800">Blog</h1>
 
-    <form action="{{route('admin.blogsection.update',$blogs->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.blogsection.update', $blogs->id) }}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT') <!-- Assuming you are updating the record -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 mt-2 font-weight-bold text-primary">Update Blog</h6>
@@ -17,12 +18,20 @@
                 </div>
             </div>
             <div class="card-body">
+                <!-- Title Input -->
                 <div class="form-group">
-                    <label for="">Title *</label>
-                    <input type="text" name="title" class="form-control" value="{{@$blogs->title ?? @old('title')}}" autofocus="">
+                    <label for="title">Title *</label>
+                    <input type="text" name="title" id="title"
+                        class="form-control @error('title') is-invalid @enderror"
+                        value="{{ old('title', @$blogs->title) }}" autofocus>
+                    @error('title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
+                <!-- Thumbnail Image Input -->
                 <div class="form-group">
-                    <label for="">Thumbnail Image *</label>
+                    <label for="image">Thumbnail Image *</label>
                     <div>
                         <input type="file" name="image" class="custom-file-input" id="customFile"
                         onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
@@ -30,17 +39,23 @@
 
                         <img class="mt-2" id="image" alt="image" width="100" height="100" />
 
+                        @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+
                         @if (isset($blogs) && $blogs->image)
                         <div class="old_image mt-2">
                             <label class="mb-0" for="">Old Member Image:</label><br>
                             <img class="mt-2" id="oldimage" src="{{ asset($blogs->image) }}"
                                 alt="image" width="100" height="100" />
                         </div>
-                    @endif
+                        @endif
                     </div>
                 </div>
+
+                <!-- Blog View Image Input -->
                 <div class="form-group">
-                    <label for="">Blog View Image *</label>
+                    <label for="blog_view_image">Blog View Image *</label>
                     <div>
                         <input type="file" name="blog_view_image" class="custom-file-input" id="customFile" onchange="document.getElementById('blog_view_image').src = window.URL.createObjectURL(this.files[0])">
                         <br>
@@ -54,18 +69,21 @@
                     </div>
                 </div>
 
-
-
+                <!-- Description Input -->
                 <div class="form-group">
-                    <label for=""> Description*</label>
-                    <textarea class="editor" name="description" class="editor" class="form-control h_100" cols="30" rows="10">{{@$blogs->description ?? @old('description')}}</textarea>
+                    <label for="description">Description *</label>
+                    <textarea class="editor form-control @error('description') is-invalid @enderror"
+                        name="description" id="description" cols="30" rows="10">{{ old('description', @$blogs->description) }}</textarea>
+                    @error('description')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
-
 
                 <button type="submit" class="btn btn-success">Update</button>
             </div>
         </div>
     </form>
+
 
 
 </div>
