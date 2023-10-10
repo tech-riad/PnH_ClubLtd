@@ -49,7 +49,7 @@ class BlogControllerController extends Controller
 
         $blog->save();
         $notification = array(
-            'message' =>'Blog created successfully ',
+            'message'    =>'Blog created successfully ',
             'alert-type' =>'success'
         );
 
@@ -68,8 +68,8 @@ class BlogControllerController extends Controller
     {
         $request->validate([
             'title'            => 'required|string|max:255',
-            'image'            => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'blog_view_image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'            => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'blog_view_image'  => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description'      => 'nullable|string',
         ]);
 
@@ -109,7 +109,7 @@ class BlogControllerController extends Controller
 
         $blog->save();
         $notification = array(
-            'message' =>'Blog updated successfully ',
+            'message'    =>'Blog updated successfully ',
             'alert-type' =>'info'
         );
 

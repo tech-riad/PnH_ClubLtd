@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label for="image">Thumbnail Image *</label>
                     <div>
-                        <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
+                        <input type="file" name="image"  class="form-control-file @error('image') is-invalid @enderror">
                         @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -37,9 +37,9 @@
                 <div class="form-group">
                     <label for="blog_image">Blog View Image *</label>
                     <div>
-                        <input type="file" name="blog_image" id="blog_image"
-                            class="form-control-file @error('blog_image') is-invalid @enderror">
-                        @error('blog_image')
+                        <input type="file" name="blog_view_image" id="blog_image"
+                            class="form-control-file @error('blog_view_image') is-invalid @enderror">
+                        @error('blog_view_image')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
