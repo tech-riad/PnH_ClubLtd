@@ -681,7 +681,7 @@
                 success: function(response) {
 
                     console.log(response);
-                    alert('Meta IInformation Update Successfully !');
+                    toastr.info('Meta IInformation Update Successfully !');
                 },
                 error: function(xhr, status, error) {
 
@@ -711,7 +711,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('About Section Update Successfully !');
+                    toastr.info('About Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -739,7 +739,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Service Section Update Successfully !');
+                    toastr.info('Service Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -770,7 +770,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Schedule Section Update Successfully !');
+                    toastr.info('Schedule Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -798,7 +798,7 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Member Section Update Successfully !');
+                    toastr.info('Member Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -826,7 +826,8 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Portfolio Section Update Successfully !');
+                    toastr.info('Portfolio Section Update Successfully !');
+                    // alert('Portfolio Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -854,7 +855,8 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Testimonial Section Update Successfully !');
+                    toastr.info('Testimonial Section Update Successfully !');
+                    // alert('Testimonial Section Update Successfully !');
                 },
                 error: function(xhr, testimonialstatus, error) {
                     console.error(xhr.responseText);
@@ -882,7 +884,8 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Blog Section Update Successfully !');
+                    toastr.info('Blog Section Update Successfully !');
+
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -909,7 +912,8 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Event Section Update Successfully !');
+                    toastr.info('Event Section Update Successfully !');
+                    // alert('Event Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -937,7 +941,8 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    alert('Contact Us Section Update Successfully !');
+                    toastr.info('Contact Us Section Update Successfully !');
+                    // alert('Contact Us Section Update Successfully !');
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);

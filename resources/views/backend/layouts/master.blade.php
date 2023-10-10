@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/css/vendor.bundle.base.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 
 
@@ -75,6 +77,8 @@
     <script src="{{ asset('backend/assets/js/misc.js') }}"></script>
     <script src="{{ asset('backend/assets/js/dashboard.js') }}"></script>
     <script src="{{ asset('backend/assets/js/todolist.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 
 
@@ -86,6 +90,25 @@
         editor.ui.view.editable.element.style.height = '500px';
     };)}
     </script> --}}
+
+    <script>
+        @if(Session::has('message'))
+        var type = "{{Session::get('alert-type','info')}}"
+        switch (type) {
+        case 'info':
+        toastr.info("{{ Session::get('message') }}");
+        break;
+        case 'success':
+        toastr.success("{{ Session::get('message') }}");
+        break;
+        case 'warning':
+        toastr.warning("{{ Session::get('message') }}");
+        break;
+        case 'error':
+        toastr.error("{{ Session::get('message') }}");
+        break;
+    }
+    @endif
     <script>
         var allEditors = document.querySelectorAll('.editor');
         for (var i = 0; i < allEditors.length; ++i) {
