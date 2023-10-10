@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\GeneralSetting;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\alert;
+
 class GeneralSettingController extends Controller
 {
     public function generalSetting()
@@ -74,6 +76,8 @@ class GeneralSettingController extends Controller
     }
 
     $generalSettings->save();
+
+    
 
     return redirect()->route('admin.setting')->with('success', 'General settings updated successfully');
 }

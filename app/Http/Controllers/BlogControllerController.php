@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\BlogController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class BlogControllerController extends Controller
@@ -22,8 +23,8 @@ class BlogControllerController extends Controller
     {
         $request->validate([
             'title'            => 'required|string|max:255',
-            'image'            => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'blog_view_image'  => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'image'            => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'blog_view_image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description'      => 'nullable|string',
         ]);
         $blog = new BlogController();
@@ -61,9 +62,10 @@ class BlogControllerController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'        => 'required|string|max:255',
-            'image'        => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'description'  => 'nullable|string',
+            'title'            => 'required|string|max:255',
+            'image'            => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'blog_view_image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description'      => 'nullable|string',
         ]);
 
         $blog = BlogController::find($id);
@@ -104,5 +106,27 @@ class BlogControllerController extends Controller
 
         return redirect()->route('admin.blogsection')->with('success', 'Blog post updated successfully.');
     }
+
+
+
+    public function delete($id)
+    {
+        $blog = BlogController::findOrFail($id);
+        if ($blog->image && file_exists(public_path($blog->image))) {
+            unlink(public_path($blog->image));
+        }
+        if ($blog->blog_view_image && file_exists(public_path($blog->blog_view_image))) {
+            unlink(public_path($blog->blog_view_image));
+        }
+
+
+
+        $blog->delete();
+
+        return redirect()->route('admin.blogsection')->with('success', 'Blog deleted successfully');
+    }
+
+
+
 
 }

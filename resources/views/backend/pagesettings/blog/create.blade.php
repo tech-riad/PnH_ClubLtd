@@ -6,7 +6,7 @@
 
     <h1 class="h3 mb-3 text-gray-800">Blog</h1>
 
-    <form action="{{route('admin.blogsection.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.blogsection.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -18,32 +18,47 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="">Title *</label>
-                    <input type="text" name="title" class="form-control" value="" autofocus="">
+                    <label for="title">Title *</label>
+                    <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
+                        value="{{ old('title') }}" autofocus>
+                    @error('title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="">Thumbnail Image *</label>
+                    <label for="image">Thumbnail Image *</label>
                     <div>
-                        <input type="file" name="image">
+                        <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
+                        @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Blog View Image *</label>
+                    <label for="blog_image">Blog View Image *</label>
                     <div>
-                        <input type="file" name="image">
+                        <input type="file" name="blog_image" id="blog_image"
+                            class="form-control-file @error('blog_image') is-invalid @enderror">
+                        @error('blog_image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for=""> Description*</label>
-                    <textarea class="editor" name="description" class="form-control h_100" cols="30" rows="10"></textarea>
+                    <label for="description">Description *</label>
+                    <textarea class="editor form-control @error('description') is-invalid @enderror" name="description"
+                        id="description" cols="30" rows="10">{{ old('description') }}</textarea>
+                    @error('description')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
-
 
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
     </form>
+
 
 
 </div>
