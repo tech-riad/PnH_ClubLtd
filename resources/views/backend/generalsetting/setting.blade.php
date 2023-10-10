@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <label for="">White Logo </label>
                             <div>
-                                <input type="file" name="white_logo" class="custom-file-input" id="customFile"
+                                <input type="file" name="white_logo" class="custom-file-input" id="customWhiteLogo"
                                 onchange="document.getElementById('white_logo').src = window.URL.createObjectURL(this.files[0])"
                                 class="@error('white_logo') is-invalid @enderror"><br>
 
@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <label for="">Fav Icon</label>
                             <div>
-                                <input type="file" name="favicon" class="custom-file-input" id="customFile"
+                                <input type="file" name="favicon" class="custom-file-input" id="customFaviconFile"
                                 onchange="document.getElementById('favicon').src = window.URL.createObjectURL(this.files[0])"
                                 class="@error('favicon') is-invalid @enderror"><br>
 
@@ -131,8 +131,13 @@
     $("#white_logo").hide();
     $("#customFile").change(function () {
         $("#logo").show();
-        $("#favicon").show();
+
+    });
+    $("#customWhiteLogo").change(function () {
         $("#white_logo").show();
+    });
+    $("#customFaviconFile").change(function () {
+        $("#favicon").show();
     });
 </script>
 
