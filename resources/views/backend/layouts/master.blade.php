@@ -17,11 +17,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom CSS -->
     <link rel="stylesheet"
-        href="{{ asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+        href="{{asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet"
-        href="{{ asset('backend/assets/vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/images/favicon.ico') }}">
+        href="{{asset('backend/assets/vendors/css/vendor.bundle.base.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/images/favicon.ico')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
